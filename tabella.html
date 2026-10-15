@@ -36,6 +36,9 @@ dialog form{display:grid;gap:12px;padding:16px}
 td.fonti{font:500 .75rem var(--f-mono);color:var(--muted);white-space:nowrap}
 .fontilist{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.9rem}
 .chk{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.9rem}
+.griglia4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+@media (max-width:480px){.griglia4{grid-template-columns:repeat(2,1fr)}}
+.porzpill{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
 .hint{font-size:.8rem;color:var(--muted)}
 details summary{cursor:pointer;font-weight:700}
 .griglia2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -64,6 +67,8 @@ details summary{cursor:pointer;font-weight:700}
         <option value="confermato">Confermati (2+ fonti)</option>
         <option value="discordante">Fonti discordanti</option>
         <option value="da verificare">Da verificare</option>
+        <option value="_monash">Solo dati app Monash</option>
+        <option value="_marca">Solo prodotti di marca</option>
       </select>
       <select id="fg" aria-label="Gruppo FODMAP">
         <option value="">Tutti i gruppi</option>
@@ -97,6 +102,7 @@ details summary{cursor:pointer;font-weight:700}
     <details id="impostazioni">
       <summary>Collegamento GitHub</summary>
       <div style="display:grid;gap:10px;margin-top:12px">
+        <p class="hint" style="margin:0"><b>Attenzione:</b> se il repository è pubblico, chiunque può leggere <code>fodmap.json</code>. Se inserisci dati presi dall'app Monash per uso personale, rendi privato il repository.</p>
         <p class="hint" style="margin:0">Serve per salvare le modifiche nel file <code>fodmap.json</code> del repository. Usa un token "fine-grained" con accesso solo a questo repository e permesso <b>Contents: Read and write</b>. Resta salvato solo in questo browser.</p>
         <div class="griglia2">
           <div class="campo"><label class="label" for="gOwner">Utente</label><input id="gOwner" type="text" class="mono"></div>
@@ -113,12 +119,29 @@ details summary{cursor:pointer;font-weight:700}
       </div>
     </details>
     <details>
+      <summary>Soglie di calcolo per i grammi per 100 g</summary>
+      <div style="display:grid;gap:10px;margin-top:12px">
+        <p class="hint" style="margin:0">Grammi massimi di ciascun FODMAP in una porzione perché resti bassa. Usate solo per gli alimenti con "grammi per 100 g". Riferimento: Varney et al. 2017 (Monash), "FODMAPs: food composition, defining cutoff values and international application". Sopra la soglia il livello è medio, sopra il doppio è alto.</p>
+        <div class="liv5" id="cutoff"></div>
+        <div class="row"><button id="btnCutoff" class="primary">Applica soglie</button></div>
+      </div>
+    </details>
+    <details>
       <summary>Esporta o importa</summary>
-      <div class="row" style="margin-top:12px">
-        <button id="btnEsporta" class="ghost">Scarica fodmap.json</button>
-        <label class="ghost" style="border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer">
-          Importa file JSON<input id="fileImp" type="file" accept="application/json,.json" hidden>
-        </label>
+      <div style="display:grid;gap:10px;margin-top:12px">
+        <div class="row">
+          <button id="btnEsporta" class="ghost">Scarica fodmap.json</button>
+          <label class="ghost" style="border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer">
+            Importa file JSON<input id="fileImp" type="file" accept="application/json,.json" hidden>
+          </label>
+        </div>
+        <p class="hint" style="margin:0">Per inserire molti alimenti alla volta compila un foglio CSV (anche da Excel o Fogli Google) e importalo: gli alimenti con lo stesso nome vengono aggiornati, gli altri aggiunti.</p>
+        <div class="row">
+          <button id="btnModelloCsv" class="ghost">Scarica modello CSV</button>
+          <label class="ghost" style="border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer">
+            Importa CSV<input id="fileCsv" type="file" accept=".csv,text/csv,text/plain" hidden>
+          </label>
+        </div>
       </div>
     </details>
   </section>
@@ -137,6 +160,18 @@ details summary{cursor:pointer;font-weight:700}
     <div class="campo"><span class="label">Livelli per gruppo</span>
       <div class="liv5" id="eLiv"></div>
     </div>
+    <div class="campo"><span class="label">Soglie di porzione (come nell'app Monash)</span>
+      <div class="griglia4">
+        <div class="campo"><label class="hint" for="pVerde">Verde fino a</label><input id="pVerde" type="text" inputmode="decimal" class="mono"></div>
+        <div class="campo"><label class="hint" for="pGiallo">Giallo da</label><input id="pGiallo" type="text" inputmode="decimal" class="mono"></div>
+        <div class="campo"><label class="hint" for="pRosso">Rosso da</label><input id="pRosso" type="text" inputmode="decimal" class="mono"></div>
+        <div class="campo"><label class="hint" for="pUnita">Unità</label><select id="pUnita"><option>g</option><option>ml</option></select></div>
+      </div>
+      <span class="hint">Quando ci sono, lo scanner le usa al posto dei livelli generici. I livelli sopra indicano solo quale FODMAP è coinvolto.</span></div>
+    <details><summary class="hint" style="font-weight:700">Grammi di FODMAP per 100 g (da dati di laboratorio)</summary>
+      <div class="liv5" id="eG100" style="margin-top:8px"></div>
+      <span class="hint">Servono le soglie per porzione nella sezione "Soglie di calcolo" della pagina.</span>
+    </details>
     <label class="row" style="gap:8px"><input id="eConc" type="checkbox"> <span>Fonte concentrata: conta anche sotto il 10% del prodotto</span></label>
     <div class="campo"><label class="label" for="eTerm">Parole da cercare negli ingredienti</label>
       <textarea id="eTerm"></textarea>
@@ -244,12 +279,19 @@ async function carica() {
   $("#fg").innerHTML = `<option value="">Tutti i gruppi</option><option value="libero">Solo FODMAP bassi</option>` + opz;
   if (DB.fonti && !DB.fonti.MONAPP) DB.fonti.MONAPP = { nome: "Monash FODMAP app (controllo personale)", url: "" };
   $("#regola").textContent = DB.regola || "";
+  mostraCutoff();
   $("#fontiList").innerHTML = Object.entries(DB.fonti || {}).map(([k, f]) => `<li><b>${esc(k)}</b>: ${f.url ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.nome)}</a>` : esc(f.nome)}</li>`).join("");
   disegna();
   gestisciParametri();
 }
 
 /* ---------- tabella ---------- */
+// un alimento per riga: file compatto ma con modifiche leggibili su GitHub
+function serializza(db) {
+  const { alimenti, ...resto } = db;
+  const testa = JSON.stringify(resto, null, 1).replace(/\n}$/, "");
+  return testa + ',\n "alimenti": [\n' + alimenti.map(a => "  " + JSON.stringify(a)).join(",\n") + "\n ]\n}\n";
+}
 function ordina() {
   DB.alimenti.sort((a, b) => (a.categoria || "Altro").localeCompare(b.categoria || "Altro", "it") || a.nome.localeCompare(b.nome, "it"));
 }
@@ -260,15 +302,17 @@ function disegna() {
   DB.alimenti.forEach((a, i) => {
     const liv = a.livelli || {};
     if (cat && (a.categoria || "Altro") !== cat) return;
-    if (fv && (a.conferma || "da verificare") !== fv) return;
+    if (fv === "_monash") { if (!(a.fonti || []).includes("MONAPP")) return; }
+    else if (fv === "_marca") { if (!a.marca) return; }
+    else if (fv && (a.conferma || "da verificare") !== fv) return;
     if (gf === "libero" && GRUPPI.some(g => liv[g] === "medio" || liv[g] === "alto")) return;
     if (gf && gf !== "libero" && !(liv[gf] === "medio" || liv[gf] === "alto")) return;
     if (q && !norm([a.nome, a.categoria, ...(a.termini || []), a.note].join(" ")).includes(q)) return;
     const c = a.categoria || "Altro";
     if (c !== ultimaCat) { html += `<tr class="cat"><td colspan="9">${esc(c)}</td></tr>`; ultimaCat = c; }
     const celle = GRUPPI.map(g => { const v = liv[g] || ""; return `<td><span class="pill ${CLS[v]}">${v ? v[0].toUpperCase() + v.slice(1) : "—"}</span></td>`; }).join("");
-    html += `<tr data-i="${i}"><td class="nome"><b>${esc(a.nome)}</b><small>${esc((a.termini || []).slice(0, 4).join(", "))}${(a.termini || []).length > 4 ? "…" : ""}</small>${a.concentrato ? `<span class="conc">conc.</span>` : ""}</td>${celle}
-      <td class="info">${a.porzione ? `<div class="porz">${esc(a.porzione)}</div>` : ""}${esc(a.note || "")}</td>
+    html += `<tr data-i="${i}"><td class="nome"><b>${esc(a.nome)}</b><small>${a.marca ? `<b>${esc(a.marca)}</b> · ` : ""}${esc((a.termini || []).slice(0, 4).join(", "))}${(a.termini || []).length > 4 ? "…" : ""}${a.varianti?.length ? ` · ${a.varianti.length} varianti Monash` : ""}</small>${a.concentrato ? `<span class="conc">conc.</span>` : ""}</td>${celle}
+      <td class="info">${a.porzioni ? `<div class="porzpill">${porzTesto(a.porzioni)}</div>` : ""}${a.porzione ? `<div class="porz">${esc(a.porzione)}</div>` : ""}${esc(a.note || "")}</td>
       <td class="fonti">${a.conferma && a.conferma !== "confermato" ? `<span class="pill ${a.conferma === "discordante" ? "warn" : "na"}">${esc(a.conferma)}</span><br>` : ""}${esc((a.fonti || []).join(" · "))}</td></tr>`;
     n++;
   });
@@ -290,6 +334,8 @@ function attivaModifica(on) {
   if (on && !leggiCfg().token) stato("Puoi modificare la tabella subito. Per pubblicare le modifiche apri <b>Collegamento GitHub</b> e inserisci il token.", "");
 }
 const lista = s => s.split(",").map(x => x.trim()).filter(Boolean);
+const numero = s => { const t = String(s ?? "").trim().replace(",", "."); return t === "" || isNaN(+t) ? null : +t; };
+const porzTesto = pz => pz ? ["verde", "giallo", "rosso"].filter(k => pz[k] != null).map(k => `<span class="pill ${{ verde: "ok", giallo: "warn", rosso: "bad" }[k]}">${k === "verde" ? "≤" : "≥"}${pz[k]} ${esc(pz.unita || "g")}</span>`).join("") : "";
 let confermaElimina = false;
 
 function apriEditor(i, pre) {
@@ -300,6 +346,9 @@ function apriEditor(i, pre) {
   $("#eTerm").value = (a.termini || []).join(", "); $("#eEsc").value = (a.escludi || []).join(", ");
   $("#eEn").value = (a.en || []).join(", "); $("#eConc").checked = !!a.concentrato;
   $("#ePorz").value = a.porzione || ""; $("#eNote").value = a.note || "";
+  const pz = a.porzioni || {};
+  $("#pVerde").value = pz.verde ?? ""; $("#pGiallo").value = pz.giallo ?? ""; $("#pRosso").value = pz.rosso ?? ""; $("#pUnita").value = pz.unita || "g";
+  $("#eG100").innerHTML = GRUPPI.map(g => `<div class="campo"><label class="hint" for="g_${g}">${esc(DB.gruppi[g].split(" ")[0])}</label><input id="g_${g}" type="text" inputmode="decimal" class="mono" value="${a.per100g?.[g] ?? ""}"></div>`).join("");
   $("#eLiv").innerHTML = GRUPPI.map(g => `<div class="campo"><label class="label" for="l_${g}">${esc(DB.gruppi[g].split(" ")[0])}</label>
     <select id="l_${g}">${LIV.map(v => `<option value="${v}"${(a.livelli?.[g] || "") === v ? " selected" : ""}>${v || "assente"}</option>`).join("")}</select></div>`).join("");
   $("#eFonti").innerHTML = Object.entries(DB.fonti || {}).map(([k, f]) => `<label class="row" style="gap:6px"><input type="checkbox" value="${esc(k)}"${(a.fonti || []).includes(k) ? " checked" : ""}> <span title="${esc(f.nome)}">${esc(k)}</span></label>`).join("");
@@ -312,7 +361,6 @@ $("#frm").addEventListener("submit", e => {
   e.preventDefault();
   const nome = $("#eNome").value.trim(), termini = lista($("#eTerm").value);
   if (!nome) { $("#dlgErr").innerHTML = `<div class="msg err">Scrivi il nome dell'alimento.</div>`; return; }
-  if (!termini.length) { $("#dlgErr").innerHTML = `<div class="msg err">Aggiungi almeno una parola da cercare negli ingredienti (di solito il nome stesso).</div>`; return; }
   const doppio = DB.alimenti.findIndex((x, j) => j !== corrente && norm(x.nome) === norm(nome));
   if (doppio >= 0) { $("#dlgErr").innerHTML = `<div class="msg err">Esiste già un alimento chiamato "${esc(DB.alimenti[doppio].nome)}".</div>`; return; }
   const livelli = {};
@@ -321,6 +369,14 @@ $("#frm").addEventListener("submit", e => {
   const rec = { nome, categoria: $("#eCat").value.trim() || "Altro", termini: termini.map(t => t.toLowerCase()), escludi: lista($("#eEsc").value).map(t => t.toLowerCase()),
     en, concentrato: $("#eConc").checked, livelli, porzione: $("#ePorz").value.trim(), note: $("#eNote").value.trim(),
     fonti: [...document.querySelectorAll("#eFonti input:checked")].map(x => x.value), conferma: $("#eConf").value };
+  // campi dell'import Monash che l'editor non mostra: si conservano
+  if (corrente >= 0) ["marca", "varianti", "monash", "porzioni_da"].forEach(k => { if (DB.alimenti[corrente][k] != null) rec[k] = DB.alimenti[corrente][k]; });
+  const porzioni = {};
+  [["verde", "#pVerde"], ["giallo", "#pGiallo"], ["rosso", "#pRosso"]].forEach(([k, id]) => { const v = numero($(id).value); if (v != null) porzioni[k] = v; });
+  if (Object.keys(porzioni).length) { porzioni.unita = $("#pUnita").value; rec.porzioni = porzioni; }
+  const per100g = {};
+  GRUPPI.forEach(g => { const v = numero($("#g_" + g).value); if (v != null) per100g[g] = v; });
+  if (Object.keys(per100g).length) rec.per100g = per100g;
   if (corrente >= 0) DB.alimenti[corrente] = rec; else DB.alimenti.push(rec);
   ordina(); modifiche++; aggiornaBarra(); $("#dlg").close(); disegna();
   stato(`"${esc(nome)}" salvato nella tabella. Premi <b>Pubblica su GitHub</b> per renderlo definitivo.`, "okm");
@@ -353,7 +409,7 @@ $("#btnPubblica").onclick = async () => {
     if (!SHA) { const x = await caricaDaGitHub(c); SHA = x.sha; }
     DB.versione = (DB.versione || 0) + 1;
     DB.aggiornato = new Date().toISOString().slice(0, 10);
-    const testo = JSON.stringify(DB, null, 1) + "\n";
+    const testo = serializza(DB);
     const r = await fetch(apiUrl(c), { method: "PUT", headers: { ...ghHeaders(c), "Content-Type": "application/json" },
       body: JSON.stringify({ message: `Tabella FODMAP v${DB.versione}: ${modifiche} modifiche`, content: b64daTesto(testo), sha: SHA, branch: c.branch }) });
     const j = await r.json().catch(() => null);
@@ -383,7 +439,7 @@ $("#btnDimentica").onclick = () => { const c = leggiCfg(); c.token = ""; scriviC
 /* ---------- esporta / importa ---------- */
 $("#btnEsporta").onclick = () => {
   if (!DB) return;
-  const url = URL.createObjectURL(new Blob([JSON.stringify(DB, null, 1) + "\n"], { type: "application/json" }));
+  const url = URL.createObjectURL(new Blob([serializza(DB)], { type: "application/json" }));
   const a = document.createElement("a"); a.href = url; a.download = "fodmap.json"; document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 2000);
 };
@@ -397,6 +453,80 @@ $("#fileImp").onchange = async e => {
     stato(`Importati ${DB.alimenti.length} alimenti. Controlla e premi <b>Pubblica su GitHub</b>.`, "okm");
   } catch (err) { stato("File non valido: " + esc(err.message), "err"); }
   e.target.value = "";
+};
+
+/* ---------- soglie di calcolo ---------- */
+function mostraCutoff() {
+  $("#cutoff").innerHTML = GRUPPI.map(g => `<div class="campo"><label class="hint" for="c_${g}">${esc(DB.gruppi[g].split(" ")[0])} (g)</label><input id="c_${g}" type="text" inputmode="decimal" class="mono" value="${DB.cutoff?.[g] ?? ""}"></div>`).join("");
+}
+$("#btnCutoff").onclick = () => {
+  const c = {}; GRUPPI.forEach(g => { const v = numero($("#c_" + g).value); if (v != null && v > 0) c[g] = v; });
+  DB.cutoff = c; modifiche++; aggiornaBarra(); if (!inModifica) attivaModifica(true);
+  stato("Soglie applicate. Premi <b>Pubblica su GitHub</b> per salvarle.", "okm");
+};
+
+/* ---------- CSV ---------- */
+const CSV_COL = ["nome", "categoria", "termini", "escludi", "fruttosio", "lattosio", "sorbitolo", "mannitolo", "fruttani", "gos",
+  "verde", "giallo", "rosso", "unita", "g100_fruttosio", "g100_lattosio", "g100_sorbitolo", "g100_mannitolo", "g100_fruttani", "g100_gos",
+  "concentrato", "porzione", "note", "fonti", "conferma"];
+function csvRighe(testo) {
+  const sep = (testo.split("\n")[0].match(/;/g) || []).length >= (testo.split("\n")[0].match(/,/g) || []).length ? ";" : ",";
+  const righe = []; let riga = [], campo = "", q = false;
+  for (let i = 0; i < testo.length; i++) {
+    const c = testo[i];
+    if (q) { if (c === '"') { if (testo[i + 1] === '"') { campo += '"'; i++; } else q = false; } else campo += c; }
+    else if (c === '"') q = true;
+    else if (c === sep) { riga.push(campo); campo = ""; }
+    else if (c === "\n" || c === "\r") { if (c === "\r" && testo[i + 1] === "\n") i++; riga.push(campo); righe.push(riga); riga = []; campo = ""; }
+    else campo += c;
+  }
+  if (campo || riga.length) { riga.push(campo); righe.push(riga); }
+  return righe.filter(r => r.some(x => x.trim()));
+}
+const csvCampo = v => /[;"\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+$("#btnModelloCsv").onclick = () => {
+  const es = ["Pomodoro datterino;Verdura;pomodoro datterino|pomodori datterini;;fruttosio;;;;;;48;64;75;g;;;;;;;no;;Dati letti nell'app Monash;MONAPP;confermato"];
+  scarica("modello-fodmap.csv", "\ufeff" + CSV_COL.join(";") + "\n" + es.join("\n") + "\n", "text/csv");
+};
+function scarica(nome, testo, tipo) {
+  const url = URL.createObjectURL(new Blob([testo], { type: tipo }));
+  const a = document.createElement("a"); a.href = url; a.download = nome; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+$("#fileCsv").onchange = async e => {
+  const f = e.target.files[0]; if (!f) return; e.target.value = "";
+  try {
+    const righe = csvRighe((await f.text()).replace(/^\ufeff/, ""));
+    const testa = righe.shift().map(h => h.trim().toLowerCase());
+    if (!testa.includes("nome")) throw new Error("manca la colonna 'nome' (scarica il modello)");
+    const col = k => testa.indexOf(k);
+    const val = (r, k) => (col(k) >= 0 ? (r[col(k)] || "").trim() : "");
+    const multi = v => v.split("|").map(x => x.trim().toLowerCase()).filter(Boolean);
+    let nuovi = 0, aggiornati = 0, scartati = 0;
+    for (const r of righe) {
+      const nome = val(r, "nome"); if (!nome) { scartati++; continue; }
+      const i = DB.alimenti.findIndex(a => norm(a.nome) === norm(nome));
+      const base = i >= 0 ? { ...DB.alimenti[i] } : { nome, categoria: "Altro", termini: [nome.toLowerCase()], escludi: [], en: [], concentrato: false, livelli: {}, porzione: "", note: "", fonti: [], conferma: "da verificare" };
+      if (val(r, "categoria")) base.categoria = val(r, "categoria");
+      if (val(r, "termini")) base.termini = multi(val(r, "termini"));
+      if (val(r, "escludi")) base.escludi = multi(val(r, "escludi"));
+      const liv = {};
+      GRUPPI.forEach(g => { const v = val(r, g).toLowerCase(); if (v) liv[g] = ["basso", "medio", "alto"].includes(v) ? v : "medio"; });
+      if (Object.keys(liv).length) base.livelli = liv;
+      const pz = {}; ["verde", "giallo", "rosso"].forEach(k => { const v = numero(val(r, k)); if (v != null) pz[k] = v; });
+      if (Object.keys(pz).length) { pz.unita = val(r, "unita") || "g"; base.porzioni = pz; }
+      const g100 = {}; GRUPPI.forEach(g => { const v = numero(val(r, "g100_" + g)); if (v != null) g100[g] = v; });
+      if (Object.keys(g100).length) base.per100g = g100;
+      if (val(r, "concentrato")) base.concentrato = /^(si|sì|s|yes|1|true|x)$/i.test(val(r, "concentrato"));
+      if (val(r, "porzione")) base.porzione = val(r, "porzione");
+      if (val(r, "note")) base.note = val(r, "note");
+      if (val(r, "fonti")) base.fonti = val(r, "fonti").split("|").map(x => x.trim().toUpperCase()).filter(Boolean);
+      if (val(r, "conferma")) base.conferma = val(r, "conferma").toLowerCase();
+      if (i >= 0) { DB.alimenti[i] = base; aggiornati++; } else { DB.alimenti.push(base); nuovi++; }
+    }
+    ordina(); modifiche++; aggiornaBarra(); disegna(); if (!inModifica) attivaModifica(true);
+    stato(`CSV importato: ${nuovi} nuovi, ${aggiornati} aggiornati${scartati ? `, ${scartati} righe senza nome scartate` : ""}. Controlla e premi <b>Pubblica su GitHub</b>.`, "okm");
+  } catch (err) { stato("CSV non valido: " + esc(err.message), "err"); }
 };
 
 /* ---------- link dallo scanner ---------- */

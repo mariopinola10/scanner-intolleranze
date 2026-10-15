@@ -20,6 +20,7 @@
 .prod div{min-width:0}
 .code{font:500 .85rem var(--f-mono);color:var(--muted)}
 .semafori{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.panel.monash{border:2px solid var(--accent)}
 @media (max-width:420px){.semafori{grid-template-columns:1fr}}
 .sem{border-radius:12px;padding:12px;display:grid;gap:4px;align-content:start;min-width:0}
 .sem .t{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;opacity:.85}
@@ -143,6 +144,23 @@ function daTesto(t) {
 const STIMA_POS = [40, 20, 10, 6, 4, 3, 2];
 const pctDi = ing => ing.pct != null ? ing.pct : (STIMA_POS[ing.pos] ?? 1.5);
 const corrisponde = (a, ing) => testa(a.re, a.ex, ing.text) || (ing.id && a.tags.has(ing.id));
+// lunghezza del termine trovato: "riso basmati" (12) vince su "riso" (4)
+function lungMatch(a, ing) {
+  if (!a.re) return 0;
+  const t = a.ex ? ing.text.replace(a.ex, " ") : ing.text;
+  let m = 0;
+  for (const x of t.matchAll(new RegExp(a.re.source, "giu"))) m = Math.max(m, x[0].length);
+  return m;
+}
+function voci(ing) {
+  let match = ALIMENTI.filter(a => corrisponde(a, ing));
+  // vince il termine più specifico ("semi di zucca" su "semi")
+  const L = Math.max(0, ...match.map(a => lungMatch(a, ing)));
+  if (L) match = match.filter(a => lungMatch(a, ing) >= L || (ing.id && a.tags.has(ing.id) && !a.re?.test(ing.text)));
+  // a parità, le voci con dati quantitativi (soglie o grammi) prevalgono sulle generiche
+  const quant = match.filter(a => haPorzioni(a) || (a.per100g && Object.keys(a.per100g).length));
+  return quant.length ? quant : match;
+}
 
 // livello del gruppo nell'alimento, ridotto se l'ingrediente è presente in piccola quantità
 function dose(liv, pct, conc) {
@@ -150,27 +168,67 @@ function dose(liv, pct, conc) {
   return pct >= 10 ? liv : pct >= 2 ? Math.min(liv, 1) : 0;
 }
 
-function valutaFodmap(ings, ctx) {
+// livello da soglie di porzione dell'alimento (verde fino a / giallo da / rosso da, in g o ml)
+function livPorz(pz, g) {
+  if (!pz || g == null) return null;
+  const v = num(pz.verde), y = num(pz.giallo), r = num(pz.rosso);
+  if (v == null && y == null && r == null) return null;
+  if (r != null && g >= r) return 2;
+  if (v != null && g <= v) return 0;
+  if (y != null && g >= y) return 1;
+  if (v != null && g > v) return 1;
+  return 0;
+}
+const num = x => (x === "" || x == null || isNaN(+x)) ? null : +x;
+// livello da grammi per 100 g e soglie per porzione (cutoff in DB.cutoff)
+function livCutoff(a, g, gr) {
+  const v = num(a.per100g?.[gr]), c = num(DB.cutoff?.[gr]);
+  if (v == null || c == null || c <= 0 || g == null) return null;
+  const q = g * v / 100;
+  return { l: q <= c ? 0 : q <= 2 * c ? 1 : 2, q };
+}
+const haPorzioni = a => a.porzioni && ["verde", "giallo", "rosso"].some(k => num(a.porzioni[k]) != null);
+
+// porzioneG = grammi di prodotto mangiati (null = valutazione per percentuale)
+function valutaFodmap(ings, ctx, porzioneG = null) {
   const gruppi = Object.fromEntries(GRUPPI.map(g => [g, { nome: DB.gruppi[g], liv: -1, trovati: new Map() }]));
+  gruppi.altro = { nome: "Da soglie di porzione (gruppo non indicato)", liv: -1, trovati: new Map() };
   if (ctx.senzaLattosio || ctx.stagionato) gruppi.lattosio.nota = ctx.senzaLattosio ? "Prodotto senza lattosio" : "Formaggio stagionato: lattosio quasi assente";
-  for (const ing of ings) for (const a of ALIMENTI) {
-    if (!corrisponde(a, ing)) continue;
+  const metti = (g, a, rec) => { const prev = gruppi[g].trovati.get(a.nome); if (!prev || rec.l > prev.l || rec.p > prev.p) gruppi[g].trovati.set(a.nome, rec); };
+  for (const ing of ings) {
+   for (const a of voci(ing)) {
     const p = pctDi(ing);
-    for (const g of GRUPPI) {
-      const L = LIVN[a.livelli?.[g]];
-      if (L == null || (g === "lattosio" && gruppi.lattosio.nota)) continue;
-      if (g === "fruttani" && ctx.senzaGlutine && a.nome === "Frumento") continue;
-      const l = dose(L, p, a.concentrato);
-      const prev = gruppi[g].trovati.get(a.nome);
-      if (!prev || l > prev.l || p > prev.p) gruppi[g].trovati.set(a.nome, { nome: a.nome, p, l, stimato: ing.pct == null });
+    const grammi = porzioneG != null ? porzioneG * p / 100 : null;
+    const base = { nome: a.nome, p, stimato: ing.pct == null, g: grammi };
+    // 1) soglie di porzione dell'alimento (come nell'app Monash)
+    const lp = livPorz(a.porzioni, grammi);
+    if (lp != null) {
+      const gs = GRUPPI.filter(g => a.livelli?.[g]);
+      for (const g of (gs.length ? gs : ["altro"])) {
+        if (g === "lattosio" && gruppi.lattosio.nota) continue;
+        metti(g, a, { ...base, l: lp, metodo: "porzione" });
+      }
+      continue;
     }
+    for (const g of GRUPPI) {
+      if (g === "lattosio" && gruppi.lattosio.nota) continue;
+      if (g === "fruttani" && ctx.senzaGlutine && a.nome === "Frumento") continue;
+      // 2) grammi per 100 g e cutoff
+      const lc = livCutoff(a, grammi, g);
+      if (lc) { metti(g, a, { ...base, l: lc.l, q: lc.q, metodo: "grammi" }); continue; }
+      // 3) livello qualitativo ridotto in base alla quota nel prodotto
+      const L = LIVN[a.livelli?.[g]];
+      if (L == null) continue;
+      metti(g, a, { ...base, l: dose(L, p, a.concentrato), metodo: "quota" });
+    }
+   }
   }
-  for (const g of GRUPPI) {
+  for (const g of [...GRUPPI, "altro"]) {
     const arr = [...gruppi[g].trovati.values()].sort((x, y) => y.l - x.l || y.p - x.p);
     gruppi[g].trovati = arr;
     gruppi[g].liv = arr.length ? Math.max(...arr.map(x => x.l)) : -1;
   }
-  const livs = GRUPPI.map(g => gruppi[g].liv);
+  const livs = [...GRUPPI, "altro"].map(g => gruppi[g].liv);
   let tot = Math.max(...livs);
   if (livs.filter(l => l >= 1).length >= 3 && tot < 2) tot = 2; // effetto cumulativo
   return { gruppi, tot: Math.max(tot, 0), nessuno: tot < 0 };
@@ -211,9 +269,33 @@ function valutaLattosio(p, ings, haIngr, ctx) {
   return { c: "na", v: "Dati mancanti", n: "Ingredienti non disponibili" };
 }
 
+/* ===================== PRODOTTI DI MARCA (app Monash) ===================== */
+const VUOTE = new Set(["senza","glutine","gluten","free","con","del","della","dei","delle","per","alla","alle","allo","agli","gli","the","and","di","da","in","al","bio","biologico","biologica","organic","gusto","classico","classica","original","originale"]);
+const radice = w => { w = w.replace(/s$/, ""); return w.length > 4 ? w.replace(/[aeiou]$/, "") : w; };
+const parole = s => norm(s).replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(w => w.length > 2 && !VUOTE.has(w)).map(radice);
+function prodottoMonash(p) {
+  const marche = (p.brands || "").split(",").map(b => norm(b).replace(/[^a-z0-9]/g, "")).filter(b => b.length > 2);
+  if (!marche.length) return null;
+  const nomeOff = new Set(parole([p.product_name_it, p.product_name, p.generic_name_it].filter(Boolean).join(" ")));
+  if (!nomeOff.size) return null;
+  let best = null;
+  for (const a of ALIMENTI) {
+    if (!a.marca || !haPorzioni(a)) continue;
+    const m = norm(a.marca).replace(/[^a-z0-9]/g, "");
+    if (!marche.some(b => m.includes(b) || b.includes(m))) continue;
+    const pm = new Set(parole(a.nome.replace(a.marca, "")));
+    pm.forEach(w => { if (marche.some(b => b.includes(w))) pm.delete(w); });
+    if (!pm.size) continue;
+    const comuni = [...pm].filter(w => nomeOff.has(w)).length;
+    const s = comuni / pm.size + comuni / nomeOff.size;
+    if (comuni && s >= 0.9 && (!best || s > best.s)) best = { a, s };
+  }
+  return best && best.a;
+}
+
 /* ===================== OPEN FOOD FACTS ===================== */
 const OFF = "https://world.openfoodfacts.org";
-const CAMPI = "product_name_it,product_name,brands,image_front_small_url,ingredients_text_it,ingredients_text,ingredients,allergens_tags,traces_tags,labels_tags,categories_tags";
+const CAMPI = "serving_quantity,serving_size,product_name_it,product_name,generic_name_it,brands,image_front_small_url,ingredients_text_it,ingredients_text,ingredients,allergens_tags,traces_tags,labels_tags,categories_tags";
 async function cercaProdotto(code) {
   const r = await fetch(`${OFF}/api/v2/product/${code}.json?lc=it&fields=${CAMPI}`);
   if (r.status === 404) return null;
@@ -266,22 +348,30 @@ function trovaInTabella(q) {
     else if (nomi.some(x => { const b = x.replace("*", ""); return x.startsWith(n) || (b.length >= 4 && n.startsWith(b) && n.length - b.length <= 2); })) s = 2;
     else if (parole.some(w => nomi.some(x => x.split(/\s+/).some(t => t.length > 3 && t.slice(0, -1) === w.slice(0, -1))))) s = 1; // singolare/plurale
     return { a, s };
-  }).filter(x => x.s).sort((x, y) => y.s - x.s).filter((x, _, arr) => x.s >= arr[0].s - 1 && (x.s > 1 || arr[0].s === 1)).slice(0, 5).map(x => x.a);
+  }).filter(x => x.s).sort((x, y) => y.s - x.s || x.a.nome.length - y.a.nome.length).filter((x, _, arr) => x.s >= arr[0].s - 1 && (x.s > 1 || arr[0].s === 1)).slice(0, 12).map(x => x.a);
 }
 function schedaAlimento(a) {
   const livs = GRUPPI.map(g => LIVN[a.livelli?.[g]] ?? -1);
   const tot = Math.max(...livs);
-  const glut = (a.termini || []).some(t => GLUT_FORTE.test(t) && !(GLUT_ESCL && GLUT_ESCL.test(t)));
+  const soloSoglie = tot < 0 && haPorzioni(a);   // dati Monash: soglie complessive, gruppi non indicati
+  const glut = [a.nome, ...(a.termini || [])].some(t => testa(GLUT_FORTE, GLUT_ESCL, t.toLowerCase()));
   const celle = GRUPPI.map((g, i) => {
     const l = livs[i];
-    return `<div class="${l < 0 ? "na" : CLS_LIV[l]}"><b>${esc(DB.gruppi[g].split(" ")[0])}</b>${l < 0 ? "Assente" : NOME_LIV[l]}</div>`;
+    return `<div class="${l < 0 ? "na" : CLS_LIV[l]}"><b>${esc(DB.gruppi[g].split(" ")[0])}</b>${l < 0 ? (soloSoglie ? "n.d." : "Assente") : NOME_LIV[l]}</div>`;
   }).join("");
   return `<div class="cibo">
     <div class="row" style="justify-content:space-between"><h2>${esc(a.nome)}</h2>
-      <span class="pill ${tot < 0 ? "ok" : CLS_LIV[tot]}">FODMAP ${tot < 0 ? "basso" : NOME_LIV[tot].toLowerCase()}</span></div>
+      ${soloSoglie ? `<span class="pill ${num(a.porzioni.verde) != null ? "ok" : "warn"}">${num(a.porzioni.verde) != null ? `Basso fino a ${num(a.porzioni.verde)} ${esc(a.porzioni.unita || "g")}` : "Vedi soglie"}</span>`
+        : `<span class="pill ${tot < 0 ? "ok" : CLS_LIV[tot]}">FODMAP ${tot < 0 ? "basso" : NOME_LIV[tot].toLowerCase()}</span>`}</div>
+    ${a.marca ? `<div class="sub" style="margin:0">Prodotto di marca: <b>${esc(a.marca)}</b></div>` : ""}
     <div class="lv">${celle}</div>
     ${glut ? `<div class="pill bad" style="justify-self:start">Contiene glutine</div>` : ""}
+    ${haPorzioni(a) ? `<div class="row"><span class="label">Soglie di porzione</span>${["verde", "giallo", "rosso"].filter(k => num(a.porzioni[k]) != null).map(k => `<span class="pill ${{ verde: "ok", giallo: "warn", rosso: "bad" }[k]}">${k === "verde" ? "fino a " : "da "}${num(a.porzioni[k])} ${esc(a.porzioni.unita || "g")}</span>`).join("")}</div>` : ""}
+    ${haPorzioni(a) || (a.per100g && DB.cutoff && Object.keys(a.per100g).length) ? `<div class="row"><label class="label" for="calc_${esc(a.nome)}">Quanto ne mangi</label>
+      <input type="text" inputmode="decimal" id="calc_${esc(a.nome)}" data-calc="${esc(a.nome)}" placeholder="${esc(a.porzioni?.unita || "g")}" style="width:110px"><span data-out="${esc(a.nome)}" class="pill na">—</span></div>` : ""}
+    ${a.porzioni_da ? `<div class="sub" style="margin:0">Soglie da: ${esc(a.porzioni_da)}</div>` : ""}
     ${a.porzione ? `<div><span class="label">Porzione</span> ${esc(a.porzione)}</div>` : ""}
+    ${a.varianti?.length ? `<div><span class="label">Varianti nell'app Monash (${a.varianti.length})</span><div class="chips" style="margin-top:6px">${a.varianti.slice(0, 15).map(v => `<button class="chip" data-q="${esc(v)}">${esc(v)}</button>`).join("")}${a.varianti.length > 15 ? `<span class="chip">+${a.varianti.length - 15}</span>` : ""}</div></div>` : ""}
     ${a.note ? `<div class="sub" style="margin:0">${esc(a.note)}</div>` : ""}
     <div class="sub" style="margin:0;font-size:.8rem">${a.conferma && a.conferma !== "confermato" ? `<span class="pill ${a.conferma === "discordante" ? "warn" : "na"}">${esc(a.conferma)}</span> ` : ""}Fonti: ${(a.fonti || []).map(f => DB.fonti?.[f]?.url ? `<a href="${esc(DB.fonti[f].url)}" target="_blank" rel="noopener">${esc(f)}</a>` : esc(f)).join(", ") || "nessuna"}</div>
   </div>`;
@@ -308,6 +398,7 @@ async function cercaAlimento(q) {
 }
 
 /* ---- analisi prodotto ---- */
+let ULTIMO = null;
 async function analizza(code) {
   stato("Cerco il prodotto…"); $("#risultato").hidden = true;
   let p;
@@ -315,7 +406,13 @@ async function analizza(code) {
   catch (e) { stato(erroreRete(e), true); return; }
   if (!p) { stato(`Prodotto <b>${code}</b> non presente in Open Food Facts. Puoi aggiungerlo dall'app Open Food Facts.`, true); return; }
   stato("");
+  const sq = num(p.serving_quantity);
+  ULTIMO = { code, p, porz: sq && sq > 0 ? sq : null };
+  mostraProdotto(true);
+}
 
+function mostraProdotto(salva) {
+  const { code, p, porz } = ULTIMO;
   const testo = p.ingredients_text_it || p.ingredients_text || "";
   const ings = p.ingredients?.length ? appiattisci(p.ingredients) : daTesto(testo);
   const haIngr = ings.length > 0;
@@ -331,17 +428,28 @@ async function analizza(code) {
   const daVerif = ALIMENTI.filter(a => a.conferma && a.conferma !== "confermato" && ings.some(i => corrisponde(a, i)));
   const g = valutaGlutine(p, ings, haIngr, ctx);
   const l = valutaLattosio(p, ings, haIngr, ctx);
-  const f = haIngr ? valutaFodmap(ings, ctx) : null;
-  const fSem = !f ? { c: "na", v: "Dati mancanti", n: "Ingredienti non disponibili" }
+  const f = haIngr ? valutaFodmap(ings, ctx, porz) : null;
+  const mon = ULTIMO.noMonash ? null : prodottoMonash(p);
+  const gruppiVis = f ? [...GRUPPI, ...(f.gruppi.altro.trovati.length ? ["altro"] : [])] : [];
+  const pz = mon?.porzioni, un = pz?.unita || "g";
+  const lm = mon ? livPorz(pz, porz) : null;
+  const fSem = mon ? (lm != null
+      ? { c: CLS_LIV[lm], v: NOME_LIV[lm], n: `Dati Monash del prodotto · per ${porz} ${un}` }
+      : num(pz.verde) != null ? { c: "ok", v: `Basso fino a ${num(pz.verde)} ${un}`, n: "Dati Monash del prodotto: inserisci quanto ne mangi" }
+      : { c: "warn", v: "Vedi soglie", n: "Dati Monash del prodotto" })
+    : !f ? { c: "na", v: "Dati mancanti", n: "Ingredienti non disponibili" }
     : f.nessuno ? { c: "ok", v: "Basso", n: "Nessuna fonte FODMAP rilevata" }
-    : { c: CLS_LIV[f.tot], v: NOME_LIV[f.tot], n: GRUPPI.filter(k => f.gruppi[k].liv >= 1).map(k => DB.gruppi[k].split(" ")[0]).join(", ") || "Solo fonti in quantità basse" };
+    : { c: CLS_LIV[f.tot], v: NOME_LIV[f.tot], n: (gruppiVis.filter(k => f.gruppi[k].liv >= 1).map(k => k === "altro" ? "da porzione" : DB.gruppi[k].split(" ")[0]).join(", ") || "Solo fonti in quantità basse") + (porz ? ` · per ${porz} g` : "") };
 
   const sem = (t, s) => `<div class="sem ${s.c}"><span class="t">${t}</span><span class="v">${esc(s.v)}</span><span class="n">${esc(s.n)}</span></div>`;
-  const dettaglio = f ? GRUPPI.map(k => {
+  const fmtG = x => x < 10 ? x.toFixed(1) : Math.round(x);
+  const dettaglio = f ? gruppiVis.map(k => {
     const gr = f.gruppi[k];
     const pill = gr.liv < 0 ? `<span class="pill ok">Assente</span>` : `<span class="pill ${CLS_LIV[gr.liv]}">${NOME_LIV[gr.liv]}</span>`;
     const det = gr.nota ? esc(gr.nota)
-      : gr.trovati.length ? gr.trovati.map(x => `<b>${esc(x.nome)}</b> ${x.stimato ? "~" : ""}${x.p.toFixed(x.p < 1 ? 1 : 0)}%`).join(" · ")
+      : gr.trovati.length ? gr.trovati.map(x => `<b>${esc(x.nome)}</b> ${x.stimato ? "~" : ""}${x.p.toFixed(x.p < 1 ? 1 : 0)}%` +
+          (x.g != null ? ` (${x.stimato ? "~" : ""}${fmtG(x.g)} g)` : "") +
+          (x.metodo === "porzione" ? " · soglie di porzione" : x.metodo === "grammi" ? ` · ${x.q.toFixed(2)} g di FODMAP` : "")).join(" · ")
       : "Nessuna fonte rilevata";
     return `<div class="grp"><h3>${esc(gr.nome)}</h3>${pill}<div class="det">${det}</div></div>`;
   }).join("") : "";
@@ -352,10 +460,24 @@ async function analizza(code) {
         ${p.image_front_small_url ? `<img src="${esc(p.image_front_small_url)}" alt="">` : `<div class="noimg"></div>`}
         <div><h2>${esc(nome)}</h2><div class="sub">${esc(p.brands || "")}</div><div class="code">${code}</div></div>
       </div>
+      <form class="row" id="frmPorz">
+        <label class="label" for="porz" style="flex-basis:100%">Quanto ne mangi${p.serving_size ? ` · porzione in etichetta: ${esc(p.serving_size)}` : ""}</label>
+        <input id="porz" type="text" inputmode="decimal" value="${porz ?? ""}" placeholder="grammi, es. 80" style="flex:1 1 120px">
+        <button class="primary" type="submit">Calcola</button>
+        ${porz ? `<button class="ghost" type="button" id="porzNo">Senza porzione</button>` : ""}
+      </form>
       <div class="semafori">${sem("Glutine", g)}${sem("Lattosio", l)}${sem("FODMAP", fSem)}</div>
     </div>
+    ${mon ? `<div class="panel monash"><div class="label">Prodotto trovato nell'app Monash</div>
+      <h3>${esc(mon.nome)}</h3>
+      <div class="row">${["verde", "giallo", "rosso"].filter(k => num(pz[k]) != null).map(k => `<span class="pill ${{ verde: "ok", giallo: "warn", rosso: "bad" }[k]}">${k === "verde" ? "fino a " : "da "}${num(pz[k])} ${esc(un)}</span>`).join("")}</div>
+      ${mon.conferma !== "confermato" ? `<p class="sub" style="margin:0">${esc(mon.note || "Valori da verificare nell'app.")}</p>` : ""}
+      <p class="sub" style="margin:0">Il semaforo FODMAP usa questi dati. Il dettaglio per ingrediente qui sotto resta come confronto.
+      <button class="ghost" type="button" id="noMon" style="padding:6px 10px;font-size:.85rem">Non è questo prodotto</button></p></div>` : ""}
     ${f ? `<div class="panel"><h2>FODMAP per gruppo</h2><div>${dettaglio}</div>
-      <p class="sub" style="margin:0">Percentuali: quota stimata dell'ingrediente nel prodotto (~ = dalla posizione in lista). Le fonti concentrate (aglio, cipolla, miele, inulina, polioli) pesano anche in piccole quantità.</p></div>` : ""}
+      <p class="sub" style="margin:0">${porz
+        ? `Calcolo per ${porz} g di prodotto. Dove l'alimento ha soglie di porzione o grammi per 100 g usa quelli, altrimenti la quota nel prodotto.`
+        : `Senza porzione: stima dalla quota dell'ingrediente nel prodotto (~ = dalla posizione in lista). Inserisci i grammi per un calcolo come nell'app Monash.`}</p></div>` : ""}
     ${daVerif.length ? `<div class="panel"><h3>Da verificare</h3><p class="sub" style="margin:0">Le fonti non bastano o non sono d'accordo su questi ingredienti: controllali nell'app Monash.</p>
       <div class="chips">${daVerif.map(a => `<a class="chip" style="text-decoration:none" href="tabella.html?modifica=${encodeURIComponent(a.nome)}">${esc(a.nome)}</a>`).join("")}</div></div>` : ""}
     ${ignoti.length ? `<div class="panel"><h3>Ingredienti non in tabella (${ignoti.length})</h3><p class="sub" style="margin:0">Non sono stati valutati. Tocca per aggiungerli alla tabella dopo averli controllati.</p>
@@ -363,11 +485,14 @@ async function analizza(code) {
     <div class="panel"><h3>Ingredienti</h3><div class="ingr">${esc(testo || "Non disponibili")}</div></div>
     <div class="panel"><h3>Da sapere</h3><ul class="note">
       <li>I dati sono inseriti da volontari: confronta sempre con l'etichetta della confezione.</li>
-      <li>Il livello FODMAP dipende da porzione e lavorazione: è una stima dagli ingredienti, non un'analisi di laboratorio.</li>
+      <li>Le quote degli ingredienti sono spesso stimate da Open Food Facts: i grammi calcolati sono indicativi.</li>
       <li>Per la celiachia conta solo la certificazione "senza glutine" o la spiga barrata.</li>
     </ul></div>`;
   $("#risultato").hidden = false;
-  salvaStorico(code, nome, `G: ${g.v} · L: ${l.v} · F: ${fSem.v}`);
+  $("#frmPorz").onsubmit = e => { e.preventDefault(); const v = num(String($("#porz").value).replace(",", ".")); ULTIMO.porz = v && v > 0 ? v : null; mostraProdotto(false); };
+  if ($("#porzNo")) $("#porzNo").onclick = () => { ULTIMO.porz = null; mostraProdotto(false); };
+  if ($("#noMon")) $("#noMon").onclick = () => { ULTIMO.noMonash = true; mostraProdotto(false); };
+  if (salva) salvaStorico(code, nome, `G: ${g.v} · L: ${l.v} · F: ${fSem.v}`);
 }
 
 /* ---- storico (solo su questo dispositivo) ---- */
@@ -429,6 +554,18 @@ function caricaZxing() {
     document.head.appendChild(s);
   });
 }
+
+/* ---- calcolatore porzione nella scheda alimento ---- */
+document.addEventListener("input", e => {
+  const el = e.target.closest("[data-calc]"); if (!el) return;
+  const a = ALIMENTI.find(x => x.nome === el.dataset.calc); if (!a) return;
+  const out = [...document.querySelectorAll("[data-out]")].find(o => o.dataset.out === a.nome);
+  const gr = num(String(el.value).replace(",", "."));
+  let l = gr == null ? null : livPorz(a.porzioni, gr);
+  if (l == null && gr != null) { const ls = GRUPPI.map(g => livCutoff(a, gr, g)).filter(Boolean).map(x => x.l); if (ls.length) l = Math.max(...ls); }
+  out.className = "pill " + (l == null ? "na" : CLS_LIV[l]);
+  out.textContent = l == null ? "—" : NOME_LIV[l];
+});
 
 /* ---- eventi ---- */
 $("#btnScan").onclick = avviaScan;
