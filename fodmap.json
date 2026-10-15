@@ -1,16 +1,83 @@
 {
- "versione": 2,
+ "versione": 3,
  "aggiornato": "2026-10-15",
  "gruppi": {
   "fruttosio": "Fruttosio in eccesso",
   "lattosio": "Lattosio",
-  "polioli": "Polioli",
+  "sorbitolo": "Sorbitolo e altri polioli",
+  "mannitolo": "Mannitolo",
   "fruttani": "Fruttani (FOS)",
   "gos": "GOS"
  },
+ "fonti": {
+  "MON": {
+   "nome": "Monash University – High and low FODMAP foods / Label reading / Polyols",
+   "url": "https://www.monashfodmap.com/about-fodmap-and-ibs/high-and-low-fodmap-foods"
+  },
+  "CUH": {
+   "nome": "Cambridge University Hospitals NHS – Low FODMAP diet",
+   "url": "https://www.cuh.nhs.uk/patient-information/low-fodmap-diet-reducing-fermentable-carbohydrates-in-your-diet/"
+  },
+  "LIV": {
+   "nome": "Liverpool University Hospitals NHS – Low FODMAP diet",
+   "url": "https://www.uhliverpool.nhs.uk/patients-and-visitors/patient-leaflets/low-fodmap-dietpdf"
+  },
+  "IFF": {
+   "nome": "IFFGD – FODMAP List and Menu",
+   "url": "https://iffgd.org/wp-content/uploads/251b-FODMAP-List-and-Menu.pdf"
+  },
+  "USL": {
+   "nome": "USL Umbria 1 – Dieta FODMAP",
+   "url": "https://www.uslumbria1.it/wp-content/uploads/2023/03/fodmap.pdf"
+  },
+  "STA": {
+   "nome": "Stanford Health Care – Low FODMAP diet",
+   "url": "https://stanfordhealthcare.org/medical-treatments/l/low-fodmap-diet.html"
+  },
+  "FF": {
+   "nome": "FODMAP Friendly – Sorbitolo e mannitolo",
+   "url": "https://fodmapfriendly.com/blogpost/understanding-the-sugar-alcohols-ibs-awareness-month-2018-week-4/"
+  },
+  "ORL": {
+   "nome": "Orlando Health – Low FODMAP diet",
+   "url": "https://www.arnoldpalmerhospital.com/-/media/files/orlando-health/services-and-specialties/dhi/patients-and-families/patient-education-resources/06-low-fodmap-diet_508.pdf"
+  },
+  "FE": {
+   "nome": "FODMAP Everyday – Porzioni basse di alimenti alti",
+   "url": "https://www.fodmapeveryday.com/high-fodmap-foods-with-low-fodmap-serving-sizes/"
+  },
+  "COMP": {
+   "nome": "Composizione chimica: non contiene carboidrati fermentabili",
+   "url": ""
+  },
+  "MONAPP": {
+   "nome": "Monash FODMAP app (controllo personale)",
+   "url": ""
+  }
+ },
+ "regola": "Livello assegnato solo se confermato da almeno 2 fonti; 'discordante' = fonti in disaccordo (livello prudente); 'da verificare' = una sola fonte o nessuna.",
  "alimenti": [
   {
-   "nome": "Bevanda d'avena",
+   "nome": "Acqua di cocco",
+   "categoria": "Bevande",
+   "termini": [
+    "acqua di cocco"
+   ],
+   "escludi": [],
+   "en": [
+    "en:coconut-water"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "100 ml (CUH)",
+   "note": "",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
+  },
+  {
+   "nome": "Bevande vegetali alte",
    "categoria": "Bevande",
    "termini": [
     "bevanda d'avena",
@@ -22,79 +89,151 @@
     "en:oat-drink"
    ],
    "concentrato": false,
-   "livelli": {
-    "gos": "alto"
-   },
-   "porzione": "",
-   "note": ""
-  },
-  {
-   "nome": "Bevanda di soia (soia intera)",
-   "categoria": "Bevande",
-   "termini": [
-    "bevanda di soia",
-    "latte di soia",
-    "fagioli di soia",
-    "farina di soia"
+   "livelli": {},
+   "porzione": "40 ml (CUH)",
+   "note": "Una sola fonte indica: gos medio, fruttani medio. CUH: limitare. Tipo da verificare.",
+   "fonti": [
+    "CUH"
    ],
-   "escludi": [],
-   "en": [
-    "en:soy-drink",
-    "en:soya-drink",
-    "en:soy-flour",
-    "en:soybean"
-   ],
-   "concentrato": false,
-   "livelli": {
-    "gos": "alto"
-   },
-   "porzione": "",
-   "note": "Quella da proteine di soia è bassa. Tofu compatto basso."
+   "conferma": "da verificare"
   },
   {
    "nome": "Bevande vegetali basse",
    "categoria": "Bevande",
    "termini": [
     "latte di mandorla",
+    "latte di mandorle",
     "bevanda di mandorla",
+    "bevanda di mandorle",
     "bevanda di riso",
     "latte di riso",
+    "bevanda di nocciole",
     "latte di cocco",
-    "bevanda di cocco"
+    "bevanda di cocco",
+    "bevanda di soia da proteine"
    ],
    "escludi": [],
    "en": [
     "en:almond-drink",
     "en:rice-drink",
-    "en:coconut-milk"
+    "en:coconut-milk",
+    "en:hazelnut-drink"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "riso 200 ml, cocco 125 ml (CUH)",
+   "note": "Controlla che non contengano inulina o succhi di mela.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Birra",
+   "categoria": "Bevande",
+   "termini": [
+    "birra"
+   ],
+   "escludi": [],
+   "en": [
+    "en:beer",
+    "en:red-wine",
+    "en:white-wine",
+    "en:sparkling-wine",
+    "en:gin",
+    "en:vodka",
+    "en:whisky"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": "Controlla che non contengano inulina o sciroppi."
+   "note": "Basso per CUH. Verifica in Monash.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
-   "nome": "Caffè, birra e vino secco",
+   "nome": "Caffè",
    "categoria": "Bevande",
    "termini": [
     "caffè",
     "caffe",
-    "birra",
-    "vino rosso",
-    "vino bianco",
-    "spumante"
+    "caffè solubile"
    ],
-   "escludi": [],
+   "escludi": [
+    "tè chai",
+    "te chai",
+    "tè al finocchio",
+    "tè oolong",
+    "caffè di cicoria",
+    "caffè d'orzo"
+   ],
    "en": [
     "en:coffee",
-    "en:beer",
-    "en:red-wine",
-    "en:white-wine"
+    "en:tea",
+    "en:green-tea",
+    "en:black-tea",
+    "en:peppermint",
+    "en:rooibos"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Kombucha",
+   "categoria": "Bevande",
+   "termini": [
+    "kombucha"
+   ],
+   "escludi": [],
+   "en": [
+    "en:kombucha"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "180 ml (CUH)",
+   "note": "",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
+  },
+  {
+   "nome": "Menta e rooibos",
+   "categoria": "Bevande",
+   "termini": [
+    "menta piperita",
+    "rooibos",
+    "tisana alla menta"
+   ],
+   "escludi": [
+    "tè chai",
+    "te chai",
+    "tè al finocchio",
+    "tè oolong",
+    "caffè di cicoria",
+    "caffè d'orzo"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Rum e vini dolci",
@@ -104,8 +243,7 @@
     "vino dolce",
     "vino passito",
     "passito",
-    "porto",
-    "sherry",
+    "vino liquoroso",
     "moscato"
    ],
    "escludi": [],
@@ -114,11 +252,31 @@
     "en:dessert-wine"
    ],
    "concentrato": false,
-   "livelli": {
-    "fruttosio": "alto"
-   },
+   "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "Una sola fonte indica: fruttosio alto. CUH: da evitare. Verifica in Monash.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
+  },
+  {
+   "nome": "Spumante e prosecco",
+   "categoria": "Bevande",
+   "termini": [
+    "spumante",
+    "prosecco"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Basso per CUH. Verifica in Monash.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Succhi e frullati di frutta",
@@ -129,39 +287,145 @@
     "succo di frutta tropicale",
     "frullato",
     "frullati",
-    "smoothie"
+    "smoothie",
+    "nettare di frutta"
    ],
    "escludi": [],
    "en": [
-    "en:fruit-juice"
+    "en:fruit-juice",
+    "en:fruit-nectar"
    ],
    "concentrato": false,
    "livelli": {
     "fruttosio": "alto"
    },
-   "porzione": "",
-   "note": ""
+   "porzione": "100 ml di succo di frutto adatto: basso",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "IFF",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Tisane di camomilla e finocchio",
+   "nome": "Superalcolici secchi",
+   "categoria": "Bevande",
+   "termini": [
+    "gin",
+    "vodka",
+    "whisky"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Basso per CUH. Verifica in Monash.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
+  },
+  {
+   "nome": "Tisane alte in fruttani",
    "categoria": "Bevande",
    "termini": [
     "camomilla",
     "tisana al finocchio",
+    "tè al finocchio",
     "tè chai",
     "te chai",
-    "tè oolong"
+    "chai latte",
+    "tè oolong",
+    "tarassaco",
+    "caffè di cicoria",
+    "bevanda di cicoria"
    ],
    "escludi": [],
    "en": [
-    "en:chamomile"
+    "en:chamomile",
+    "en:dandelion"
    ],
    "concentrato": false,
    "livelli": {
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": "Tè nero e verde leggeri, menta e rooibos sono bassi."
+   "note": "Tè nero, verde, bianco, menta e rooibos: bassi.",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Tè nero, verde e bianco",
+   "categoria": "Bevande",
+   "termini": [
+    "tè",
+    "tè nero",
+    "tè verde",
+    "tè bianco"
+   ],
+   "escludi": [
+    "tè chai",
+    "te chai",
+    "tè al finocchio",
+    "tè oolong",
+    "caffè di cicoria",
+    "caffè d'orzo"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Vino rosso e bianco secco",
+   "categoria": "Bevande",
+   "termini": [
+    "vino rosso",
+    "vino bianco"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Basso per CUH. Verifica in Monash.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
+  },
+  {
+   "nome": "Amaranto",
+   "categoria": "Cereali",
+   "termini": [
+    "amaranto"
+   ],
+   "escludi": [],
+   "en": [
+    "en:amaranth"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "medio"
+   },
+   "porzione": "",
+   "note": "Orlando lo indica basso. Tipo di FODMAP da verificare.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Avena",
@@ -170,7 +434,8 @@
     "avena",
     "fiocchi d'avena",
     "fiocchi di avena",
-    "farina d'avena"
+    "farina d'avena",
+    "crusca d'avena"
    ],
    "escludi": [
     "bevanda d'avena",
@@ -180,12 +445,22 @@
    "en": [
     "en:oat",
     "en:oats",
-    "en:oat-flakes"
+    "en:oat-flakes",
+    "en:oat-flour",
+    "en:oat-bran"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "circa 50 g",
-   "note": "Porzioni grandi: medio. Per i celiaci serve avena certificata."
+   "note": "Per i celiaci serve avena certificata senza glutine.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Castagne",
@@ -198,12 +473,39 @@
    "escludi": [],
    "en": [
     "en:chestnut",
+    "en:chestnuts",
     "en:chestnut-flour"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "Bassa per CUH e Monash (castagne tra le alternative).",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
+  },
+  {
+   "nome": "Farina di cocco",
+   "categoria": "Cereali",
+   "termini": [
+    "farina di cocco"
+   ],
+   "escludi": [],
+   "en": [
+    "en:coconut-flour"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "sorbitolo": "alto"
+   },
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "FF"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Frumento",
@@ -213,12 +515,14 @@
     "farina di frumento",
     "farina di grano tenero",
     "farina di grano",
+    "farina integrale",
     "grano",
     "grano tenero",
     "grano duro",
     "semola",
     "semola di grano duro",
     "semolato",
+    "semola rimacinata",
     "farro",
     "kamut",
     "spelta",
@@ -226,13 +530,19 @@
     "couscous",
     "bulgur",
     "crusca",
+    "crusca di frumento",
+    "germe di grano",
     "pangrattato",
     "pane grattugiato",
     "pasta",
     "pane",
     "pizza",
     "biscotti",
-    "fette biscottate"
+    "fette biscottate",
+    "crackers",
+    "grissini",
+    "gnocchi",
+    "freekeh"
    ],
    "escludi": [
     "amido di frumento",
@@ -250,7 +560,12 @@
     "pasta di mais",
     "pasta senza glutine",
     "pane senza glutine",
-    "pasta di legumi"
+    "pasta di legumi",
+    "pasta di quinoa",
+    "pasta di grano saraceno",
+    "pizza senza glutine",
+    "biscotti senza glutine",
+    "gnocchi di patate senza glutine"
    ],
    "en": [
     "en:wheat",
@@ -258,32 +573,51 @@
     "en:durum-wheat-semolina",
     "en:durum-wheat",
     "en:soft-wheat-flour",
+    "en:wholemeal-wheat-flour",
     "en:spelt",
     "en:kamut",
-    "en:wheat-semolina"
+    "en:wheat-semolina",
+    "en:wheat-bran"
    ],
    "concentrato": false,
    "livelli": {
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": "Anche glutine. Fruttani trascurabili negli amidi deglutinati. Il pane di farro a vero lievito madre è più basso."
+   "note": "Anche glutine. Pane di solo farro a vero lievito madre: basso (CUH, USL).",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "STA"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Grano saraceno",
    "categoria": "Cereali",
    "termini": [
     "grano saraceno",
-    "farina di grano saraceno"
+    "farina di grano saraceno",
+    "pasta di grano saraceno",
+    "soba"
    ],
    "escludi": [],
    "en": [
-    "en:buckwheat"
+    "en:buckwheat",
+    "en:buckwheat-flour"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Mais",
@@ -292,23 +626,38 @@
     "mais",
     "farina di mais",
     "polenta",
-    "amido di mais"
+    "amido di mais",
+    "fiocchi di mais",
+    "corn flakes",
+    "tortilla di mais",
+    "pasta di mais"
    ],
    "escludi": [
     "mais dolce",
     "pannocchia",
-    "pannocchie"
+    "pannocchie",
+    "sciroppo di mais"
    ],
    "en": [
     "en:corn",
     "en:maize",
     "en:corn-flour",
-    "en:corn-starch"
+    "en:corn-starch",
+    "en:maize-flour",
+    "en:cornflakes"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Miglio, teff e sorgo",
@@ -327,7 +676,12 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Orzo",
@@ -336,26 +690,64 @@
     "orzo",
     "orzo perlato",
     "malto d'orzo",
-    "estratto di malto d'orzo"
+    "estratto di malto d'orzo",
+    "farina d'orzo",
+    "caffè d'orzo"
    ],
    "escludi": [],
    "en": [
     "en:barley",
     "en:barley-malt",
-    "en:barley-malt-extract"
+    "en:barley-malt-extract",
+    "en:barley-flour"
    ],
    "concentrato": false,
    "livelli": {
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": "Anche glutine."
+   "note": "Anche glutine.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "STA",
+    "IFF"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Pane e pasta senza glutine",
+   "categoria": "Cereali",
+   "termini": [
+    "pane senza glutine",
+    "pasta senza glutine",
+    "pizza senza glutine",
+    "biscotti senza glutine",
+    "mix di farine senza glutine"
+   ],
+   "escludi": [],
+   "en": [
+    "en:gluten-free-bread"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Controlla che non contengano farine di soia, lupino, ceci, cocco o inulina.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Quinoa",
    "categoria": "Cereali",
    "termini": [
-    "quinoa"
+    "quinoa",
+    "fiocchi di quinoa",
+    "pasta di quinoa"
    ],
    "escludi": [],
    "en": [
@@ -364,32 +756,58 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Riso",
    "categoria": "Cereali",
    "termini": [
     "riso",
+    "riso integrale",
+    "riso basmati",
     "farina di riso",
-    "amido di riso"
+    "amido di riso",
+    "gallette di riso",
+    "crusca di riso",
+    "riso soffiato",
+    "pasta di riso",
+    "noodles di riso"
    ],
    "escludi": [],
    "en": [
     "en:rice",
-    "en:rice-flour"
+    "en:rice-flour",
+    "en:rice-starch",
+    "en:puffed-rice"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Segale",
    "categoria": "Cereali",
    "termini": [
     "segale",
-    "farina di segale"
+    "farina di segale",
+    "pane di segale"
    ],
    "escludi": [],
    "en": [
@@ -401,7 +819,156 @@
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": "Anche glutine."
+   "note": "Anche glutine.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "STA"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Alloro",
+   "categoria": "Condimenti",
+   "termini": [
+    "alloro"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Aneto",
+   "categoria": "Condimenti",
+   "termini": [
+    "aneto"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Anice stellato",
+   "categoria": "Condimenti",
+   "termini": [
+    "anice stellato"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Aromi",
+   "categoria": "Condimenti",
+   "termini": [
+    "aromi",
+    "aromi naturali",
+    "aroma",
+    "aroma naturale",
+    "aromatizzanti"
+   ],
+   "escludi": [],
+   "en": [
+    "en:flavouring",
+    "en:natural-flavouring"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Possono contenere aglio o cipolla (Monash, CUH, Liverpool). Il livello non è determinabile dall'etichetta.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "discordante"
+  },
+  {
+   "nome": "Asafetida",
+   "categoria": "Condimenti",
+   "termini": [
+    "asafetida"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Basilico",
+   "categoria": "Condimenti",
+   "termini": [
+    "basilico"
+   ],
+   "escludi": [],
+   "en": [
+    "en:basil",
+    "en:parsley",
+    "en:rosemary",
+    "en:thyme",
+    "en:oregano",
+    "en:mint",
+    "en:coriander",
+    "en:marjoram",
+    "en:tarragon",
+    "en:sage",
+    "en:bay-leaf",
+    "en:dill"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Brodo e dado pronti",
@@ -411,19 +978,525 @@
     "dado da brodo",
     "brodo pronto",
     "preparato per brodo",
-    "brodo granulare"
+    "brodo granulare",
+    "estratto vegetale",
+    "preparato per sughi",
+    "salsa gravy"
    ],
    "escludi": [],
    "en": [
     "en:bouillon",
-    "en:stock-cube"
+    "en:stock-cube",
+    "en:vegetable-stock"
    ],
    "concentrato": true,
    "livelli": {
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": "Quasi sempre contengono cipolla e aglio: controlla gli ingredienti."
+   "note": "Di solito contengono cipolla e aglio: controlla gli ingredienti.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Cannella",
+   "categoria": "Condimenti",
+   "termini": [
+    "cannella"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Cardamomo",
+   "categoria": "Condimenti",
+   "termini": [
+    "cardamomo"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Chiodi di garofano",
+   "categoria": "Condimenti",
+   "termini": [
+    "chiodi di garofano"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Coriandolo",
+   "categoria": "Condimenti",
+   "termini": [
+    "coriandolo"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Cumino",
+   "categoria": "Condimenti",
+   "termini": [
+    "cumino"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Curcuma",
+   "categoria": "Condimenti",
+   "termini": [
+    "curcuma"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Curry",
+   "categoria": "Condimenti",
+   "termini": [
+    "curry",
+    "curry in polvere",
+    "cinque spezie",
+    "spezie"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Dragoncello",
+   "categoria": "Condimenti",
+   "termini": [
+    "dragoncello"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Fieno greco",
+   "categoria": "Condimenti",
+   "termini": [
+    "fieno greco"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Foglie di curry e citronella",
+   "categoria": "Condimenti",
+   "termini": [
+    "foglie di curry",
+    "citronella",
+    "foglie di lime"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Maggiorana",
+   "categoria": "Condimenti",
+   "termini": [
+    "maggiorana"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Menta",
+   "categoria": "Condimenti",
+   "termini": [
+    "menta"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Noce moscata",
+   "categoria": "Condimenti",
+   "termini": [
+    "noce moscata"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Oli e grassi",
+   "categoria": "Condimenti",
+   "termini": [
+    "olio",
+    "olio extravergine di oliva",
+    "olio di oliva",
+    "olio di semi",
+    "olio di girasole",
+    "olio di semi di girasole",
+    "olio di palma",
+    "olio di cocco",
+    "olio di colza",
+    "olio di arachidi",
+    "olio di mais",
+    "olio di soia",
+    "grasso di palma",
+    "margarina",
+    "strutto",
+    "grassi vegetali",
+    "burro di cacao",
+    "burro di karité",
+    "grasso di cocco"
+   ],
+   "escludi": [
+    "olio aromatizzato all'aglio",
+    "olio all'aglio"
+   ],
+   "en": [
+    "en:oil",
+    "en:olive-oil",
+    "en:extra-virgin-olive-oil",
+    "en:vegetable-oil",
+    "en:sunflower-oil",
+    "en:palm-oil",
+    "en:coconut-oil",
+    "en:rapeseed-oil",
+    "en:margarine",
+    "en:lard",
+    "en:vegetable-fat",
+    "en:cocoa-butter",
+    "en:shea-butter"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Olio aromatizzato all'aglio",
+   "categoria": "Condimenti",
+   "termini": [
+    "olio aromatizzato all'aglio",
+    "olio all'aglio"
+   ],
+   "escludi": [],
+   "en": [
+    "en:garlic-infused-oil"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Basso solo se filtrato, senza pezzi di aglio.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Origano",
+   "categoria": "Condimenti",
+   "termini": [
+    "origano"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Paprika",
+   "categoria": "Condimenti",
+   "termini": [
+    "paprika",
+    "paprica"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Pepe",
+   "categoria": "Condimenti",
+   "termini": [
+    "pepe",
+    "pepe nero",
+    "pepe bianco"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [
+    "en:pepper",
+    "en:black-pepper",
+    "en:paprika",
+    "en:chili-pepper",
+    "en:cinnamon",
+    "en:clove",
+    "en:cumin",
+    "en:turmeric",
+    "en:ginger",
+    "en:nutmeg",
+    "en:saffron",
+    "en:cardamom",
+    "en:star-anise",
+    "en:fennel-seeds",
+    "en:fenugreek",
+    "en:curry-powder",
+    "en:mustard",
+    "en:spices"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Peperoncino",
+   "categoria": "Condimenti",
+   "termini": [
+    "peperoncino"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Prezzemolo",
+   "categoria": "Condimenti",
+   "termini": [
+    "prezzemolo"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Rosmarino",
+   "categoria": "Condimenti",
+   "termini": [
+    "rosmarino"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Sale all'aglio e alla cipolla",
@@ -435,14 +1508,220 @@
    ],
    "escludi": [],
    "en": [
-    "en:garlic-salt"
+    "en:garlic-salt",
+    "en:onion-salt"
    ],
    "concentrato": true,
    "livelli": {
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "IFF"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Sale, aceto e salse base",
+   "categoria": "Condimenti",
+   "termini": [
+    "sale",
+    "sale marino",
+    "sale iodato",
+    "aceto",
+    "aceto di vino",
+    "aceto di vino bianco",
+    "aceto di mele",
+    "aceto di riso",
+    "aceto balsamico",
+    "salsa di soia",
+    "tamari",
+    "maionese",
+    "capperi",
+    "salsa di pesce",
+    "miso",
+    "salsa worcestershire",
+    "wasabi"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [
+    "en:salt",
+    "en:sea-salt",
+    "en:vinegar",
+    "en:wine-vinegar",
+    "en:balsamic-vinegar",
+    "en:soy-sauce",
+    "en:mayonnaise",
+    "en:capers",
+    "en:fish-sauce",
+    "en:miso"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "aceto balsamico: 2 cucchiai (CUH)",
+   "note": "Aceto di mele: non citato dalle fonti, verifica in Monash.",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Salvia",
+   "categoria": "Condimenti",
+   "termini": [
+    "salvia"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Semi di finocchio",
+   "categoria": "Condimenti",
+   "termini": [
+    "semi di finocchio"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Senape",
+   "categoria": "Condimenti",
+   "termini": [
+    "senape",
+    "semi di senape"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Timo",
+   "categoria": "Condimenti",
+   "termini": [
+    "timo"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Verdure disidratate in polvere",
+   "categoria": "Condimenti",
+   "termini": [
+    "verdure disidratate",
+    "verdure in polvere",
+    "polvere di verdure",
+    "ortaggi disidratati"
+   ],
+   "escludi": [],
+   "en": [
+    "en:dried-vegetables",
+    "en:vegetable-powder"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Spesso contengono aglio o cipolla (Monash, CUH): verifica l'etichetta.",
+   "fonti": [
+    "MON",
+    "CUH"
+   ],
+   "conferma": "discordante"
+  },
+  {
+   "nome": "Zafferano",
+   "categoria": "Condimenti",
+   "termini": [
+    "zafferano"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Zenzero",
+   "categoria": "Condimenti",
+   "termini": [
+    "zenzero"
+   ],
+   "escludi": [
+    "sale all'aglio",
+    "sale alla cipolla"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Cioccolato al latte e bianco",
@@ -457,11 +1736,13 @@
     "en:white-chocolate"
    ],
    "concentrato": false,
-   "livelli": {
-    "lattosio": "medio"
-   },
-   "porzione": "2-3 quadratini: basso",
-   "note": ""
+   "livelli": {},
+   "porzione": "30 g (CUH)",
+   "note": "Una sola fonte indica: lattosio medio.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Cioccolato fondente e cacao",
@@ -470,41 +1751,157 @@
     "cioccolato fondente",
     "cacao",
     "cacao magro",
-    "cacao in polvere"
+    "cacao in polvere",
+    "pasta di cacao",
+    "massa di cacao",
+    "fave di cacao"
    ],
-   "escludi": [],
+   "escludi": [
+    "burro di cacao"
+   ],
    "en": [
     "en:dark-chocolate",
     "en:cocoa",
     "en:cocoa-powder",
-    "en:fat-reduced-cocoa"
+    "en:fat-reduced-cocoa",
+    "en:cocoa-mass"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "cioccolata in polvere da bere: 2 cucchiaini (CUH)",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Liquirizia",
+   "categoria": "Dolci",
+   "termini": [
+    "liquirizia",
+    "estratto di liquirizia"
+   ],
+   "escludi": [],
+   "en": [
+    "en:liquorice"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "Liverpool: da evitare. Verifica in Monash.",
+   "fonti": [
+    "LIV"
+   ],
+   "conferma": "da verificare"
   },
   {
-   "nome": "Eritritolo e stevia",
+   "nome": "Marmellata e confettura",
+   "categoria": "Dolci",
+   "termini": [
+    "marmellata",
+    "confettura",
+    "confettura extra"
+   ],
+   "escludi": [],
+   "en": [
+    "en:jam",
+    "en:marmalade"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Basse se di frutta adatta e senza fruttosio o polioli.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Carruba in polvere",
    "categoria": "Dolcificanti",
    "termini": [
-    "eritritolo",
-    "e968",
+    "carruba in polvere",
+    "polvere di carruba"
+   ],
+   "escludi": [
+    "farina di semi di carrube"
+   ],
+   "en": [
+    "en:carob-powder"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "1 cucchiaino (6 g)",
+   "note": "CUH: da limitare.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
+  },
+  {
+   "nome": "Dolcificanti intensi",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "aspartame",
+    "acesulfame",
+    "acesulfame k",
+    "sucralosio",
     "stevia",
     "glicosidi steviolici",
+    "e950",
+    "e951",
+    "e955",
     "e960"
    ],
    "escludi": [],
    "en": [
-    "en:erythritol",
-    "en:e968",
+    "en:aspartame",
+    "en:acesulfame-k",
+    "en:sucralose",
     "en:steviol-glycosides",
+    "en:e950",
+    "en:e951",
+    "en:e955",
     "en:e960"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "Liverpool li indica da limitare.",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "discordante"
+  },
+  {
+   "nome": "Eritritolo (E968)",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "eritritolo",
+    "erythritol",
+    "e968",
+    "e 968"
+   ],
+   "escludi": [],
+   "en": [
+    "en:erythritol",
+    "en:e968"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "sorbitolo": "medio"
+   },
+   "porzione": "",
+   "note": "Segnalato tra i polioli da Monash e CUH; di solito tollerato meglio degli altri.",
+   "fonti": [
+    "MON",
+    "CUH"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Isomalto (E953)",
@@ -522,10 +1919,16 @@
    ],
    "concentrato": true,
    "livelli": {
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Lactitolo (E966)",
@@ -544,10 +1947,15 @@
    ],
    "concentrato": true,
    "livelli": {
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Maltitolo (E965)",
@@ -567,10 +1975,16 @@
    ],
    "concentrato": true,
    "livelli": {
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "STA"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Mannitolo (E421)",
@@ -588,10 +2002,39 @@
    ],
    "concentrato": true,
    "livelli": {
-    "polioli": "alto"
+    "mannitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "STA"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Melassa",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "melassa"
+   ],
+   "escludi": [],
+   "en": [
+    "en:molasses"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": "Liverpool la indica adatta (treacle).",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "discordante"
   },
   {
    "nome": "Miele",
@@ -608,22 +2051,15 @@
     "fruttosio": "alto"
    },
    "porzione": "",
-   "note": ""
-  },
-  {
-   "nome": "Sciroppo d'acero",
-   "categoria": "Dolcificanti",
-   "termini": [
-    "sciroppo d'acero"
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "STA"
    ],
-   "escludi": [],
-   "en": [
-    "en:maple-syrup"
-   ],
-   "concentrato": false,
-   "livelli": {},
-   "porzione": "",
-   "note": ""
+   "conferma": "confermato"
   },
   {
    "nome": "Sciroppo d'agave",
@@ -631,7 +2067,8 @@
    "termini": [
     "agave",
     "sciroppo d'agave",
-    "sciroppo di agave"
+    "sciroppo di agave",
+    "nettare di agave"
    ],
    "escludi": [],
    "en": [
@@ -642,7 +2079,12 @@
     "fruttosio": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Sciroppo di glucosio-fruttosio",
@@ -652,9 +2094,12 @@
     "sciroppo di glucosio fruttosio",
     "sciroppo di fruttosio-glucosio",
     "sciroppo di fruttosio",
+    "sciroppo di mais",
     "sciroppo di mais ad alto contenuto di fruttosio",
     "isoglucosio",
-    "fruttosio"
+    "fruttosio",
+    "succo di frutta concentrato",
+    "concentrato di succo di frutta"
    ],
    "escludi": [],
    "en": [
@@ -662,14 +2107,23 @@
     "en:glucose-fructose-syrup",
     "en:fructose-glucose-syrup",
     "en:high-fructose-corn-syrup",
-    "en:fructose-syrup"
+    "en:fructose-syrup",
+    "en:fruit-juice-concentrate"
    ],
    "concentrato": true,
    "livelli": {
     "fruttosio": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "STA"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Sorbitolo (E420)",
@@ -677,20 +2131,29 @@
    "termini": [
     "sorbitolo",
     "sorbitol",
+    "sciroppo di sorbitolo",
     "e420",
     "e 420"
    ],
    "escludi": [],
    "en": [
     "en:sorbitol",
+    "en:sorbitol-syrup",
     "en:e420"
    ],
    "concentrato": true,
    "livelli": {
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "STA"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Xilitolo (E967)",
@@ -708,37 +2171,17 @@
    ],
    "concentrato": true,
    "livelli": {
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
-  },
-  {
-   "nome": "Zucchero",
-   "categoria": "Dolcificanti",
-   "termini": [
-    "zucchero",
-    "saccarosio",
-    "zucchero di canna",
-    "destrosio",
-    "glucosio",
-    "sciroppo di glucosio",
-    "sciroppo di riso",
-    "malto di riso"
+   "note": "Poliolo: nella colonna 'Sorbitolo e altri polioli'.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "STA"
    ],
-   "escludi": [],
-   "en": [
-    "en:sugar",
-    "en:sucrose",
-    "en:cane-sugar",
-    "en:dextrose",
-    "en:glucose",
-    "en:glucose-syrup"
-   ],
-   "concentrato": false,
-   "livelli": {},
-   "porzione": "",
-   "note": ""
+   "conferma": "confermato"
   },
   {
    "nome": "Zucchero di cocco",
@@ -751,11 +2194,55 @@
     "en:coconut-sugar"
    ],
    "concentrato": false,
-   "livelli": {
-    "fruttani": "medio"
-   },
-   "porzione": "1 cucchiaino: basso",
-   "note": ""
+   "livelli": {},
+   "porzione": "",
+   "note": "Nessuna delle fonti consultate lo classifica. Verifica in Monash.",
+   "fonti": [],
+   "conferma": "da verificare"
+  },
+  {
+   "nome": "Zucchero e glucosio",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "zucchero",
+    "saccarosio",
+    "zucchero di canna",
+    "zucchero grezzo",
+    "zucchero a velo",
+    "destrosio",
+    "glucosio",
+    "sciroppo di glucosio",
+    "sciroppo di riso",
+    "malto di riso",
+    "golden syrup",
+    "sciroppo d'acero",
+    "zucchero invertito"
+   ],
+   "escludi": [
+    "zucchero di cocco"
+   ],
+   "en": [
+    "en:sugar",
+    "en:sucrose",
+    "en:cane-sugar",
+    "en:brown-sugar",
+    "en:dextrose",
+    "en:glucose",
+    "en:glucose-syrup",
+    "en:rice-syrup",
+    "en:maple-syrup",
+    "en:invert-sugar"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Liverpool include lo zucchero tra gli alimenti da limitare; le altre fonti no.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "GOS aggiunti",
@@ -774,7 +2261,11 @@
     "gos": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "FODMAP per definizione.",
+   "fonti": [
+    "MON"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Inulina e FOS",
@@ -783,15 +2274,19 @@
     "inulina",
     "fibra di cicoria",
     "radice di cicoria",
+    "cicoria solubile",
     "fruttooligosaccaridi",
     "frutto-oligosaccaridi",
     "fos",
-    "oligofruttosio"
+    "oligofruttosio",
+    "prebiotico",
+    "prebiotici"
    ],
    "escludi": [],
    "en": [
     "en:inulin",
     "en:chicory-fibre",
+    "en:chicory-root",
     "en:fructo-oligosaccharide",
     "en:oligofructose"
    ],
@@ -800,7 +2295,14 @@
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "STA"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Albicocca",
@@ -818,10 +2320,19 @@
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "STA",
+    "FF"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Albicocche secche",
@@ -836,26 +2347,44 @@
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "alto",
+    "sorbitolo": "alto",
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Ananas",
    "categoria": "Frutta",
    "termini": [
-    "ananas"
+    "ananas",
+    "succo di ananas"
    ],
-   "escludi": [],
+   "escludi": [
+    "ananas essiccato",
+    "ananas disidratato"
+   ],
    "en": [
-    "en:pineapple"
+    "en:pineapple",
+    "en:pineapple-juice"
    ],
    "concentrato": false,
    "livelli": {},
-   "porzione": "",
-   "note": ""
+   "porzione": "ananas essiccato: 1 pezzo (CUH)",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Anguria",
@@ -871,11 +2400,19 @@
    "concentrato": false,
    "livelli": {
     "fruttosio": "alto",
-    "polioli": "alto",
+    "mannitolo": "alto",
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "Tipo di poliolo dalla letteratura Monash.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Arancia",
@@ -883,16 +2420,27 @@
    "termini": [
     "arancia",
     "arance",
-    "succo d'arancia"
+    "succo d'arancia",
+    "succo di arancia",
+    "spremuta d'arancia"
    ],
    "escludi": [],
    "en": [
-    "en:orange"
+    "en:orange",
+    "en:orange-juice"
    ],
    "concentrato": false,
    "livelli": {},
-   "porzione": "1 frutto medio",
-   "note": ""
+   "porzione": "succo: 100 ml",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Avocado",
@@ -906,17 +2454,26 @@
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "medio"
+    "sorbitolo": "medio"
    },
-   "porzione": "circa 30 g: basso",
-   "note": ""
+   "porzione": "30-60 g: basso",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "STA",
+    "FE"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Banana matura",
    "categoria": "Frutta",
    "termini": [
     "banana",
-    "banane"
+    "banane",
+    "banana matura"
    ],
    "escludi": [],
    "en": [
@@ -924,10 +2481,15 @@
    ],
    "concentrato": false,
    "livelli": {
-    "fruttani": "alto"
+    "fruttani": "medio"
    },
-   "porzione": "",
-   "note": "Acerba (ancora soda): basso."
+   "porzione": "1/3 di banana (35 g): basso",
+   "note": "Banana soda con punta verde: bassa (CUH, Liverpool).",
+   "fonti": [
+    "CUH",
+    "FE"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Boysenberry",
@@ -940,11 +2502,13 @@
     "en:boysenberry"
    ],
    "concentrato": false,
-   "livelli": {
-    "fruttosio": "alto"
-   },
+   "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "Una sola fonte indica: fruttosio medio.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Cachi",
@@ -952,8 +2516,7 @@
    "termini": [
     "caco",
     "cachi",
-    "kaki",
-    "persimmon"
+    "kaki"
    ],
    "escludi": [],
    "en": [
@@ -963,8 +2526,30 @@
    "livelli": {
     "fruttosio": "alto"
    },
+   "porzione": "mezzo frutto: basso (CUH)",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "IFF"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Carambola",
+   "categoria": "Frutta",
+   "termini": [
+    "carambola"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Ciliegie",
@@ -986,68 +2571,124 @@
    "concentrato": false,
    "livelli": {
     "fruttosio": "alto",
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "STA"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Cocco essiccato e farina di cocco",
+   "nome": "Cocco",
    "categoria": "Frutta",
    "termini": [
+    "cocco",
+    "polpa di cocco",
     "cocco rapè",
     "cocco rape",
     "cocco disidratato",
     "cocco essiccato",
-    "cocco grattugiato",
-    "farina di cocco"
+    "cocco grattugiato"
    ],
-   "escludi": [],
+   "escludi": [
+    "latte di cocco",
+    "olio di cocco",
+    "acqua di cocco",
+    "zucchero di cocco",
+    "farina di cocco",
+    "bevanda di cocco",
+    "grasso di cocco"
+   ],
    "en": [
-    "en:desiccated-coconut",
-    "en:coconut-flour"
+    "en:coconut",
+    "en:desiccated-coconut"
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "alto"
+    "sorbitolo": "medio"
    },
-   "porzione": "poco cocco rapè: basso",
-   "note": "Latte di cocco e olio di cocco sono bassi."
+   "porzione": "fresco 64 g, essiccato 45 g (CUH)",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "FF"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Feijoa",
+   "nome": "Datteri",
    "categoria": "Frutta",
    "termini": [
-    "feijoa"
+    "dattero",
+    "datteri"
    ],
    "escludi": [],
    "en": [
-    "en:feijoa"
+    "en:date",
+    "en:dates"
    ],
    "concentrato": false,
    "livelli": {
-    "fruttosio": "alto"
+    "fruttosio": "alto",
+    "fruttani": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Durian",
+   "categoria": "Frutta",
+   "termini": [
+    "durian"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Fichi",
    "categoria": "Frutta",
    "termini": [
     "fico",
-    "fichi"
+    "fichi",
+    "fichi secchi"
    ],
    "escludi": [],
    "en": [
-    "en:fig"
+    "en:fig",
+    "en:dried-fig"
    ],
    "concentrato": false,
    "livelli": {
     "fruttosio": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Fragola",
@@ -1058,12 +2699,20 @@
    ],
    "escludi": [],
    "en": [
-    "en:strawberry"
+    "en:strawberry",
+    "en:strawberries"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Frutta essiccata",
@@ -1072,27 +2721,77 @@
     "uvetta",
     "uva passa",
     "uva sultanina",
-    "dattero",
-    "datteri",
     "frutta essiccata",
     "frutta disidratata",
+    "frutta secca disidratata",
     "barretta alla frutta",
-    "barrette alla frutta"
+    "barrette alla frutta",
+    "bacche di goji",
+    "goji"
    ],
    "escludi": [],
    "en": [
     "en:raisin",
+    "en:raisins",
     "en:sultana",
-    "en:date",
-    "en:dried-fruit"
+    "en:sultanas",
+    "en:dried-fruit",
+    "en:goji-berries"
    ],
    "concentrato": false,
    "livelli": {
     "fruttosio": "alto",
     "fruttani": "medio"
    },
+   "porzione": "uvetta 13 g: bassa (FODMAP Everyday)",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Frutto della passione",
+   "categoria": "Frutta",
+   "termini": [
+    "frutto della passione",
+    "maracuja",
+    "passion fruit"
+   ],
+   "escludi": [],
+   "en": [
+    "en:passion-fruit"
+   ],
+   "concentrato": false,
+   "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Guava matura",
+   "categoria": "Frutta",
+   "termini": [
+    "guava matura"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Kiwi",
@@ -1102,12 +2801,38 @@
    ],
    "escludi": [],
    "en": [
-    "en:kiwi"
+    "en:kiwi",
+    "en:kiwifruit"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Kumquat",
+   "categoria": "Frutta",
+   "termini": [
+    "kumquat"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Lamponi",
@@ -1124,7 +2849,13 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Limone e lime",
@@ -1133,18 +2864,27 @@
     "limone",
     "limoni",
     "succo di limone",
-    "lime"
+    "scorza di limone",
+    "lime",
+    "succo di lime"
    ],
    "escludi": [],
    "en": [
     "en:lemon",
     "en:lemon-juice",
-    "en:lime"
+    "en:lime",
+    "en:lime-juice"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Litchi",
@@ -1159,10 +2899,15 @@
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "alto"
+    "sorbitolo": "medio"
    },
-   "porzione": "",
-   "note": ""
+   "porzione": "meno di 4 frutti (40 g)",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Mandarino e clementina",
@@ -1171,34 +2916,53 @@
     "mandarino",
     "mandarini",
     "clementina",
-    "clementine"
+    "clementine",
+    "tangerino"
    ],
    "escludi": [],
    "en": [
     "en:mandarin",
-    "en:clementine"
+    "en:clementine",
+    "en:tangerine"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Mango",
    "categoria": "Frutta",
    "termini": [
-    "mango"
+    "mango",
+    "succo di mango"
    ],
    "escludi": [],
    "en": [
-    "en:mango"
+    "en:mango",
+    "en:mango-juice"
    ],
    "concentrato": false,
    "livelli": {
     "fruttosio": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Mela",
@@ -1208,21 +2972,32 @@
     "mele",
     "succo di mela",
     "purea di mela",
-    "polpa di mela"
+    "polpa di mela",
+    "succo concentrato di mela"
    ],
    "escludi": [],
    "en": [
     "en:apple",
     "en:apple-juice",
-    "en:apple-puree"
+    "en:apple-puree",
+    "en:concentrated-apple-juice"
    ],
    "concentrato": false,
    "livelli": {
     "fruttosio": "alto",
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "STA"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Melograno",
@@ -1237,12 +3012,13 @@
     "en:pomegranate"
    ],
    "concentrato": false,
-   "livelli": {
-    "fruttani": "medio",
-    "gos": "medio"
-   },
-   "porzione": "1/4 di frutto: basso",
-   "note": ""
+   "livelli": {},
+   "porzione": "mezzo frutto piccolo (55 g)",
+   "note": "CUH: da limitare. Verifica il gruppo nell'app Monash.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Melone",
@@ -1250,33 +3026,106 @@
    "termini": [
     "melone",
     "meloni",
-    "melone cantalupo"
+    "melone cantalupo",
+    "melone retato"
    ],
    "escludi": [],
    "en": [
     "en:melon",
-    "en:cantaloupe"
+    "en:cantaloupe",
+    "en:honeydew-melon"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Mirtilli",
    "categoria": "Frutta",
    "termini": [
     "mirtillo",
-    "mirtilli"
+    "mirtilli",
+    "mirtilli neri"
    ],
-   "escludi": [],
+   "escludi": [
+    "mirtilli rossi secchi",
+    "mirtilli rossi essiccati"
+   ],
    "en": [
-    "en:blueberry"
+    "en:blueberry",
+    "en:blueberries"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "125 g (FODMAP Everyday)",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL",
+    "FE"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Mirtilli rossi freschi",
+   "categoria": "Frutta",
+   "termini": [
+    "mirtilli rossi",
+    "cranberry"
+   ],
+   "escludi": [
+    "mirtilli rossi secchi",
+    "mirtilli rossi essiccati",
+    "cranberry secchi"
+   ],
+   "en": [
+    "en:cranberry",
+    "en:cranberries"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Mirtilli rossi secchi",
+   "categoria": "Frutta",
+   "termini": [
+    "mirtilli rossi secchi",
+    "cranberry secchi",
+    "mirtilli rossi essiccati"
+   ],
+   "escludi": [],
+   "en": [
+    "en:dried-cranberries"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "medio"
+   },
+   "porzione": "12 g (CUH)",
+   "note": "Freschi: bassi.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "More",
@@ -1293,10 +3142,16 @@
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "IFF"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Nettarina",
@@ -1313,10 +3168,18 @@
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "STA"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Papaya",
@@ -1332,7 +3195,13 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Pera",
@@ -1341,20 +3210,31 @@
     "pera",
     "pere",
     "pere nashi",
-    "succo di pera"
+    "succo di pera",
+    "succo concentrato di pera"
    ],
    "escludi": [],
    "en": [
     "en:pear",
-    "en:pear-juice"
+    "en:pear-juice",
+    "en:concentrated-pear-juice"
    ],
    "concentrato": false,
    "livelli": {
     "fruttosio": "alto",
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "FF"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Pesca",
@@ -1363,22 +3243,55 @@
     "pesca",
     "pesche",
     "pesca duracina",
-    "pesche duracine"
+    "pesche duracine",
+    "pesca gialla",
+    "succo di pesca"
    ],
    "escludi": [
     "pesca noce",
     "pesche noci"
    ],
    "en": [
-    "en:peach"
+    "en:peach",
+    "en:peach-juice"
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "alto",
-    "fruttani": "alto"
+    "sorbitolo": "alto"
    },
+   "porzione": "1 spicchio (30 g): basso",
+   "note": "Fonte porzione: FODMAP Everyday.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "STA"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Pitaya",
+   "categoria": "Frutta",
+   "termini": [
+    "pitaya",
+    "frutto del drago"
+   ],
+   "escludi": [],
+   "en": [
+    "en:dragon-fruit",
+    "en:kumquat",
+    "en:starfruit"
+   ],
+   "concentrato": false,
+   "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Pompelmo",
@@ -1392,11 +3305,15 @@
     "en:grapefruit"
    ],
    "concentrato": false,
-   "livelli": {
-    "fruttani": "medio"
-   },
-   "porzione": "mezzo frutto piccolo: basso",
-   "note": ""
+   "livelli": {},
+   "porzione": "mezzo frutto (80-100 g)",
+   "note": "Basso in porzione normale; CUH lo limita oltre 100 g.",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "discordante"
   },
   {
    "nome": "Prugna",
@@ -1405,47 +3322,85 @@
     "prugna",
     "prugne",
     "susina",
-    "susine"
+    "susine",
+    "prugne secche"
    ],
    "escludi": [],
    "en": [
     "en:plum",
-    "en:prune"
+    "en:prune",
+    "en:prunes"
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "alto"
+    "sorbitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "STA"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Tamarillo",
+   "nome": "Rabarbaro",
    "categoria": "Frutta",
    "termini": [
-    "tamarillo"
+    "rabarbaro"
    ],
    "escludi": [],
    "en": [
-    "en:tamarillo"
+    "en:rhubarb"
    ],
    "concentrato": false,
-   "livelli": {
-    "fruttosio": "alto"
-   },
+   "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "Liverpool lo indica alto, CUH e Orlando bassi.",
+   "fonti": [
+    "CUH",
+    "ORL",
+    "LIV"
+   ],
+   "conferma": "discordante"
+  },
+  {
+   "nome": "Tamarindo",
+   "categoria": "Frutta",
+   "termini": [
+    "tamarindo",
+    "pasta di tamarindo"
+   ],
+   "escludi": [],
+   "en": [
+    "en:tamarind"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "meno di 5 baccelli (10 g)",
+   "note": "CUH: da limitare. Verifica in Monash.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Uva",
    "categoria": "Frutta",
    "termini": [
     "uva",
-    "acini d'uva"
+    "acini d'uva",
+    "uva bianca",
+    "uva nera"
    ],
    "escludi": [
     "uva passa",
-    "uva sultanina"
+    "uva sultanina",
+    "succo d'uva"
    ],
    "en": [
     "en:grape",
@@ -1454,20 +3409,29 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Anacardi",
-   "categoria": "Frutta a guscio",
+   "categoria": "Frutta a guscio e semi",
    "termini": [
     "anacardo",
-    "anacardi"
+    "anacardi",
+    "crema di anacardi"
    ],
    "escludi": [],
    "en": [
     "en:cashew",
     "en:cashews",
-    "en:cashew-nut"
+    "en:cashew-nut",
+    "en:cashew-nuts"
    ],
    "concentrato": false,
    "livelli": {
@@ -1475,85 +3439,171 @@
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Arachidi",
+   "categoria": "Frutta a guscio e semi",
+   "termini": [
+    "arachide",
+    "arachidi",
+    "burro di arachidi",
+    "crema di arachidi",
+    "noccioline"
+   ],
+   "escludi": [],
+   "en": [
+    "en:peanut",
+    "en:peanuts",
+    "en:peanut-butter"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "USL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Macadamia, pecan, pinoli, noci del Brasile",
+   "categoria": "Frutta a guscio e semi",
+   "termini": [
+    "noci di macadamia",
+    "macadamia",
+    "noci pecan",
+    "pecan",
+    "pinoli",
+    "noci del brasile"
+   ],
+   "escludi": [],
+   "en": [
+    "en:macadamia-nuts",
+    "en:pecan-nuts",
+    "en:pine-nuts",
+    "en:brazil-nuts"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "USL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Mandorle",
-   "categoria": "Frutta a guscio",
+   "categoria": "Frutta a guscio e semi",
    "termini": [
     "mandorla",
     "mandorle",
     "farina di mandorle",
-    "pasta di mandorle"
+    "pasta di mandorle",
+    "granella di mandorle"
    ],
    "escludi": [],
    "en": [
     "en:almond",
-    "en:almonds"
+    "en:almonds",
+    "en:almond-flour"
    ],
    "concentrato": false,
    "livelli": {
     "gos": "medio"
    },
-   "porzione": "circa 10 mandorle",
-   "note": ""
+   "porzione": "meno di 10 mandorle (12 g): basso",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "FE"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Nocciole",
-   "categoria": "Frutta a guscio",
+   "categoria": "Frutta a guscio e semi",
    "termini": [
     "nocciola",
     "nocciole",
-    "pasta di nocciole"
+    "pasta di nocciole",
+    "granella di nocciole",
+    "farina di nocciole"
    ],
    "escludi": [],
    "en": [
     "en:hazelnut",
-    "en:hazelnuts"
+    "en:hazelnuts",
+    "en:hazelnut-paste"
    ],
    "concentrato": false,
-   "livelli": {
-    "gos": "basso",
-    "fruttani": "basso"
-   },
-   "porzione": "circa 10 nocciole",
-   "note": ""
+   "livelli": {},
+   "porzione": "meno di 10 nocciole",
+   "note": "Una sola fonte indica: gos medio, fruttani medio. CUH: limitare sotto le 10. Tipo da verificare.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
-   "nome": "Noci e arachidi",
-   "categoria": "Frutta a guscio",
+   "nome": "Noci",
+   "categoria": "Frutta a guscio e semi",
    "termini": [
     "noce",
     "noci",
-    "arachide",
-    "arachidi",
-    "burro di arachidi"
+    "gherigli di noce"
    ],
-   "escludi": [],
+   "escludi": [
+    "noce moscata",
+    "noce di cocco",
+    "noci di macadamia",
+    "noci pecan",
+    "noci del brasile",
+    "noci di anacardio"
+   ],
    "en": [
     "en:walnut",
-    "en:walnuts",
-    "en:peanut",
-    "en:peanuts"
+    "en:walnuts"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "USL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Pistacchi",
-   "categoria": "Frutta a guscio",
+   "categoria": "Frutta a guscio e semi",
    "termini": [
     "pistacchio",
     "pistacchi",
     "pasta di pistacchio",
-    "granella di pistacchio"
+    "granella di pistacchio",
+    "crema di pistacchio"
    ],
    "escludi": [],
    "en": [
     "en:pistachio",
-    "en:pistachios"
+    "en:pistachios",
+    "en:pistachio-paste"
    ],
    "concentrato": false,
    "livelli": {
@@ -1561,57 +3611,540 @@
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Brie, camembert e feta",
+   "nome": "Semi di canapa",
+   "categoria": "Frutta a guscio e semi",
+   "termini": [
+    "semi di canapa"
+   ],
+   "escludi": [
+    "olio di semi"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Semi di chia",
+   "categoria": "Frutta a guscio e semi",
+   "termini": [
+    "semi di chia",
+    "chia"
+   ],
+   "escludi": [
+    "olio di semi"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Semi di girasole",
+   "categoria": "Frutta a guscio e semi",
+   "termini": [
+    "semi di girasole"
+   ],
+   "escludi": [
+    "olio di semi"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Semi di lino",
+   "categoria": "Frutta a guscio e semi",
+   "termini": [
+    "semi di lino",
+    "lino"
+   ],
+   "escludi": [
+    "olio di semi"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Semi di papavero",
+   "categoria": "Frutta a guscio e semi",
+   "termini": [
+    "semi di papavero"
+   ],
+   "escludi": [
+    "olio di semi"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Semi di zucca",
+   "categoria": "Frutta a guscio e semi",
+   "termini": [
+    "semi di zucca"
+   ],
+   "escludi": [
+    "olio di semi"
+   ],
+   "en": [
+    "en:pumpkin-seeds",
+    "en:sunflower-seeds",
+    "en:sesame-seeds",
+    "en:sesame",
+    "en:chia-seeds",
+    "en:flax-seeds",
+    "en:linseed",
+    "en:poppy-seeds",
+    "en:tahini"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Sesamo e tahina",
+   "categoria": "Frutta a guscio e semi",
+   "termini": [
+    "semi di sesamo",
+    "sesamo",
+    "tahina",
+    "tahini"
+   ],
+   "escludi": [
+    "olio di semi"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Acidificanti e conservanti",
+   "categoria": "Ingredienti neutri",
+   "termini": [
+    "acido citrico",
+    "acido ascorbico",
+    "acido lattico",
+    "acido malico",
+    "acido acetico",
+    "correttore di acidità",
+    "correttori di acidità",
+    "acidificante",
+    "conservante",
+    "conservanti",
+    "antiossidante",
+    "antiossidanti",
+    "sorbato di potassio",
+    "benzoato di sodio",
+    "citrato di sodio",
+    "lattato di calcio",
+    "e330",
+    "e300",
+    "e270",
+    "e296",
+    "e202",
+    "e211",
+    "e331",
+    "e327",
+    "e250",
+    "e252",
+    "nitrito di sodio",
+    "nitrato di potassio",
+    "ascorbato di sodio",
+    "e301"
+   ],
+   "escludi": [],
+   "en": [
+    "en:citric-acid",
+    "en:ascorbic-acid",
+    "en:lactic-acid",
+    "en:malic-acid",
+    "en:acidity-regulator",
+    "en:preservative",
+    "en:antioxidant",
+    "en:potassium-sorbate",
+    "en:sodium-benzoate",
+    "en:e330",
+    "en:e300",
+    "en:e270",
+    "en:e296",
+    "en:e202",
+    "en:e211",
+    "en:e250",
+    "en:e301"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "COMP"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Acqua",
+   "categoria": "Ingredienti neutri",
+   "termini": [
+    "acqua",
+    "acqua minerale"
+   ],
+   "escludi": [],
+   "en": [
+    "en:water"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "COMP"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Addensanti e gelificanti",
+   "categoria": "Ingredienti neutri",
+   "termini": [
+    "gomma xantana",
+    "xantano",
+    "gomma di guar",
+    "farina di semi di guar",
+    "farina di semi di carrube",
+    "gomma di carrube",
+    "carragenina",
+    "pectina",
+    "agar agar",
+    "agar",
+    "gelatina",
+    "gelatina alimentare",
+    "gomma arabica",
+    "e415",
+    "e412",
+    "e410",
+    "e407",
+    "e440",
+    "e406"
+   ],
+   "escludi": [],
+   "en": [
+    "en:xanthan-gum",
+    "en:guar-gum",
+    "en:locust-bean-gum",
+    "en:carrageenan",
+    "en:pectin",
+    "en:agar",
+    "en:gelatin",
+    "en:gum-arabic",
+    "en:e415",
+    "en:e412",
+    "en:e410",
+    "en:e407",
+    "en:e440",
+    "en:e406"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Agar e addensanti indicati adatti da CUH.",
+   "fonti": [
+    "CUH",
+    "COMP"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Amidi e fecole",
+   "categoria": "Ingredienti neutri",
+   "termini": [
+    "amido",
+    "amido di tapioca",
+    "amido di patate",
+    "amido modificato",
+    "fecola",
+    "fecola di patate",
+    "maranta",
+    "arrowroot",
+    "fibra di patata"
+   ],
+   "escludi": [],
+   "en": [
+    "en:starch",
+    "en:modified-starch",
+    "en:tapioca-starch"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Coloranti, vitamine e minerali",
+   "categoria": "Ingredienti neutri",
+   "termini": [
+    "colorante",
+    "coloranti",
+    "caramello",
+    "e150a",
+    "e150d",
+    "e160a",
+    "e100",
+    "beta-carotene",
+    "vitamina",
+    "vitamine",
+    "vitamina c",
+    "vitamina d",
+    "vitamina e",
+    "vitamina b12",
+    "minerali",
+    "carbonato di calcio",
+    "fosfato di calcio",
+    "ferro",
+    "zinco",
+    "sale di ferro",
+    "fermenti lattici",
+    "fermenti lattici vivi",
+    "colture",
+    "cultures",
+    "probiotici"
+   ],
+   "escludi": [],
+   "en": [
+    "en:colour",
+    "en:caramel-color",
+    "en:e150a",
+    "en:e150d",
+    "en:e160a",
+    "en:vitamins",
+    "en:calcium-carbonate",
+    "en:iron",
+    "en:lactic-ferments",
+    "en:cultures"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "I fermenti lattici non contengono lattosio di per sé.",
+   "fonti": [
+    "COMP"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Emulsionanti",
+   "categoria": "Ingredienti neutri",
+   "termini": [
+    "lecitina",
+    "lecitina di soia",
+    "lecitina di girasole",
+    "mono e digliceridi degli acidi grassi",
+    "emulsionante",
+    "emulsionanti",
+    "e322",
+    "e471",
+    "e472"
+   ],
+   "escludi": [],
+   "en": [
+    "en:lecithin",
+    "en:soy-lecithin",
+    "en:sunflower-lecithin",
+    "en:mono-and-diglycerides-of-fatty-acids",
+    "en:emulsifier",
+    "en:e322",
+    "en:e471"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "COMP"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Lieviti e agenti lievitanti",
+   "categoria": "Ingredienti neutri",
+   "termini": [
+    "lievito",
+    "lievito di birra",
+    "lievito madre",
+    "pasta madre",
+    "lievito chimico",
+    "agenti lievitanti",
+    "agente lievitante",
+    "bicarbonato di sodio",
+    "bicarbonato",
+    "difosfato disodico",
+    "cremor tartaro",
+    "estratto di lievito",
+    "lievito alimentare"
+   ],
+   "escludi": [],
+   "en": [
+    "en:yeast",
+    "en:raising-agent",
+    "en:sodium-bicarbonate",
+    "en:yeast-extract"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Basso per CUH. Il lievito madre in sé non è un FODMAP.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Maltodestrine",
+   "categoria": "Ingredienti neutri",
+   "termini": [
+    "maltodestrina",
+    "maltodestrine",
+    "destrine"
+   ],
+   "escludi": [],
+   "en": [
+    "en:maltodextrin",
+    "en:maltodextrins"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Polimeri di glucosio, non fermentabili come i FODMAP.",
+   "fonti": [
+    "COMP"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Asiago e montasio",
+   "categoria": "Latticini",
+   "termini": [
+    "asiago",
+    "montasio"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Brie e camembert",
    "categoria": "Latticini",
    "termini": [
     "brie",
-    "camembert",
-    "feta",
-    "halloumi",
-    "taleggio",
-    "fontina"
+    "camembert"
    ],
    "escludi": [],
-   "en": [
-    "en:brie",
-    "en:camembert",
-    "en:feta",
-    "en:halloumi"
-   ],
+   "en": [],
    "concentrato": false,
-   "livelli": {
-    "lattosio": "basso"
-   },
+   "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Budino",
-   "categoria": "Latticini",
-   "termini": [
-    "budino",
-    "budini"
-   ],
-   "escludi": [],
-   "en": [
-    "en:pudding"
-   ],
-   "concentrato": false,
-   "livelli": {
-    "lattosio": "alto"
-   },
-   "porzione": "",
-   "note": ""
-  },
-  {
-   "nome": "Burro",
+   "nome": "Burro e ghee",
    "categoria": "Latticini",
    "termini": [
     "burro",
     "burro concentrato",
+    "ghee",
+    "burro chiarificato",
     "grasso del latte",
     "grasso anidro del latte"
    ],
@@ -1624,60 +4157,215 @@
    ],
    "en": [
     "en:butter",
+    "en:ghee",
     "en:anhydrous-milk-fat",
     "en:milk-fat"
    ],
    "concentrato": false,
-   "livelli": {
-    "lattosio": "basso"
-   },
+   "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Crema pasticcera",
+   "nome": "Cheddar ed edam",
    "categoria": "Latticini",
    "termini": [
-    "crema pasticcera"
+    "cheddar",
+    "edam"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Crema pasticcera e budino",
+   "categoria": "Latticini",
+   "termini": [
+    "crema pasticcera",
+    "budino",
+    "budini",
+    "custard"
    ],
    "escludi": [],
    "en": [
-    "en:custard"
+    "en:custard",
+    "en:pudding"
    ],
    "concentrato": false,
    "livelli": {
     "lattosio": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "IFF",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Formaggi stagionati",
+   "nome": "Emmental e gruviera",
    "categoria": "Latticini",
    "termini": [
-    "parmigiano",
-    "parmigiano reggiano",
-    "grana padano",
-    "pecorino",
     "emmental",
-    "gruyere",
-    "provolone",
-    "formaggio stagionato"
+    "gruyere"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Feta",
+   "categoria": "Latticini",
+   "termini": [
+    "feta"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Fontina e taleggio",
+   "categoria": "Latticini",
+   "termini": [
+    "fontina",
+    "taleggio"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Formaggi freschi",
+   "categoria": "Latticini",
+   "termini": [
+    "ricotta",
+    "mascarpone",
+    "formaggio fresco",
+    "formaggio spalmabile",
+    "formaggio cremoso",
+    "robiola",
+    "stracchino",
+    "crescenza",
+    "squacquerone",
+    "fiocchi di latte",
+    "cottage cheese",
+    "quark",
+    "philadelphia",
+    "formaggio fuso",
+    "sottilette",
+    "formaggio a fette fuso"
    ],
    "escludi": [],
    "en": [
-    "en:parmigiano-reggiano",
-    "en:grana-padano",
-    "en:pecorino",
-    "en:emmental",
-    "en:hard-cheese"
+    "en:ricotta",
+    "en:mascarpone",
+    "en:cream-cheese",
+    "en:cottage-cheese",
+    "en:processed-cheese",
+    "en:quark"
    ],
    "concentrato": false,
    "livelli": {
-    "lattosio": "basso"
+    "lattosio": "alto"
    },
+   "porzione": "ricotta, cottage, spalmabile: 40 g (CUH)",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Formaggio di capra",
+   "categoria": "Latticini",
+   "termini": [
+    "formaggio di capra",
+    "caprino"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
    "porzione": "",
-   "note": "Lattosio quasi assente."
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Formaggio stagionato",
+   "categoria": "Latticini",
+   "termini": [
+    "formaggio stagionato"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Gelato",
@@ -1686,7 +4374,10 @@
     "gelato",
     "gelati"
    ],
-   "escludi": [],
+   "escludi": [
+    "gelato senza lattosio",
+    "sorbetto"
+   ],
    "en": [
     "en:ice-cream"
    ],
@@ -1695,7 +4386,75 @@
     "lattosio": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Gorgonzola ed erborinati",
+   "categoria": "Latticini",
+   "termini": [
+    "gorgonzola",
+    "formaggio erborinato"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Grana Padano",
+   "categoria": "Latticini",
+   "termini": [
+    "grana padano",
+    "grana"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Halloumi",
+   "categoria": "Latticini",
+   "termini": [
+    "halloumi"
+   ],
+   "escludi": [],
+   "en": [
+    "en:halloumi"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "2 fette (40 g)",
+   "note": "Una sola fonte indica: lattosio medio.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Kefir",
@@ -1708,11 +4467,13 @@
     "en:kefir"
    ],
    "concentrato": false,
-   "livelli": {
-    "lattosio": "medio"
-   },
-   "porzione": "",
-   "note": ""
+   "livelli": {},
+   "porzione": "1 cucchiaio (CUH)",
+   "note": "Una sola fonte indica: lattosio medio.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Latte",
@@ -1728,7 +4489,10 @@
     "latte fresco",
     "latte di capra",
     "latte di pecora",
-    "latte di bufala"
+    "latte di bufala",
+    "latte reidratato",
+    "latte concentrato",
+    "solidi del latte"
    ],
    "escludi": [
     "latte di cocco",
@@ -1741,7 +4505,10 @@
     "latte di nocciole",
     "latte delattosato",
     "latte senza lattosio",
-    "fermenti lattici"
+    "latte ad alta digeribilità",
+    "fermenti lattici",
+    "latte condensato",
+    "latte evaporato"
    ],
    "en": [
     "en:milk",
@@ -1750,17 +4517,28 @@
     "en:semi-skimmed-milk",
     "en:milk-powder",
     "en:skimmed-milk-powder",
-    "en:whole-milk-powder"
+    "en:whole-milk-powder",
+    "en:goat-milk",
+    "en:sheep-milk",
+    "en:milk-solids"
    ],
    "concentrato": false,
    "livelli": {
     "lattosio": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Latte condensato",
+   "nome": "Latte condensato ed evaporato",
    "categoria": "Latticini",
    "termini": [
     "latte condensato",
@@ -1770,14 +4548,70 @@
    "escludi": [],
    "en": [
     "en:condensed-milk",
-    "en:sweetened-condensed-milk"
+    "en:sweetened-condensed-milk",
+    "en:evaporated-milk"
    ],
    "concentrato": false,
    "livelli": {
     "lattosio": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Latticello",
+   "categoria": "Latticini",
+   "termini": [
+    "latticello",
+    "buttermilk"
+   ],
+   "escludi": [],
+   "en": [
+    "en:buttermilk"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "alto"
+   },
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Latticini senza lattosio",
+   "categoria": "Latticini",
+   "termini": [
+    "latte senza lattosio",
+    "latte delattosato",
+    "latte ad alta digeribilità",
+    "yogurt senza lattosio",
+    "gelato senza lattosio",
+    "formaggio senza lattosio"
+   ],
+   "escludi": [],
+   "en": [
+    "en:lactose-free-milk"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Lattosio",
@@ -1787,7 +4621,8 @@
    ],
    "escludi": [
     "senza lattosio",
-    "privo di lattosio"
+    "privo di lattosio",
+    "lattosio inferiore"
    ],
    "en": [
     "en:lactose"
@@ -1797,7 +4632,12 @@
     "lattosio": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Mozzarella",
@@ -1807,14 +4647,22 @@
    ],
    "escludi": [],
    "en": [
-    "en:mozzarella"
+    "en:mozzarella",
+    "en:feta",
+    "en:brie",
+    "en:camembert",
+    "en:goat-cheese"
    ],
    "concentrato": false,
-   "livelli": {
-    "lattosio": "basso"
-   },
+   "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Panna",
@@ -1824,52 +4672,117 @@
     "crema di latte",
     "panna da cucina",
     "panna montata",
-    "panna acida"
+    "panna acida",
+    "panna fresca"
    ],
    "escludi": [],
    "en": [
     "en:cream",
-    "en:whipping-cream"
+    "en:whipping-cream",
+    "en:sour-cream"
    ],
    "concentrato": false,
    "livelli": {
     "lattosio": "medio"
    },
-   "porzione": "poca: basso",
-   "note": ""
+   "porzione": "2 cucchiai: basso (CUH)",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Ricotta e formaggi freschi",
+   "nome": "Parmigiano Reggiano",
    "categoria": "Latticini",
    "termini": [
-    "ricotta",
-    "mascarpone",
-    "latticello",
-    "formaggio fresco",
-    "formaggio spalmabile",
-    "robiola",
-    "stracchino",
-    "cottage cheese",
-    "fiocchi di latte",
-    "quark",
-    "philadelphia",
-    "crescenza",
-    "squacquerone",
-    "formaggio cremoso"
+    "parmigiano",
+    "parmigiano reggiano"
    ],
    "escludi": [],
    "en": [
-    "en:ricotta",
-    "en:mascarpone",
-    "en:buttermilk",
-    "en:cream-cheese"
+    "en:parmigiano-reggiano",
+    "en:grana-padano",
+    "en:pecorino",
+    "en:emmental",
+    "en:cheddar",
+    "en:edam",
+    "en:hard-cheese",
+    "en:gorgonzola",
+    "en:blue-cheese"
    ],
    "concentrato": false,
-   "livelli": {
-    "lattosio": "alto"
-   },
+   "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Pecorino",
+   "categoria": "Latticini",
+   "termini": [
+    "pecorino"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Provolone",
+   "categoria": "Latticini",
+   "termini": [
+    "provolone"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Scamorza",
+   "categoria": "Latticini",
+   "termini": [
+    "scamorza"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Siero di latte",
@@ -1878,38 +4791,65 @@
     "siero di latte",
     "siero di latte in polvere",
     "siero di latte dolce in polvere",
-    "siero"
+    "siero",
+    "proteine del siero concentrate"
    ],
-   "escludi": [],
+   "escludi": [
+    "proteine del siero isolate",
+    "isolato di proteine del siero"
+   ],
    "en": [
     "en:whey",
     "en:whey-powder",
-    "en:sweet-whey-powder"
+    "en:sweet-whey-powder",
+    "en:whey-protein-concentrate"
    ],
    "concentrato": true,
    "livelli": {
     "lattosio": "alto"
    },
    "porzione": "",
-   "note": "Le proteine isolate del siero sono basse."
+   "note": "Isolato di proteine del siero: può essere adatto (CUH).",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Yogurt",
    "categoria": "Latticini",
    "termini": [
     "yogurt",
-    "yoghurt"
+    "yoghurt",
+    "yogurt greco",
+    "yogurt da bere",
+    "fromage frais"
    ],
-   "escludi": [],
+   "escludi": [
+    "yogurt senza lattosio",
+    "yogurt di cocco",
+    "yogurt di soia",
+    "yogurt vegetale"
+   ],
    "en": [
-    "en:yogurt"
+    "en:yogurt",
+    "en:greek-yogurt"
    ],
    "concentrato": false,
    "livelli": {
     "lattosio": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Ceci",
@@ -1919,19 +4859,31 @@
     "ceci",
     "farina di ceci",
     "hummus",
-    "falafel"
+    "falafel",
+    "panelle",
+    "farinata"
    ],
    "escludi": [],
    "en": [
     "en:chickpea",
-    "en:chickpea-flour"
+    "en:chickpeas",
+    "en:chickpea-flour",
+    "en:gram-flour"
    ],
    "concentrato": false,
    "livelli": {
-    "gos": "alto"
+    "gos": "alto",
+    "fruttani": "medio"
    },
-   "porzione": "",
-   "note": "In scatola, ben sciacquati e in piccola porzione: più bassi."
+   "porzione": "in scatola 44 g (CUH)",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "STA"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Edamame",
@@ -1945,112 +4897,607 @@
    ],
    "concentrato": false,
    "livelli": {},
-   "porzione": "",
-   "note": ""
+   "porzione": "90 g (CUH)",
+   "note": "",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
-   "nome": "Fagioli e legumi",
+   "nome": "Fagioli",
    "categoria": "Legumi",
    "termini": [
     "fagiolo",
     "fagioli",
-    "fagioli di lima",
-    "fave",
-    "lupini",
     "fagioli borlotti",
-    "fagioli cannellini"
+    "fagioli cannellini",
+    "fagioli neri",
+    "fagioli rossi",
+    "fagioli di lima",
+    "fagioli dall'occhio",
+    "fagioli azuki",
+    "fagioli pinto",
+    "fagioli in salsa",
+    "fagioli di spagna"
    ],
    "escludi": [
     "fagiolini",
-    "fagioli di soia"
+    "fagioli di soia",
+    "fagioli mungo"
    ],
    "en": [
     "en:kidney-bean",
-    "en:broad-bean",
+    "en:kidney-beans",
     "en:white-bean",
+    "en:white-beans",
     "en:haricot-bean",
     "en:lima-bean",
+    "en:borlotti-bean",
+    "en:black-beans",
+    "en:beans",
+    "en:baked-beans"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "alto"
+   },
+   "porzione": "in scatola 100 g (CUH)",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "STA"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Fave e lupini",
+   "categoria": "Legumi",
+   "termini": [
+    "fava",
+    "fave",
+    "lupino",
+    "lupini",
+    "farina di lupini",
+    "farina di lupino"
+   ],
+   "escludi": [],
+   "en": [
+    "en:broad-bean",
+    "en:broad-beans",
     "en:lupin",
-    "en:borlotti-bean"
+    "en:lupin-flour"
    ],
    "concentrato": false,
    "livelli": {
     "gos": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Lenticchie",
    "categoria": "Legumi",
    "termini": [
     "lenticchia",
-    "lenticchie"
+    "lenticchie",
+    "lenticchie rosse",
+    "dhal",
+    "pasta di lenticchie"
    ],
    "escludi": [],
    "en": [
     "en:lentil",
-    "en:lentils"
+    "en:lentils",
+    "en:red-lentils"
    ],
    "concentrato": false,
    "livelli": {
     "gos": "alto"
    },
-   "porzione": "",
-   "note": "In scatola e sciacquate: più basse."
+   "porzione": "in scatola 44 g (CUH)",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "IFF",
+    "STA",
+    "USL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Piselli",
    "categoria": "Legumi",
    "termini": [
     "pisello",
-    "piselli"
+    "piselli",
+    "piselli spezzati",
+    "piselli surgelati"
    ],
    "escludi": [
     "pisello mangiatutto",
     "piselli mangiatutto",
-    "proteine di pisello"
+    "piselli dolci",
+    "proteine di pisello",
+    "proteine del pisello"
    ],
    "en": [
     "en:pea",
-    "en:peas"
+    "en:peas",
+    "en:split-peas"
    ],
    "concentrato": false,
    "livelli": {
-    "gos": "alto",
-    "fruttani": "medio"
+    "gos": "alto"
    },
-   "porzione": "",
-   "note": ""
+   "porzione": "1 cucchiaio (20 g): basso",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Carne e pesce",
+   "nome": "Soia intera",
+   "categoria": "Legumi",
+   "termini": [
+    "fagioli di soia",
+    "soia gialla",
+    "bevanda di soia",
+    "latte di soia",
+    "farina di soia",
+    "soia testurizzata intera"
+   ],
+   "escludi": [
+    "proteine di soia",
+    "lecitina di soia",
+    "olio di soia",
+    "salsa di soia",
+    "tofu"
+   ],
+   "en": [
+    "en:soybean",
+    "en:soybeans",
+    "en:soy-drink",
+    "en:soya-drink",
+    "en:soy-flour"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "alto"
+   },
+   "porzione": "",
+   "note": "Bevanda da proteine di soia: bassa (Monash).",
+   "fonti": [
+    "MON",
+    "CUH",
+    "STA"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Acciughe",
    "categoria": "Proteine",
    "termini": [
-    "carne",
-    "pollo",
-    "tacchino",
-    "manzo",
+    "acciughe",
+    "alici"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Agnello",
+   "categoria": "Proteine",
+   "termini": [
+    "agnello"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Carni impanate, marinate o in salsa possono contenere frumento, aglio o cipolla.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Anatra e coniglio",
+   "categoria": "Proteine",
+   "termini": [
+    "anatra",
+    "coniglio"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Carni impanate, marinate o in salsa possono contenere frumento, aglio o cipolla.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Bresaola",
+   "categoria": "Proteine",
+   "termini": [
+    "bresaola"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Carni impanate, marinate o in salsa possono contenere frumento, aglio o cipolla.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Calamari, polpo e seppie",
+   "categoria": "Proteine",
+   "termini": [
+    "calamari",
+    "polpo",
+    "seppie"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Cozze e vongole",
+   "categoria": "Proteine",
+   "termini": [
+    "cozze",
+    "vongole",
+    "frutti di mare"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Gamberi",
+   "categoria": "Proteine",
+   "termini": [
+    "gamberi",
+    "gamberetti"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Maiale",
+   "categoria": "Proteine",
+   "termini": [
     "maiale",
-    "prosciutto",
-    "pesce",
-    "tonno",
-    "salmone"
+    "suino"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Carni impanate, marinate o in salsa possono contenere frumento, aglio o cipolla.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Manzo e vitello",
+   "categoria": "Proteine",
+   "termini": [
+    "manzo",
+    "bovino",
+    "vitello",
+    "carne"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Carni impanate, marinate o in salsa possono contenere frumento, aglio o cipolla.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Merluzzo",
+   "categoria": "Proteine",
+   "termini": [
+    "merluzzo"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Pancetta e speck",
+   "categoria": "Proteine",
+   "termini": [
+    "pancetta",
+    "speck"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Carni impanate, marinate o in salsa possono contenere frumento, aglio o cipolla.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Pesce",
+   "categoria": "Proteine",
+   "termini": [
+    "pesce"
+   ],
+   "escludi": [],
+   "en": [
+    "en:fish",
+    "en:tuna",
+    "en:salmon",
+    "en:cod",
+    "en:mackerel",
+    "en:sardines",
+    "en:anchovies",
+    "en:shrimp",
+    "en:prawns",
+    "en:mussels",
+    "en:squid"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Pollo",
+   "categoria": "Proteine",
+   "termini": [
+    "pollo"
    ],
    "escludi": [],
    "en": [
     "en:meat",
     "en:chicken",
-    "en:pork",
+    "en:turkey",
     "en:beef",
-    "en:fish",
-    "en:tuna",
-    "en:salmon"
+    "en:veal",
+    "en:pork",
+    "en:lamb",
+    "en:duck",
+    "en:ham",
+    "en:bacon"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": "Attenzione a marinature e preparati con aglio e cipolla."
+   "note": "Carni impanate, marinate o in salsa possono contenere frumento, aglio o cipolla.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Prosciutto",
+   "categoria": "Proteine",
+   "termini": [
+    "prosciutto",
+    "prosciutto crudo",
+    "prosciutto cotto"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Carni impanate, marinate o in salsa possono contenere frumento, aglio o cipolla.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Proteine vegetali isolate",
+   "categoria": "Proteine",
+   "termini": [
+    "proteine di soia",
+    "proteine isolate di soia",
+    "soia testurizzata",
+    "proteine di pisello",
+    "proteine del pisello",
+    "proteine di riso",
+    "quorn",
+    "micoproteine"
+   ],
+   "escludi": [],
+   "en": [
+    "en:soy-protein",
+    "en:soy-protein-isolate",
+    "en:pea-protein",
+    "en:rice-protein",
+    "en:mycoprotein"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Controlla aromi e cipolla nei preparati.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Salame e salsiccia",
+   "categoria": "Proteine",
+   "termini": [
+    "salame",
+    "salsiccia"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Carni impanate, marinate o in salsa possono contenere frumento, aglio o cipolla.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Salmone",
+   "categoria": "Proteine",
+   "termini": [
+    "salmone"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Sardine",
+   "categoria": "Proteine",
+   "termini": [
+    "sardine"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Sgombro",
+   "categoria": "Proteine",
+   "termini": [
+    "sgombro"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Tacchino",
+   "categoria": "Proteine",
+   "termini": [
+    "tacchino"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Carni impanate, marinate o in salsa possono contenere frumento, aglio o cipolla.",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Tofu compatto e tempeh",
@@ -2072,7 +5519,14 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": "Il tofu morbido (silken) è alto in GOS."
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Tofu morbido (silken)",
@@ -2092,7 +5546,30 @@
     "gos": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "CUH: tofu bassi tranne silken.",
+   "fonti": [
+    "LIV",
+    "CUH"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Tonno",
+   "categoria": "Proteine",
+   "termini": [
+    "tonno"
+   ],
+   "escludi": [],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Uova",
@@ -2101,19 +5578,28 @@
     "uovo",
     "uova",
     "tuorlo",
-    "albume"
+    "tuorlo d'uovo",
+    "albume",
+    "uova intere",
+    "uova in polvere"
    ],
    "escludi": [],
    "en": [
     "en:egg",
     "en:eggs",
     "en:egg-yolk",
-    "en:egg-white"
+    "en:egg-white",
+    "en:whole-egg"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Aglio",
@@ -2121,19 +5607,59 @@
    "termini": [
     "aglio",
     "aglio in polvere",
-    "aglio disidratato"
+    "aglio disidratato",
+    "aglio granulare",
+    "estratto di aglio",
+    "purea di aglio",
+    "aglio nero"
    ],
-   "escludi": [],
+   "escludi": [
+    "olio aromatizzato all'aglio",
+    "olio all'aglio"
+   ],
    "en": [
     "en:garlic",
-    "en:garlic-powder"
+    "en:garlic-powder",
+    "en:dried-garlic"
    ],
    "concentrato": true,
    "livelli": {
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": "Anche poche quantità contano. L'olio aromatizzato all'aglio è basso."
+   "note": "Conta anche in piccole quantità. L'olio aromatizzato all'aglio (filtrato) è basso.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "STA"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Alghe",
+   "categoria": "Verdura",
+   "termini": [
+    "alghe",
+    "alga",
+    "wakame",
+    "kombu"
+   ],
+   "escludi": [],
+   "en": [
+    "en:seaweed"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "CUH: alghe da evitare, nori bassa. Orlando: basse.",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "discordante"
   },
   {
    "nome": "Asparagi",
@@ -2152,7 +5678,15 @@
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Barbabietola",
@@ -2162,7 +5696,10 @@
     "barbabietole",
     "rapa rossa"
    ],
-   "escludi": [],
+   "escludi": [
+    "barbabietola sottaceto",
+    "barbabietole sottaceto"
+   ],
    "en": [
     "en:beetroot",
     "en:beet"
@@ -2172,8 +5709,37 @@
     "fruttani": "medio",
     "gos": "medio"
    },
-   "porzione": "2 fette: basso",
-   "note": ""
+   "porzione": "2 fette (25 g): basso",
+   "note": "Sottaceto: bassa (CUH).",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Bietola",
+   "categoria": "Verdura",
+   "termini": [
+    "bietola",
+    "bietole",
+    "bieta",
+    "coste"
+   ],
+   "escludi": [],
+   "en": [
+    "en:chard",
+    "en:swiss-chard"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Broccoli",
@@ -2181,17 +5747,27 @@
    "termini": [
     "broccolo",
     "broccoli",
-    "cime di rapa",
-    "friarielli"
+    "cime di broccoli",
+    "broccoletti",
+    "friarielli",
+    "cime di rapa"
    ],
    "escludi": [],
    "en": [
     "en:broccoli"
    ],
    "concentrato": false,
-   "livelli": {},
-   "porzione": "",
-   "note": "Le cimette sono basse, i gambi hanno più fruttosio."
+   "livelli": {
+    "fruttani": "medio"
+   },
+   "porzione": "solo cimette: basso",
+   "note": "CUH: cimette basse, gambi e tenderstem da limitare. Liverpool e Orlando: alto.",
+   "fonti": [
+    "LIV",
+    "ORL",
+    "CUH"
+   ],
+   "conferma": "discordante"
   },
   {
    "nome": "Carciofo",
@@ -2199,7 +5775,9 @@
    "termini": [
     "carciof*"
    ],
-   "escludi": [],
+   "escludi": [
+    "cuori di carciofo in scatola"
+   ],
    "en": [
     "en:artichoke"
    ],
@@ -2209,7 +5787,15 @@
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "Cuori di carciofo in scatola: bassi (CUH).",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Carota",
@@ -2220,12 +5806,21 @@
    ],
    "escludi": [],
    "en": [
-    "en:carrot"
+    "en:carrot",
+    "en:carrots"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Cavoletti di Bruxelles",
@@ -2242,8 +5837,14 @@
    "livelli": {
     "fruttani": "medio"
    },
-   "porzione": "2 cavoletti: basso",
-   "note": ""
+   "porzione": "meno di 3 (60 g): basso",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Cavolfiore",
@@ -2258,10 +5859,18 @@
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "alto"
+    "mannitolo": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "FF"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Cavolo cappuccio",
@@ -2270,49 +5879,110 @@
     "cavolo cappuccio",
     "cavolo rosso",
     "cavolo bianco",
-    "crauti"
+    "cavolo"
    ],
-   "escludi": [],
+   "escludi": [
+    "cavolo riccio",
+    "cavolo nero",
+    "cavolo verza",
+    "cavolfiore",
+    "cavolo cinese",
+    "cavoletti di bruxelles",
+    "cavolo fermentato"
+   ],
    "en": [
     "en:cabbage",
     "en:red-cabbage",
-    "en:sauerkraut"
+    "en:white-cabbage"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "medio"
+   },
+   "porzione": "",
+   "note": "CUH e FODMAP Friendly: basso. Liverpool e Orlando: alto. Livello prudente.",
+   "fonti": [
+    "LIV",
+    "ORL",
+    "CUH",
+    "FF"
+   ],
+   "conferma": "discordante"
+  },
+  {
+   "nome": "Cavolo riccio e cavolo nero",
+   "categoria": "Verdura",
+   "termini": [
+    "cavolo riccio",
+    "cavolo nero",
+    "kale"
+   ],
+   "escludi": [],
+   "en": [
+    "en:kale"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Cetriolo, rucola e ravanelli",
+   "nome": "Cetriolo",
    "categoria": "Verdura",
    "termini": [
     "cetriolo",
     "cetrioli",
-    "rucola",
-    "ravanello",
-    "ravanelli",
-    "radicchio",
-    "bietola",
-    "bieta",
-    "cavolo riccio",
-    "pak choi",
-    "germogli di soia"
+    "cetriolini"
    ],
    "escludi": [],
    "en": [
     "en:cucumber",
-    "en:rocket",
-    "en:radish",
-    "en:chard",
-    "en:kale",
-    "en:bok-choy",
-    "en:bean-sprouts"
+    "en:gherkin"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Cicoria e radicchio",
+   "categoria": "Verdura",
+   "termini": [
+    "cicoria",
+    "radicchio",
+    "foglie di cicoria"
+   ],
+   "escludi": [
+    "radice di cicoria",
+    "fibra di cicoria",
+    "cicoria solubile"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "La radice di cicoria è alta in fruttani.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Cipolla e scalogno",
@@ -2322,49 +5992,86 @@
     "cipolle",
     "cipolla in polvere",
     "cipolla disidratata",
+    "cipolla rossa",
+    "cipolla bianca",
+    "cipolla dorata",
     "scalogno",
     "scalogni",
     "cipollotto",
     "cipollotti",
-    "cipolla rossa",
-    "cipolla bianca",
-    "cipolla dorata"
+    "estratto di cipolla"
    ],
    "escludi": [
-    "erba cipollina"
+    "erba cipollina",
+    "parte verde del cipollotto"
    ],
    "en": [
     "en:onion",
     "en:onion-powder",
-    "en:shallot"
+    "en:dried-onion",
+    "en:shallot",
+    "en:spring-onion"
    ],
    "concentrato": true,
    "livelli": {
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": "Anche poche quantità contano. La parte verde del cipollotto e l'erba cipollina sono basse."
+   "note": "Conta anche in piccole quantità. La parte verde del cipollotto è bassa.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "STA"
+   ],
+   "conferma": "confermato"
   },
   {
-   "nome": "Erba cipollina e zenzero",
+   "nome": "Crauti",
    "categoria": "Verdura",
    "termini": [
-    "erba cipollina",
-    "zenzero",
-    "olive",
-    "olio aromatizzato all'aglio"
+    "crauti",
+    "cavolo fermentato"
    ],
    "escludi": [],
    "en": [
-    "en:chives",
-    "en:ginger",
-    "en:olive",
-    "en:olives"
+    "en:sauerkraut"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "mannitolo": "alto"
+   },
+   "porzione": "dipende dal prodotto",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "FF"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Erba cipollina",
+   "categoria": "Verdura",
+   "termini": [
+    "erba cipollina",
+    "parte verde del cipollotto"
+   ],
+   "escludi": [],
+   "en": [
+    "en:chives"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": "Buoni sostituti di aglio e cipolla."
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Fagiolini",
@@ -2381,7 +6088,15 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": "Porzioni molto grandi: medio (polioli)."
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Finocchio",
@@ -2391,7 +6106,10 @@
     "finocchi"
    ],
    "escludi": [
-    "semi di finocchio"
+    "semi di finocchio",
+    "foglie di finocchio",
+    "tisana al finocchio",
+    "tè al finocchio"
    ],
    "en": [
     "en:fennel"
@@ -2400,8 +6118,13 @@
    "livelli": {
     "fruttani": "medio"
    },
-   "porzione": "mezza tazza: basso",
-   "note": "Le foglie verdi sono basse."
+   "porzione": "3 cucchiai (60 g): basso",
+   "note": "Foglie: basse.",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Funghi",
@@ -2410,37 +6133,146 @@
     "fungo",
     "funghi",
     "champignon",
+    "prataioli",
+    "shiitake",
+    "portobello",
+    "funghi porcini",
     "porcini",
-    "funghi porcini"
+    "funghi secchi"
    ],
-   "escludi": [],
+   "escludi": [
+    "funghi in scatola",
+    "funghi pleurotus",
+    "pleurotus"
+   ],
    "en": [
     "en:mushroom",
     "en:mushrooms",
-    "en:champignon"
+    "en:champignon",
+    "en:porcini"
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "alto"
+    "mannitolo": "alto"
    },
+   "porzione": "porcini secchi: 15 g (CUH)",
+   "note": "Pleurotus e funghi in scatola: bassi (CUH).",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL",
+    "FF"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Germogli",
+   "categoria": "Verdura",
+   "termini": [
+    "germogli di soia",
+    "germogli",
+    "germogli di erba medica",
+    "germogli di fagioli mungo"
+   ],
+   "escludi": [],
+   "en": [
+    "en:bean-sprouts",
+    "en:alfalfa-sprouts"
+   ],
+   "concentrato": false,
+   "livelli": {},
    "porzione": "",
-   "note": "Gli champignon in scatola sono più bassi."
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Germogli di bambù e castagne d'acqua",
+   "categoria": "Verdura",
+   "termini": [
+    "germogli di bambù",
+    "bambù",
+    "castagne d'acqua"
+   ],
+   "escludi": [],
+   "en": [
+    "en:bamboo-shoots",
+    "en:water-chestnut"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Indivia e scarola",
+   "categoria": "Verdura",
+   "termini": [
+    "indivia",
+    "scarola"
+   ],
+   "escludi": [
+    "radice di cicoria",
+    "fibra di cicoria",
+    "cicoria solubile"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "La radice di cicoria è alta in fruttani.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Lattuga",
    "categoria": "Verdura",
    "termini": [
     "lattuga",
-    "insalata"
+    "insalata",
+    "iceberg",
+    "lattuga romana"
    ],
-   "escludi": [],
+   "escludi": [
+    "radice di cicoria",
+    "fibra di cicoria",
+    "cicoria solubile"
+   ],
    "en": [
-    "en:lettuce"
+    "en:lettuce",
+    "en:salad",
+    "en:radicchio"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "La radice di cicoria è alta in fruttani.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Mais dolce",
@@ -2457,10 +6289,45 @@
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "medio"
+    "sorbitolo": "medio"
    },
-   "porzione": "mezza pannocchia: basso",
-   "note": ""
+   "porzione": "mezza pannocchia (38-40 g): basso",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL",
+    "FE"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Manioca, taro e igname",
+   "categoria": "Verdura",
+   "termini": [
+    "manioca",
+    "cassava",
+    "taro",
+    "igname",
+    "yam",
+    "tapioca"
+   ],
+   "escludi": [],
+   "en": [
+    "en:cassava",
+    "en:taro",
+    "en:yam",
+    "en:tapioca"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Melanzana",
@@ -2477,7 +6344,15 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Okra",
@@ -2491,11 +6366,89 @@
     "en:okra"
    ],
    "concentrato": false,
-   "livelli": {
-    "fruttani": "medio"
-   },
-   "porzione": "6 baccelli: basso",
-   "note": ""
+   "livelli": {},
+   "porzione": "7 baccelli (75 g)",
+   "note": "CUH: da limitare. Verifica in Monash.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
+  },
+  {
+   "nome": "Olive",
+   "categoria": "Verdura",
+   "termini": [
+    "oliva",
+    "olive",
+    "olive verdi",
+    "olive nere"
+   ],
+   "escludi": [],
+   "en": [
+    "en:olive",
+    "en:olives",
+    "en:green-olives",
+    "en:black-olives"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Pak choi e cavolo cinese",
+   "categoria": "Verdura",
+   "termini": [
+    "pak choi",
+    "bok choy",
+    "cavolo cinese",
+    "choy sum"
+   ],
+   "escludi": [],
+   "en": [
+    "en:bok-choy",
+    "en:pak-choi",
+    "en:chinese-cabbage"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Pastinaca",
+   "categoria": "Verdura",
+   "termini": [
+    "pastinaca",
+    "pastinache"
+   ],
+   "escludi": [],
+   "en": [
+    "en:parsnip"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Patata",
@@ -2503,7 +6456,8 @@
    "termini": [
     "patata",
     "patate",
-    "fecola di patate"
+    "fecola di patate",
+    "fiocchi di patate"
    ],
    "escludi": [
     "patata dolce",
@@ -2513,12 +6467,22 @@
    ],
    "en": [
     "en:potato",
-    "en:potato-starch"
+    "en:potatoes",
+    "en:potato-starch",
+    "en:potato-flakes"
    ],
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Patata dolce",
@@ -2535,13 +6499,18 @@
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "medio"
+    "mannitolo": "medio"
    },
-   "porzione": "mezza tazza: basso",
-   "note": ""
+   "porzione": "3 cucchiai (75 g): basso",
+   "note": "Liverpool la indica bassa.",
+   "fonti": [
+    "CUH",
+    "ORL"
+   ],
+   "conferma": "discordante"
   },
   {
-   "nome": "Peperone rosso e giallo",
+   "nome": "Peperone",
    "categoria": "Verdura",
    "termini": [
     "peperone",
@@ -2550,40 +6519,96 @@
     "peperoni rossi",
     "peperone giallo",
     "peperoni gialli",
-    "peperoncino dolce"
-   ],
-   "escludi": [
-    "peperone verde",
-    "peperoni verdi"
-   ],
-   "en": [
-    "en:bell-pepper",
-    "en:red-bell-pepper",
-    "en:yellow-bell-pepper"
-   ],
-   "concentrato": false,
-   "livelli": {
-    "fruttosio": "medio"
-   },
-   "porzione": "circa 40 g: basso",
-   "note": "In porzioni normali il fruttosio sale. Il peperone verde è più basso."
-  },
-  {
-   "nome": "Peperone verde",
-   "categoria": "Verdura",
-   "termini": [
     "peperone verde",
     "peperoni verdi",
     "friggitelli"
    ],
    "escludi": [],
    "en": [
+    "en:bell-pepper",
+    "en:red-bell-pepper",
+    "en:yellow-bell-pepper",
     "en:green-bell-pepper"
    ],
    "concentrato": false,
    "livelli": {},
-   "porzione": "circa 75 g",
-   "note": ""
+   "porzione": "",
+   "note": "Tutti i colori bassi per CUH, Liverpool e USL. Monash indica fruttosio nel rosso in porzioni grandi.",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Piselli dolci (sugar snap)",
+   "categoria": "Verdura",
+   "termini": [
+    "piselli dolci",
+    "sugar snap",
+    "taccole sugar snap"
+   ],
+   "escludi": [],
+   "en": [
+    "en:sugar-snap-peas"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "mannitolo": "alto"
+   },
+   "porzione": "7 baccelli (20 g)",
+   "note": "Tipo di FODMAP da verificare in Monash.",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "IFF",
+    "USL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Pleurotus e funghi in scatola",
+   "categoria": "Verdura",
+   "termini": [
+    "pleurotus",
+    "funghi pleurotus",
+    "funghi in scatola"
+   ],
+   "escludi": [],
+   "en": [
+    "en:oyster-mushroom"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
+  },
+  {
+   "nome": "Pomodori secchi",
+   "categoria": "Verdura",
+   "termini": [
+    "pomodori secchi",
+    "pomodoro secco",
+    "pomodori essiccati"
+   ],
+   "escludi": [],
+   "en": [
+    "en:sun-dried-tomatoes"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "4 pezzi (20 g)",
+   "note": "CUH: da limitare. Verifica in Monash.",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
   },
   {
    "nome": "Pomodoro",
@@ -2593,18 +6618,32 @@
     "pomodori",
     "passata di pomodoro",
     "polpa di pomodoro",
-    "concentrato di pomodoro"
+    "concentrato di pomodoro",
+    "pomodorini",
+    "pelati"
    ],
-   "escludi": [],
+   "escludi": [
+    "pomodori secchi",
+    "pomodoro secco",
+    "pomodori essiccati"
+   ],
    "en": [
     "en:tomato",
+    "en:tomatoes",
     "en:tomato-puree",
     "en:tomato-paste"
    ],
    "concentrato": false,
    "livelli": {},
-   "porzione": "",
-   "note": ""
+   "porzione": "succo di pomodoro: 200 ml (CUH)",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Porro",
@@ -2622,7 +6661,60 @@
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": "Le foglie verdi sono basse."
+   "note": "Orlando Health lo indica basso; prevale la maggioranza.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Ravanelli",
+   "categoria": "Verdura",
+   "termini": [
+    "ravanello",
+    "ravanelli",
+    "rapa",
+    "rape",
+    "daikon"
+   ],
+   "escludi": [],
+   "en": [
+    "en:radish",
+    "en:turnip"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
+  },
+  {
+   "nome": "Rucola",
+   "categoria": "Verdura",
+   "termini": [
+    "rucola"
+   ],
+   "escludi": [],
+   "en": [
+    "en:rocket",
+    "en:arugula"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Sedano",
@@ -2633,17 +6725,24 @@
     "coste di sedano"
    ],
    "escludi": [
-    "sedano rapa"
+    "sedano rapa",
+    "foglie di sedano"
    ],
    "en": [
     "en:celery"
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "alto"
+    "mannitolo": "medio"
    },
-   "porzione": "pochi grammi: basso",
-   "note": ""
+   "porzione": "1/3 di gambo (10-15 g): basso",
+   "note": "Liverpool e Orlando lo indicano basso: conta la porzione.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "FE"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Sedano rapa",
@@ -2658,13 +6757,44 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH"
+   ],
+   "conferma": "da verificare"
+  },
+  {
+   "nome": "Songino",
+   "categoria": "Verdura",
+   "termini": [
+    "songino",
+    "valeriana"
+   ],
+   "escludi": [
+    "radice di cicoria",
+    "fibra di cicoria",
+    "cicoria solubile"
+   ],
+   "en": [],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "La radice di cicoria è alta in fruttani.",
+   "fonti": [
+    "MON",
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Spinaci",
    "categoria": "Verdura",
    "termini": [
-    "spinaci"
+    "spinaci",
+    "spinacino"
    ],
    "escludi": [],
    "en": [
@@ -2673,7 +6803,13 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "ORL"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Taccole",
@@ -2682,39 +6818,52 @@
     "taccola",
     "taccole",
     "pisello mangiatutto",
-    "piselli mangiatutto",
-    "piselli dolci",
-    "sugar snap"
+    "piselli mangiatutto"
    ],
    "escludi": [],
    "en": [
     "en:snow-pea",
+    "en:snow-peas",
     "en:mangetout"
    ],
    "concentrato": false,
    "livelli": {
-    "fruttosio": "alto",
-    "polioli": "alto"
+    "mannitolo": "alto",
+    "fruttani": "medio",
+    "gos": "medio"
    },
-   "porzione": "",
-   "note": ""
+   "porzione": "5 baccelli (16-20 g): basso",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "IFF",
+    "FE"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Topinambur",
    "categoria": "Verdura",
    "termini": [
-    "topinambur"
+    "topinambur",
+    "polvere di topinambur"
    ],
    "escludi": [],
    "en": [
     "en:jerusalem-artichoke"
    ],
-   "concentrato": false,
+   "concentrato": true,
    "livelli": {
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "MON",
+    "CUH"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Verza",
@@ -2731,8 +6880,13 @@
    "livelli": {
     "fruttani": "medio"
    },
-   "porzione": "mezza tazza: basso",
-   "note": ""
+   "porzione": "mezza tazza (40-55 g): basso",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "FE"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Zucca",
@@ -2740,7 +6894,9 @@
    "termini": [
     "zucca",
     "zucca delica",
-    "zucca mantovana"
+    "zucca mantovana",
+    "zucca gialla",
+    "zucca hokkaido"
    ],
    "escludi": [
     "zucca butternut",
@@ -2755,7 +6911,12 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": ""
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Zucca butternut",
@@ -2771,18 +6932,24 @@
    ],
    "concentrato": false,
    "livelli": {
-    "polioli": "medio",
+    "mannitolo": "medio",
     "gos": "medio"
    },
-   "porzione": "circa 60 g: basso",
-   "note": ""
+   "porzione": "meno di 3 cucchiai (60 g): basso",
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV"
+   ],
+   "conferma": "confermato"
   },
   {
    "nome": "Zucchina",
    "categoria": "Verdura",
    "termini": [
     "zucchina",
-    "zucchine"
+    "zucchine",
+    "zucchina trombetta"
    ],
    "escludi": [],
    "en": [
@@ -2792,7 +6959,14 @@
    "concentrato": false,
    "livelli": {},
    "porzione": "",
-   "note": "Porzioni molto grandi: medio."
+   "note": "",
+   "fonti": [
+    "CUH",
+    "LIV",
+    "USL",
+    "ORL"
+   ],
+   "conferma": "confermato"
   }
  ]
 }

@@ -38,8 +38,8 @@ ul.note{margin:0;padding-left:18px;font-size:.9rem;color:var(--muted);display:gr
 .lista img,.lista .noimg{width:48px;height:48px}
 .lista span{min-width:0;overflow-wrap:anywhere}
 .cibo{display:grid;gap:10px}
-.cibo .lv{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
-@media (max-width:480px){.cibo .lv{grid-template-columns:repeat(2,1fr)}}
+.cibo .lv{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+@media (max-width:560px){.cibo .lv{grid-template-columns:repeat(3,1fr)}}
 .cibo .lv div{border-radius:10px;padding:8px;display:grid;gap:2px;font-size:.85rem}
 .cibo .lv b{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
 .cibo + .cibo{border-top:1px solid var(--line);padding-top:14px}
@@ -88,7 +88,7 @@ ul.note{margin:0;padding-left:18px;font-size:.9rem;color:var(--muted);display:gr
 
 <script>
 /* ===================== TABELLA FODMAP (fodmap.json) ===================== */
-const GRUPPI = ["fruttosio", "lattosio", "polioli", "fruttani", "gos"];
+const GRUPPI = ["fruttosio", "lattosio", "sorbitolo", "mannitolo", "fruttani", "gos"];
 let DB = null, ALIMENTI = [];
 const LIVN = { basso: 0, medio: 1, alto: 2 };
 const NOME_LIV = ["Basso", "Medio", "Alto"];
@@ -105,7 +105,7 @@ function termRe(lista) {
   return parti.length ? new RegExp(parti.join("|"), "iu") : null;
 }
 function compila(db) {
-  return (db.alimenti || []).map(a => ({ ...a, re: termRe(a.termini), ex: termRe(a.escludi), tags: new Set(a.en || []) }));
+  return (db.alimenti || []).map(a => { const ex = termRe(a.escludi); return { ...a, re: termRe(a.termini), ex: ex && new RegExp(ex.source, "giu"), tags: new Set(a.en || []) }; });
 }
 async function caricaDB() {
   const r = await fetch("fodmap.json?v=" + Date.now(), { cache: "no-store" });
@@ -125,20 +125,20 @@ const TAG_SENZA_GLUTINE = ["en:no-gluten","en:gluten-free","en:crossed-grain-sym
 const TAG_SENZA_LATTOSIO = ["en:no-lactose","en:lactose-free","it:senza-lattosio","en:low-lactose"];
 const FORMAGGI_STAGIONATI = /parmigiano|grana padano|pecorino|emmental|gruy[eè]re|provolone|asiago stagionato|montasio stagionato/i;
 
-const testa = (re, ex, testo) => !!re && re.test(ex ? testo.replace(new RegExp(ex.source, "giu"), " ") : testo);
+const testa = (re, ex, testo) => !!re && re.test(ex ? testo.replace(ex.global ? ex : new RegExp(ex.source, "giu"), " ") : testo);
 const haGlutine = ing => testa(GLUT_FORTE, GLUT_ESCL, ing.text) || GLUT_TAGS.has(ing.id);
 
 /* ===================== MOTORE ===================== */
 function appiattisci(list, out = []) {
   (list || []).forEach((ing, i) => {
     const pct = typeof ing.percent_estimate === "number" ? ing.percent_estimate : (typeof ing.percent === "number" ? ing.percent : null);
-    out.push({ text: (ing.text || "").toLowerCase(), id: (ing.id || "").toLowerCase(), pct, pos: i });
+    out.push({ text: (ing.text || "").toLowerCase(), id: (ing.id || "").toLowerCase(), pct, pos: i, foglia: !ing.ingredients?.length });
     if (ing.ingredients) appiattisci(ing.ingredients, out);
   });
   return out;
 }
 function daTesto(t) {
-  return t.toLowerCase().split(/[,;()\[\]]+/).map(s => s.trim()).filter(Boolean).map((s, i) => ({ text: s, id: "", pct: null, pos: i }));
+  return t.toLowerCase().split(/[,;()\[\]]+/).map(s => s.trim()).filter(Boolean).map((s, i) => ({ text: s, id: "", pct: null, pos: i, foglia: true }));
 }
 const STIMA_POS = [40, 20, 10, 6, 4, 3, 2];
 const pctDi = ing => ing.pct != null ? ing.pct : (STIMA_POS[ing.pos] ?? 1.5);
@@ -263,7 +263,7 @@ function trovaInTabella(q) {
     const nomi = [a.nome, ...(a.termini || [])].map(norm);
     let s = 0;
     if (nomi.some(x => x === n)) s = 3;
-    else if (nomi.some(x => { const b = x.replace("*", ""); return x.startsWith(n) || (b.length >= 4 && n.startsWith(b)); })) s = 2;
+    else if (nomi.some(x => { const b = x.replace("*", ""); return x.startsWith(n) || (b.length >= 4 && n.startsWith(b) && n.length - b.length <= 2); })) s = 2;
     else if (parole.some(w => nomi.some(x => x.split(/\s+/).some(t => t.length > 3 && t.slice(0, -1) === w.slice(0, -1))))) s = 1; // singolare/plurale
     return { a, s };
   }).filter(x => x.s).sort((x, y) => y.s - x.s).filter((x, _, arr) => x.s >= arr[0].s - 1 && (x.s > 1 || arr[0].s === 1)).slice(0, 5).map(x => x.a);
@@ -283,6 +283,7 @@ function schedaAlimento(a) {
     ${glut ? `<div class="pill bad" style="justify-self:start">Contiene glutine</div>` : ""}
     ${a.porzione ? `<div><span class="label">Porzione</span> ${esc(a.porzione)}</div>` : ""}
     ${a.note ? `<div class="sub" style="margin:0">${esc(a.note)}</div>` : ""}
+    <div class="sub" style="margin:0;font-size:.8rem">${a.conferma && a.conferma !== "confermato" ? `<span class="pill ${a.conferma === "discordante" ? "warn" : "na"}">${esc(a.conferma)}</span> ` : ""}Fonti: ${(a.fonti || []).map(f => DB.fonti?.[f]?.url ? `<a href="${esc(DB.fonti[f].url)}" target="_blank" rel="noopener">${esc(f)}</a>` : esc(f)).join(", ") || "nessuna"}</div>
   </div>`;
 }
 async function cercaAlimento(q) {
@@ -325,6 +326,9 @@ async function analizza(code) {
     senzaLattosio: labels.some(t => TAG_SENZA_LATTOSIO.includes(t)) || /senza lattosio|delattosat/i.test(testo + " " + nome),
     stagionato: FORMAGGI_STAGIONATI.test(nome + " " + (p.categories_tags || []).join(" ")),
   };
+  const NEUTRO = /^(e ?\d{3,4}[a-z]?|[\d.,]+ ?%?|.{0,2})$/i;
+  const ignoti = [...new Set(ings.filter(i => i.foglia && !NEUTRO.test(i.text.trim()) && !ALIMENTI.some(a => corrisponde(a, i))).map(i => i.text.trim()))];
+  const daVerif = ALIMENTI.filter(a => a.conferma && a.conferma !== "confermato" && ings.some(i => corrisponde(a, i)));
   const g = valutaGlutine(p, ings, haIngr, ctx);
   const l = valutaLattosio(p, ings, haIngr, ctx);
   const f = haIngr ? valutaFodmap(ings, ctx) : null;
@@ -352,6 +356,10 @@ async function analizza(code) {
     </div>
     ${f ? `<div class="panel"><h2>FODMAP per gruppo</h2><div>${dettaglio}</div>
       <p class="sub" style="margin:0">Percentuali: quota stimata dell'ingrediente nel prodotto (~ = dalla posizione in lista). Le fonti concentrate (aglio, cipolla, miele, inulina, polioli) pesano anche in piccole quantità.</p></div>` : ""}
+    ${daVerif.length ? `<div class="panel"><h3>Da verificare</h3><p class="sub" style="margin:0">Le fonti non bastano o non sono d'accordo su questi ingredienti: controllali nell'app Monash.</p>
+      <div class="chips">${daVerif.map(a => `<a class="chip" style="text-decoration:none" href="tabella.html?modifica=${encodeURIComponent(a.nome)}">${esc(a.nome)}</a>`).join("")}</div></div>` : ""}
+    ${ignoti.length ? `<div class="panel"><h3>Ingredienti non in tabella (${ignoti.length})</h3><p class="sub" style="margin:0">Non sono stati valutati. Tocca per aggiungerli alla tabella dopo averli controllati.</p>
+      <div class="chips">${ignoti.map(t => `<a class="chip" style="text-decoration:none" href="tabella.html?aggiungi=${encodeURIComponent(t)}">+ ${esc(t)}</a>`).join("")}</div></div>` : ""}
     <div class="panel"><h3>Ingredienti</h3><div class="ingr">${esc(testo || "Non disponibili")}</div></div>
     <div class="panel"><h3>Da sapere</h3><ul class="note">
       <li>I dati sono inseriti da volontari: confronta sempre con l'etichetta della confezione.</li>
