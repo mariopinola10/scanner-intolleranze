@@ -271,7 +271,24 @@ async function carica() {
     $("#info").textContent = "Tabella non caricata";
     return;
   }
-  modifiche = 0; aggiornaBarra();
+  modifiche = 0;
+  // voci proposte dall'assistente IA nello scanner, in attesa di pubblicazione
+  let proposte = [];
+  try { proposte = JSON.parse(localStorage.getItem("fodmap-proposte") || "[]"); } catch {}
+  for (const p of proposte) {
+    const { proposta, ...dati } = p.dati;
+    const i = DB.alimenti.findIndex(a => norm(a.nome) === norm(p.sostituisce || dati.nome));
+    if (i >= 0) DB.alimenti[i] = { ...DB.alimenti[i], ...dati }; else DB.alimenti.push(dati);
+    modifiche++;
+  }
+  if (proposte.length) {
+    DB.fonti = DB.fonti || {};
+    if (!DB.fonti.IA) DB.fonti.IA = { nome: "Assistente IA (Gemini con ricerca Google): da verificare", url: "" };
+    ordina();
+    if (!inModifica) attivaModifica(true);
+    stato(`${proposte.length} ${proposte.length === 1 ? "voce proposta" : "voci proposte"} dall'assistente IA ${proposte.length === 1 ? "è stata aggiunta" : "sono state aggiunte"} (filtro "Da verificare"). Controlla e premi <b>Pubblica su GitHub</b>.`, "okm");
+  }
+  aggiornaBarra();
   const cats = [...new Set(DB.alimenti.map(a => a.categoria || "Altro"))].sort((a, b) => a.localeCompare(b, "it"));
   $("#fc").innerHTML = `<option value="">Tutte le categorie</option>` + cats.map(x => `<option>${esc(x)}</option>`).join("");
   $("#dlCat").innerHTML = cats.map(x => `<option value="${esc(x)}">`).join("");
@@ -415,6 +432,7 @@ $("#btnPubblica").onclick = async () => {
     const j = await r.json().catch(() => null);
     if (!r.ok) { DB.versione--; throw new Error(erroreGh(r, j)); }
     SHA = j.content.sha; modifiche = 0; aggiornaBarra();
+    try { localStorage.removeItem("fodmap-proposte"); } catch {}
     $("#info").textContent = `${DB.alimenti.length} alimenti · versione ${DB.versione} · aggiornata ${DB.aggiornato} · letta da GitHub`;
     stato(`Pubblicato (versione ${DB.versione}). Lo scanner userà i nuovi valori entro 1-2 minuti, il tempo che GitHub Pages aggiorni il sito.`, "okm");
   } catch (e) {
