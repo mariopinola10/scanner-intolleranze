@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f5c58">
+<title>Tabella FODMAP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="stile.css">
+<style>
+.filtri{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px}
+@media (max-width:600px){.filtri{grid-template-columns:1fr 1fr}.filtri #f{grid-column:1/-1}}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:.92rem}
+th,td{padding:8px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);position:sticky;top:0;background:var(--surface)}
+td.nome b{display:block}
+td.nome small{color:var(--muted)}
+td.info{color:var(--muted);max-width:300px}
+td.info .porz{color:var(--ink)}
+tr.cat td{background:var(--bg);font-family:var(--f-display);font-weight:800;font-size:.95rem;padding-top:14px}
+body.edit tbody tr[data-i]{cursor:pointer}
+body.edit tbody tr[data-i]:hover td{background:var(--bg)}
+.conc{font:500 .7rem var(--f-mono);color:var(--warn);display:block;margin-top:2px}
+.barra{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.barra .sp{flex:1}
+.mod{font-weight:700;color:var(--warn)}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:0}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+dialog form{display:grid;gap:12px;padding:16px}
+.campo{display:grid;gap:4px}
+.campo input,.campo select,.campo textarea{width:100%}
+.liv5{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+@media (max-width:480px){.liv5{grid-template-columns:repeat(2,1fr)}}
+.hint{font-size:.8rem;color:var(--muted)}
+details summary{cursor:pointer;font-weight:700}
+.griglia2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:480px){.griglia2{grid-template-columns:1fr}}
+.legenda{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:.85rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<main class="largo">
+  <header class="top">
+    <div>
+      <h1>Tabella FODMAP</h1>
+      <p class="sub" id="info">Caricamento…</p>
+    </div>
+    <nav><a href="index.html">Scanner</a></nav>
+  </header>
+
+  <div id="stato" aria-live="polite"></div>
+
+  <section class="panel">
+    <div class="filtri">
+      <input id="f" type="search" placeholder="Cerca alimento o termine (es. peperoni)" aria-label="Cerca">
+      <select id="fc" aria-label="Categoria"><option value="">Tutte le categorie</option></select>
+      <select id="fg" aria-label="Gruppo FODMAP">
+        <option value="">Tutti i gruppi</option>
+        <option value="libero">Solo FODMAP bassi</option>
+      </select>
+    </div>
+    <div class="legenda"><span class="pill ok">Basso</span><span class="pill warn">Medio</span><span class="pill bad">Alto</span><span class="pill na">—</span> assente
+      <span class="conc" style="display:inline">conc.</span> = conta anche in piccole quantità</div>
+    <div class="barra">
+      <button id="btnEdit" class="ghost">Modifica tabella</button>
+      <button id="btnNuovo" class="primary" hidden>Nuovo alimento</button>
+      <span class="sp"></span>
+      <span id="modifiche" class="mod" hidden></span>
+      <button id="btnPubblica" class="primary" hidden disabled>Pubblica su GitHub</button>
+      <button id="btnAnnulla" class="ghost" hidden disabled>Annulla modifiche</button>
+    </div>
+    <div class="wrap-x"><table>
+      <thead><tr><th>Alimento</th><th>Fruttosio</th><th>Lattosio</th><th>Polioli</th><th>Fruttani</th><th>GOS</th><th>Porzione e note</th></tr></thead>
+      <tbody id="tb"></tbody>
+    </table></div>
+  </section>
+
+  <section class="panel">
+    <details id="impostazioni">
+      <summary>Collegamento GitHub</summary>
+      <div style="display:grid;gap:10px;margin-top:12px">
+        <p class="hint" style="margin:0">Serve per salvare le modifiche nel file <code>fodmap.json</code> del repository. Usa un token "fine-grained" con accesso solo a questo repository e permesso <b>Contents: Read and write</b>. Resta salvato solo in questo browser.</p>
+        <div class="griglia2">
+          <div class="campo"><label class="label" for="gOwner">Utente</label><input id="gOwner" type="text" class="mono"></div>
+          <div class="campo"><label class="label" for="gRepo">Repository</label><input id="gRepo" type="text" class="mono"></div>
+          <div class="campo"><label class="label" for="gBranch">Branch</label><input id="gBranch" type="text" class="mono" value="main"></div>
+          <div class="campo"><label class="label" for="gPath">File</label><input id="gPath" type="text" class="mono" value="fodmap.json"></div>
+        </div>
+        <div class="campo"><label class="label" for="gToken">Token</label><input id="gToken" type="password" class="mono" autocomplete="off" placeholder="github_pat_…"></div>
+        <div class="row">
+          <button id="btnSalvaCfg" class="primary">Salva e verifica</button>
+          <button id="btnDimentica" class="ghost">Rimuovi token</button>
+        </div>
+        <div id="cfgStato"></div>
+      </div>
+    </details>
+    <details>
+      <summary>Esporta o importa</summary>
+      <div class="row" style="margin-top:12px">
+        <button id="btnEsporta" class="ghost">Scarica fodmap.json</button>
+        <label class="ghost" style="border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer">
+          Importa file JSON<input id="fileImp" type="file" accept="application/json,.json" hidden>
+        </label>
+      </div>
+    </details>
+  </section>
+
+  <footer>Valori indicativi da usare come guida. Il livello reale dipende da porzione e lavorazione.</footer>
+</main>
+
+<dialog id="dlg">
+  <form id="frm" method="dialog">
+    <h2 id="dlgTitolo">Modifica alimento</h2>
+    <div class="griglia2">
+      <div class="campo"><label class="label" for="eNome">Nome</label><input id="eNome" type="text" required></div>
+      <div class="campo"><label class="label" for="eCat">Categoria</label><input id="eCat" type="text" list="dlCat"></div>
+    </div>
+    <datalist id="dlCat"></datalist>
+    <div class="campo"><span class="label">Livelli per gruppo</span>
+      <div class="liv5" id="eLiv"></div>
+    </div>
+    <label class="row" style="gap:8px"><input id="eConc" type="checkbox"> <span>Fonte concentrata: conta anche sotto il 10% del prodotto</span></label>
+    <div class="campo"><label class="label" for="eTerm">Parole da cercare negli ingredienti</label>
+      <textarea id="eTerm"></textarea>
+      <span class="hint">Separate da virgola. Scrivi le forme come compaiono in etichetta (mela, mele, succo di mela). Un asterisco finale cerca l'inizio parola: carciof*</span></div>
+    <div class="campo"><label class="label" for="eEsc">Escludi queste frasi</label>
+      <textarea id="eEsc" style="min-height:50px"></textarea>
+      <span class="hint">Es. per "latte": latte di cocco, latte di mandorla</span></div>
+    <div class="campo"><label class="label" for="eEn">Tag Open Food Facts</label>
+      <input id="eEn" type="text" class="mono">
+      <span class="hint">Separati da virgola, es. en:garlic, en:garlic-powder</span></div>
+    <div class="griglia2">
+      <div class="campo"><label class="label" for="ePorz">Porzione</label><input id="ePorz" type="text"></div>
+      <div class="campo"><label class="label" for="eNote">Note</label><input id="eNote" type="text"></div>
+    </div>
+    <div id="dlgErr"></div>
+    <div class="row">
+      <button type="submit" class="primary" value="ok">Salva riga</button>
+      <button type="button" class="ghost" id="btnChiudi">Annulla</button>
+      <span style="flex:1"></span>
+      <button type="button" class="danger" id="btnElimina">Elimina</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+const GRUPPI = ["fruttosio", "lattosio", "polioli", "fruttani", "gos"];
+const LIV = ["", "basso", "medio", "alto"];
+const CLS = { basso: "ok", medio: "warn", alto: "bad", "": "na" };
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const norm = s => String(s || "").toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+const stato = (html, tipo) => { $("#stato").innerHTML = html ? `<div class="msg ${tipo || ""}">${html}</div>` : ""; };
+
+let DB = null, SHA = null, modifiche = 0, inModifica = false, corrente = -1;
+
+/* ---------- impostazioni GitHub ---------- */
+function cfgDefault() {
+  const owner = location.hostname.endsWith(".github.io") ? location.hostname.split(".")[0] : "";
+  const repo = location.pathname.split("/").filter(Boolean)[0] || "";
+  return { owner, repo: repo.endsWith(".html") ? "" : repo, branch: "main", path: "fodmap.json", token: "" };
+}
+function leggiCfg() { try { return { ...cfgDefault(), ...JSON.parse(localStorage.getItem("fodmap-gh") || "{}") }; } catch { return cfgDefault(); } }
+function scriviCfg(c) { try { localStorage.setItem("fodmap-gh", JSON.stringify(c)); return true; } catch { return false; } }
+function riempiCfg() {
+  const c = leggiCfg();
+  $("#gOwner").value = c.owner; $("#gRepo").value = c.repo; $("#gBranch").value = c.branch; $("#gPath").value = c.path; $("#gToken").value = c.token;
+}
+const apiUrl = c => `https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${c.path.split("/").map(encodeURIComponent).join("/")}`;
+const ghHeaders = c => ({ Accept: "application/vnd.github+json", Authorization: "Bearer " + c.token, "X-GitHub-Api-Version": "2022-11-28" });
+
+function b64daTesto(t) {
+  const b = new TextEncoder().encode(t); let s = "";
+  for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000));
+  return btoa(s);
+}
+function testoDaB64(b64) {
+  const bin = atob(b64.replace(/\s/g, ""));
+  return new TextDecoder().decode(Uint8Array.from(bin, ch => ch.charCodeAt(0)));
+}
+function erroreGh(r, j) {
+  if (r.status === 401) return "Token non valido o scaduto.";
+  if (r.status === 403) return "Il token non ha il permesso di scrittura su questo repository (serve Contents: Read and write).";
+  if (r.status === 404) return "Repository o file non trovato. Controlla utente, repository, branch e nome file.";
+  if (r.status === 409) return "Il file è cambiato su GitHub nel frattempo. Ricarica la pagina e rifai le modifiche.";
+  if (r.status === 422) return "GitHub ha rifiutato il salvataggio: " + esc(j?.message || "dati non validi");
+  return "Errore GitHub " + r.status + (j?.message ? ": " + esc(j.message) : "");
+}
+
+async function caricaDaGitHub(c) {
+  const r = await fetch(apiUrl(c) + "?ref=" + encodeURIComponent(c.branch) + "&t=" + Date.now(), { headers: ghHeaders(c), cache: "no-store" });
+  const j = await r.json().catch(() => null);
+  if (!r.ok) throw new Error(erroreGh(r, j));
+  return { db: JSON.parse(testoDaB64(j.content)), sha: j.sha };
+}
+
+/* ---------- caricamento ---------- */
+async function carica() {
+  const c = leggiCfg();
+  try {
+    if (c.token && c.owner && c.repo) {
+      const x = await caricaDaGitHub(c);
+      DB = x.db; SHA = x.sha;
+      $("#info").textContent = `${DB.alimenti.length} alimenti · versione ${DB.versione ?? "?"} · aggiornata ${DB.aggiornato || "?"} · letta da GitHub`;
+    } else {
+      const r = await fetch("fodmap.json?v=" + Date.now(), { cache: "no-store" });
+      if (!r.ok) throw new Error("fodmap.json non trovato (" + r.status + ")");
+      DB = await r.json(); SHA = null;
+      $("#info").textContent = `${DB.alimenti.length} alimenti · versione ${DB.versione ?? "?"} · aggiornata ${DB.aggiornato || "?"}`;
+    }
+  } catch (e) {
+    const locale = location.protocol !== "https:" && location.hostname !== "localhost";
+    stato(locale ? "La pagina è aperta da un file: il browser blocca il caricamento di fodmap.json. Aprila dall'indirizzo di GitHub Pages." : esc(e.message), "err");
+    $("#info").textContent = "Tabella non caricata";
+    return;
+  }
+  modifiche = 0; aggiornaBarra();
+  const cats = [...new Set(DB.alimenti.map(a => a.categoria || "Altro"))].sort((a, b) => a.localeCompare(b, "it"));
+  $("#fc").innerHTML = `<option value="">Tutte le categorie</option>` + cats.map(x => `<option>${esc(x)}</option>`).join("");
+  $("#dlCat").innerHTML = cats.map(x => `<option value="${esc(x)}">`).join("");
+  const opz = GRUPPI.map(g => `<option value="${g}">Alto o medio in ${esc(DB.gruppi[g])}</option>`).join("");
+  $("#fg").innerHTML = `<option value="">Tutti i gruppi</option><option value="libero">Solo FODMAP bassi</option>` + opz;
+  disegna();
+}
+
+/* ---------- tabella ---------- */
+function ordina() {
+  DB.alimenti.sort((a, b) => (a.categoria || "Altro").localeCompare(b.categoria || "Altro", "it") || a.nome.localeCompare(b.nome, "it"));
+}
+function disegna() {
+  if (!DB) return;
+  const q = norm($("#f").value.trim()), cat = $("#fc").value, gf = $("#fg").value;
+  let ultimaCat = null, html = "", n = 0;
+  DB.alimenti.forEach((a, i) => {
+    const liv = a.livelli || {};
+    if (cat && (a.categoria || "Altro") !== cat) return;
+    if (gf === "libero" && GRUPPI.some(g => liv[g] === "medio" || liv[g] === "alto")) return;
+    if (gf && gf !== "libero" && !(liv[gf] === "medio" || liv[gf] === "alto")) return;
+    if (q && !norm([a.nome, a.categoria, ...(a.termini || []), a.note].join(" ")).includes(q)) return;
+    const c = a.categoria || "Altro";
+    if (c !== ultimaCat) { html += `<tr class="cat"><td colspan="7">${esc(c)}</td></tr>`; ultimaCat = c; }
+    const celle = GRUPPI.map(g => { const v = liv[g] || ""; return `<td><span class="pill ${CLS[v]}">${v ? v[0].toUpperCase() + v.slice(1) : "—"}</span></td>`; }).join("");
+    html += `<tr data-i="${i}"><td class="nome"><b>${esc(a.nome)}</b><small>${esc((a.termini || []).slice(0, 4).join(", "))}${(a.termini || []).length > 4 ? "…" : ""}</small>${a.concentrato ? `<span class="conc">conc.</span>` : ""}</td>${celle}
+      <td class="info">${a.porzione ? `<div class="porz">${esc(a.porzione)}</div>` : ""}${esc(a.note || "")}</td></tr>`;
+    n++;
+  });
+  $("#tb").innerHTML = html || `<tr><td colspan="7">Nessun alimento corrisponde ai filtri.</td></tr>`;
+}
+
+/* ---------- modifica ---------- */
+function aggiornaBarra() {
+  $("#modifiche").hidden = !modifiche;
+  $("#modifiche").textContent = modifiche === 1 ? "1 modifica non pubblicata" : `${modifiche} modifiche non pubblicate`;
+  $("#btnPubblica").disabled = !modifiche;
+  $("#btnAnnulla").disabled = !modifiche;
+}
+function attivaModifica(on) {
+  inModifica = on;
+  document.body.classList.toggle("edit", on);
+  $("#btnEdit").textContent = on ? "Fine modifica" : "Modifica tabella";
+  ["#btnNuovo", "#btnPubblica", "#btnAnnulla"].forEach(s => $(s).hidden = !on);
+  if (on && !leggiCfg().token) stato("Puoi modificare la tabella subito. Per pubblicare le modifiche apri <b>Collegamento GitHub</b> e inserisci il token.", "");
+}
+const lista = s => s.split(",").map(x => x.trim()).filter(Boolean);
+let confermaElimina = false;
+
+function apriEditor(i) {
+  corrente = i; confermaElimina = false;
+  const a = i >= 0 ? DB.alimenti[i] : { nome: "", categoria: $("#fc").value || "", termini: [], escludi: [], en: [], concentrato: false, livelli: {}, porzione: "", note: "" };
+  $("#dlgTitolo").textContent = i >= 0 ? "Modifica alimento" : "Nuovo alimento";
+  $("#eNome").value = a.nome; $("#eCat").value = a.categoria || "";
+  $("#eTerm").value = (a.termini || []).join(", "); $("#eEsc").value = (a.escludi || []).join(", ");
+  $("#eEn").value = (a.en || []).join(", "); $("#eConc").checked = !!a.concentrato;
+  $("#ePorz").value = a.porzione || ""; $("#eNote").value = a.note || "";
+  $("#eLiv").innerHTML = GRUPPI.map(g => `<div class="campo"><label class="label" for="l_${g}">${esc(DB.gruppi[g].split(" ")[0])}</label>
+    <select id="l_${g}">${LIV.map(v => `<option value="${v}"${(a.livelli?.[g] || "") === v ? " selected" : ""}>${v || "assente"}</option>`).join("")}</select></div>`).join("");
+  $("#btnElimina").hidden = i < 0; $("#btnElimina").textContent = "Elimina";
+  $("#dlgErr").innerHTML = "";
+  $("#dlg").showModal();
+}
+$("#frm").addEventListener("submit", e => {
+  e.preventDefault();
+  const nome = $("#eNome").value.trim(), termini = lista($("#eTerm").value);
+  if (!nome) { $("#dlgErr").innerHTML = `<div class="msg err">Scrivi il nome dell'alimento.</div>`; return; }
+  if (!termini.length) { $("#dlgErr").innerHTML = `<div class="msg err">Aggiungi almeno una parola da cercare negli ingredienti (di solito il nome stesso).</div>`; return; }
+  const doppio = DB.alimenti.findIndex((x, j) => j !== corrente && norm(x.nome) === norm(nome));
+  if (doppio >= 0) { $("#dlgErr").innerHTML = `<div class="msg err">Esiste già un alimento chiamato "${esc(DB.alimenti[doppio].nome)}".</div>`; return; }
+  const livelli = {};
+  GRUPPI.forEach(g => { const v = $("#l_" + g).value; if (v) livelli[g] = v; });
+  const en = lista($("#eEn").value).map(t => t.toLowerCase().includes(":") ? t.toLowerCase() : "en:" + t.toLowerCase());
+  const rec = { nome, categoria: $("#eCat").value.trim() || "Altro", termini: termini.map(t => t.toLowerCase()), escludi: lista($("#eEsc").value).map(t => t.toLowerCase()),
+    en, concentrato: $("#eConc").checked, livelli, porzione: $("#ePorz").value.trim(), note: $("#eNote").value.trim() };
+  if (corrente >= 0) DB.alimenti[corrente] = rec; else DB.alimenti.push(rec);
+  ordina(); modifiche++; aggiornaBarra(); $("#dlg").close(); disegna();
+  stato(`"${esc(nome)}" salvato nella tabella. Premi <b>Pubblica su GitHub</b> per renderlo definitivo.`, "okm");
+});
+$("#btnChiudi").onclick = () => $("#dlg").close();
+$("#btnElimina").onclick = () => {
+  if (!confermaElimina) { confermaElimina = true; $("#btnElimina").textContent = "Conferma eliminazione"; return; }
+  const nome = DB.alimenti[corrente].nome;
+  DB.alimenti.splice(corrente, 1); modifiche++; aggiornaBarra(); $("#dlg").close(); disegna();
+  stato(`"${esc(nome)}" eliminato. Premi <b>Pubblica su GitHub</b> per renderlo definitivo.`, "okm");
+};
+$("#tb").addEventListener("click", e => {
+  if (!inModifica) return;
+  const tr = e.target.closest("tr[data-i]"); if (tr) apriEditor(+tr.dataset.i);
+});
+$("#btnEdit").onclick = () => attivaModifica(!inModifica);
+$("#btnNuovo").onclick = () => apriEditor(-1);
+$("#btnAnnulla").onclick = () => {
+  if ($("#btnAnnulla").dataset.ok !== "1") { $("#btnAnnulla").dataset.ok = "1"; $("#btnAnnulla").textContent = "Conferma: scarta modifiche"; return; }
+  $("#btnAnnulla").dataset.ok = ""; $("#btnAnnulla").textContent = "Annulla modifiche";
+  stato(""); carica();
+};
+
+/* ---------- pubblicazione ---------- */
+$("#btnPubblica").onclick = async () => {
+  const c = leggiCfg();
+  if (!c.token || !c.owner || !c.repo) { $("#impostazioni").open = true; stato("Inserisci utente, repository e token in <b>Collegamento GitHub</b>, poi pubblica.", "err"); $("#impostazioni").scrollIntoView({ behavior: "smooth" }); return; }
+  const btn = $("#btnPubblica"); btn.disabled = true; btn.textContent = "Pubblico…";
+  try {
+    if (!SHA) { const x = await caricaDaGitHub(c); SHA = x.sha; }
+    DB.versione = (DB.versione || 0) + 1;
+    DB.aggiornato = new Date().toISOString().slice(0, 10);
+    const testo = JSON.stringify(DB, null, 1) + "\n";
+    const r = await fetch(apiUrl(c), { method: "PUT", headers: { ...ghHeaders(c), "Content-Type": "application/json" },
+      body: JSON.stringify({ message: `Tabella FODMAP v${DB.versione}: ${modifiche} modifiche`, content: b64daTesto(testo), sha: SHA, branch: c.branch }) });
+    const j = await r.json().catch(() => null);
+    if (!r.ok) { DB.versione--; throw new Error(erroreGh(r, j)); }
+    SHA = j.content.sha; modifiche = 0; aggiornaBarra();
+    $("#info").textContent = `${DB.alimenti.length} alimenti · versione ${DB.versione} · aggiornata ${DB.aggiornato} · letta da GitHub`;
+    stato(`Pubblicato (versione ${DB.versione}). Lo scanner userà i nuovi valori entro 1-2 minuti, il tempo che GitHub Pages aggiorni il sito.`, "okm");
+  } catch (e) {
+    stato(esc(e.message), "err");
+  } finally { btn.textContent = "Pubblica su GitHub"; aggiornaBarra(); }
+};
+
+/* ---------- impostazioni ---------- */
+$("#btnSalvaCfg").onclick = async () => {
+  const c = { owner: $("#gOwner").value.trim(), repo: $("#gRepo").value.trim(), branch: $("#gBranch").value.trim() || "main", path: $("#gPath").value.trim() || "fodmap.json", token: $("#gToken").value.trim() };
+  if (!scriviCfg(c)) { $("#cfgStato").innerHTML = `<div class="msg err">Il browser non permette di salvare le impostazioni (navigazione privata?).</div>`; return; }
+  if (!c.token) { $("#cfgStato").innerHTML = `<div class="msg">Impostazioni salvate senza token: potrai consultare ma non pubblicare.</div>`; return; }
+  $("#cfgStato").innerHTML = `<div class="msg">Verifico…</div>`;
+  try {
+    const x = await caricaDaGitHub(c);
+    $("#cfgStato").innerHTML = `<div class="msg okm">Collegato a ${esc(c.owner)}/${esc(c.repo)}: ${x.db.alimenti.length} alimenti nel file.</div>`;
+    if (!modifiche) carica();
+  } catch (e) { $("#cfgStato").innerHTML = `<div class="msg err">${esc(e.message)}</div>`; }
+};
+$("#btnDimentica").onclick = () => { const c = leggiCfg(); c.token = ""; scriviCfg(c); $("#gToken").value = ""; $("#cfgStato").innerHTML = `<div class="msg">Token rimosso da questo browser.</div>`; };
+
+/* ---------- esporta / importa ---------- */
+$("#btnEsporta").onclick = () => {
+  if (!DB) return;
+  const url = URL.createObjectURL(new Blob([JSON.stringify(DB, null, 1) + "\n"], { type: "application/json" }));
+  const a = document.createElement("a"); a.href = url; a.download = "fodmap.json"; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+};
+$("#fileImp").onchange = async e => {
+  const f = e.target.files[0]; if (!f) return;
+  try {
+    const j = JSON.parse(await f.text());
+    if (!Array.isArray(j.alimenti) || !j.gruppi) throw new Error("manca l'elenco 'alimenti' o 'gruppi'");
+    DB = { ...j, versione: DB?.versione ?? j.versione }; ordina(); modifiche++; aggiornaBarra(); disegna();
+    if (!inModifica) attivaModifica(true);
+    stato(`Importati ${DB.alimenti.length} alimenti. Controlla e premi <b>Pubblica su GitHub</b>.`, "okm");
+  } catch (err) { stato("File non valido: " + esc(err.message), "err"); }
+  e.target.value = "";
+};
+
+/* ---------- avvio ---------- */
+["#f", "#fc", "#fg"].forEach(s => $(s).addEventListener("input", disegna));
+window.addEventListener("beforeunload", e => { if (modifiche) { e.preventDefault(); e.returnValue = ""; } });
+riempiCfg();
+carica();
+</script>
+</body>
+</html>

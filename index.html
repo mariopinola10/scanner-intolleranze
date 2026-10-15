@@ -8,53 +8,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="stile.css">
 <style>
-/* Layout: una colonna stretta da etichetta alimentare; scanner in alto, tre semafori, dettaglio FODMAP per gruppo */
-:root{
-  --bg:#f3f6f4; --surface:#ffffff; --ink:#15211f; --muted:#5b6b67; --line:#d7e0dc;
-  --accent:#0f5c58; --accent-ink:#ffffff;
-  --ok:#1f7a3f; --ok-bg:#e3f3e8; --warn:#9a5b00; --warn-bg:#fdf0d9; --bad:#b3261e; --bad-bg:#fbe4e1; --na:#5b6b67; --na-bg:#e9eeec;
-  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
-  --f-body:"Atkinson Hyperlegible",ui-sans-serif,system-ui,sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
-  color-scheme:light;
-}
-@media (prefers-color-scheme:dark){:root{
-  --bg:#0e1514; --surface:#16201e; --ink:#e6eeeb; --muted:#9aaba6; --line:#2a3734;
-  --accent:#5cc2b8; --accent-ink:#06201d;
-  --ok:#7fd69a; --ok-bg:#163223; --warn:#f2bd62; --warn-bg:#3a2a0c; --bad:#ff8f84; --bad-bg:#3d1714; --na:#9aaba6; --na-bg:#222d2b;
-  color-scheme:dark;
-}}
-*{box-sizing:border-box}
-html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font:16px/1.5 var(--f-body);
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
-  padding-block:calc(env(safe-area-inset-top,0px) + 20px) calc(env(safe-area-inset-bottom,0px) + 32px)}
-main{max-width:640px;margin:0 auto;display:grid;gap:18px}
-h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
-h1{font-size:1.75rem;font-weight:800;letter-spacing:-.01em}
-h2{font-size:1.25rem;font-weight:800}
-h3{font-size:1rem;font-weight:600}
-.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;min-width:0}
-.row{display:flex;gap:8px;flex-wrap:wrap}
-input[type=text]{flex:1 1 180px;min-width:0;font:500 1.05rem var(--f-mono);letter-spacing:.06em;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
-button{font:700 1rem var(--f-body);border:0;border-radius:10px;padding:12px 16px;cursor:pointer}
-button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.primary{background:var(--accent);color:var(--accent-ink)}
-.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.big{width:100%;padding:16px;font-size:1.1rem}
-.chips{display:flex;gap:6px;flex-wrap:wrap}
-.chip{font:500 .8rem var(--f-mono);padding:6px 10px;border-radius:999px;background:var(--na-bg);color:var(--ink);border:0;cursor:pointer}
-.label{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
 #cam{position:relative;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:4/3;max-width:100%}
 #cam video{width:100%;height:100%;object-fit:cover;display:block}
 #cam .mira{position:absolute;inset:30% 12%;border:2px solid #fff;border-radius:8px;box-shadow:0 0 0 999px rgba(0,0,0,.35)}
-.msg{padding:12px;border-radius:10px;background:var(--na-bg);color:var(--ink)}
-.msg.err{background:var(--bad-bg);color:var(--bad)}
+#q{flex:1 1 200px}
 .prod{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center}
-.prod img{width:72px;height:72px;object-fit:contain;background:#fff;border-radius:8px;border:1px solid var(--line)}
-.prod .noimg{width:72px;height:72px;border-radius:8px;background:var(--na-bg)}
+.prod img,.noimg{width:72px;height:72px;object-fit:contain;background:#fff;border-radius:8px;border:1px solid var(--line)}
+.noimg{background:var(--na-bg)}
 .prod div{min-width:0}
 .code{font:500 .85rem var(--f-mono);color:var(--muted)}
 .semafori{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
@@ -63,204 +25,161 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline
 .sem .t{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;opacity:.85}
 .sem .v{font-family:var(--f-display);font-weight:800;font-size:1.15rem;line-height:1.2}
 .sem .n{font-size:.85rem}
-.ok{background:var(--ok-bg);color:var(--ok)} .warn{background:var(--warn-bg);color:var(--warn)}
-.bad{background:var(--bad-bg);color:var(--bad)} .na{background:var(--na-bg);color:var(--na)}
 .grp{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:10px 0;border-top:1px solid var(--line)}
-.grp:first-of-type{border-top:0}
-.grp .pill{font-size:.8rem;font-weight:700;padding:3px 10px;border-radius:999px;align-self:start}
+.grp:first-child{border-top:0}
+.grp .pill{align-self:start}
 .grp .det{grid-column:1/-1;font-size:.9rem;color:var(--muted)}
-.grp .det b{color:var(--ink);font-weight:700}
+.grp .det b{color:var(--ink)}
 .ingr{font-size:.92rem;color:var(--muted);overflow-wrap:anywhere}
 ul.note{margin:0;padding-left:18px;font-size:.9rem;color:var(--muted);display:grid;gap:4px}
-.hist button{text-align:left;width:100%;display:grid;grid-template-columns:1fr auto;gap:8px;background:transparent;color:var(--ink);border-top:1px solid var(--line);border-radius:0;padding:10px 0;font-weight:400}
-.hist button span:last-child{font:500 .8rem var(--f-mono);color:var(--muted)}
-footer{font-size:.8rem;color:var(--muted);text-align:center}
-footer a{color:var(--accent)}
-@media (prefers-reduced-motion:no-preference){.sem{transition:transform .2s}}
+.lista{display:grid}
+.lista button{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;text-align:left;background:transparent;color:var(--ink);border-top:1px solid var(--line);border-radius:0;padding:10px 0;font-weight:400}
+.lista button:first-child{border-top:0}
+.lista img,.lista .noimg{width:48px;height:48px}
+.lista span{min-width:0;overflow-wrap:anywhere}
+.cibo{display:grid;gap:10px}
+.cibo .lv{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+@media (max-width:480px){.cibo .lv{grid-template-columns:repeat(2,1fr)}}
+.cibo .lv div{border-radius:10px;padding:8px;display:grid;gap:2px;font-size:.85rem}
+.cibo .lv b{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.cibo + .cibo{border-top:1px solid var(--line);padding-top:14px}
 </style>
 </head>
 <body>
 <main>
-  <header>
-    <h1>Scanner Intolleranze</h1>
-    <p class="sub">Glutine, lattosio e FODMAP dai dati di Open Food Facts.</p>
+  <header class="top">
+    <div>
+      <h1>Scanner Intolleranze</h1>
+      <p class="sub">Glutine, lattosio e FODMAP dai dati di Open Food Facts.</p>
+    </div>
+    <nav><a href="tabella.html">Tabella FODMAP</a></nav>
   </header>
 
-  <section class="panel" aria-label="Scansione">
+  <section class="panel" aria-label="Ricerca">
     <button id="btnScan" class="primary big">Scansiona codice a barre</button>
     <div id="cam" hidden><video id="video" playsinline muted></video><div class="mira"></div></div>
     <button id="btnStop" class="ghost" hidden>Chiudi fotocamera</button>
     <form id="form" class="row" autocomplete="off">
-      <label for="code" class="label" style="flex-basis:100%">Oppure inserisci il codice EAN</label>
-      <input id="code" type="text" inputmode="numeric" pattern="[0-9]{8,14}" placeholder="8076800195057">
+      <label for="q" class="label" style="flex-basis:100%">Codice EAN oppure alimento o prodotto</label>
+      <input id="q" type="search" placeholder="8076800195057 oppure peperoni" enterkeyhint="search">
       <button class="primary" type="submit">Cerca</button>
     </form>
     <div>
       <div class="label">Prova con</div>
       <div class="chips" style="margin-top:6px">
-        <button class="chip" data-code="8076800195057">Spaghetti Barilla</button>
-        <button class="chip" data-code="3017620422003">Nutella</button>
-        <button class="chip" data-code="8000500310427">Nutella B-ready</button>
+        <button class="chip" data-q="8076800195057">Spaghetti Barilla</button>
+        <button class="chip" data-q="3017620422003">Nutella</button>
+        <button class="chip" data-q="peperoni">peperoni</button>
+        <button class="chip" data-q="cipolla">cipolla</button>
       </div>
     </div>
   </section>
 
   <div id="stato" aria-live="polite"></div>
-  <section id="risultato" hidden></section>
+  <section id="risultato" style="display:grid;gap:18px" hidden></section>
 
-  <section class="panel hist" id="storico" hidden>
+  <section class="panel" id="storico" hidden>
     <h3>Scansioni recenti</h3>
-    <div id="histList"></div>
+    <div class="lista" id="histList"></div>
   </section>
 
-  <footer>Dati: <a href="https://world.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a> (licenza ODbL). Stima indicativa, non un parere medico.</footer>
+  <footer>Dati prodotti: <a href="https://world.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a> (ODbL). Stima indicativa, non un parere medico.</footer>
 </main>
 
 <script>
-/* ===================== REGOLE ===================== */
-// conc = fonte concentrata: anche in piccola quantità pesa di più
-const R = (re, en, conc=false, nome) => ({re, en, conc, nome});
+/* ===================== TABELLA FODMAP (fodmap.json) ===================== */
+const GRUPPI = ["fruttosio", "lattosio", "polioli", "fruttani", "gos"];
+let DB = null, ALIMENTI = [];
+const LIVN = { basso: 0, medio: 1, alto: 2 };
+const NOME_LIV = ["Basso", "Medio", "Alto"];
+const CLS_LIV = ["ok", "warn", "bad"];
 
-const FODMAP = {
-  fruttosio: { nome: "Fruttosio in eccesso", regole: [
-    R(/\bcarciof/, ["artichoke"], false, "carciofo"),
-    R(/\btaccol/, ["snow-pea","mangetout"], false, "taccole"),
-    R(/\bmel[ae]\b|\bsucco di mela/, ["apple"], false, "mela"),
-    R(/\bboysenberr/, ["boysenberry"], false, "boysenberry"),
-    R(/\bfic[oh]i?\b/, ["fig"], false, "fichi"),
-    R(/\buvett|\buva passa|\bdatter|frutta essiccata|frutta disidratata/, ["raisin","date","dried-fruit","sultana"], false, "frutta essiccata"),
-    R(/\bmango\b/, ["mango"], false, "mango"),
-    R(/\bper[ae]\b/, ["pear"], false, "pera"),
-    R(/\btamarillo/, ["tamarillo"], false, "tamarillo"),
-    R(/\banguria|\bcocomero/, ["watermelon"], false, "anguria"),
-    R(/\bfeijoa/, ["feijoa"], false, "feijoa"),
-    R(/sciroppo di glucosio[- ]fruttosio|sciroppo di fruttosio|sciroppo di mais|isoglucosio|\bfruttosio\b/, ["fructose","high-fructose-corn-syrup","glucose-fructose-syrup","fructose-syrup"], true, "fruttosio / sciroppo"),
-    R(/\bmiele\b/, ["honey"], true, "miele"),
-    R(/\bagave\b/, ["agave"], true, "sciroppo d'agave"),
-  ]},
-  lattosio: { nome: "Lattosio", regole: [
-    R(/\blatte\b(?! di (cocco|soia|mandorl|riso|avena|nocciol))|\blatte in polvere|\blatte condensato/, ["milk","skimmed-milk-powder","milk-powder","whole-milk","condensed-milk"], false, "latte"),
-    R(/\blattosio\b/, ["lactose"], true, "lattosio"),
-    R(/\bsiero di latte|\bsiero\b/, ["whey","whey-powder"], true, "siero di latte"),
-    R(/\byogurt|\byoghurt/, ["yogurt"], false, "yogurt"),
-    R(/crema pasticcera/, ["custard"], false, "crema pasticcera"),
-    R(/\bgelato\b/, ["ice-cream"], false, "gelato"),
-    R(/\bpanna\b|crema di latte/, ["cream"], false, "panna"),
-    R(/\bricotta|\bmascarpone|latticello/, ["ricotta","mascarpone","buttermilk"], false, "latticini freschi"),
-  ]},
-  polioli: { nome: "Polioli", regole: [
-    R(/\bsorbitol|\be ?420\b/, ["sorbitol","e420"], true, "sorbitolo"),
-    R(/\bmannitol|\be ?421\b/, ["mannitol","e421"], true, "mannitolo"),
-    R(/\bxilitol|\be ?967\b/, ["xylitol","e967"], true, "xilitolo"),
-    R(/\bisomalt|\be ?953\b/, ["isomalt","e953"], true, "isomalto"),
-    R(/\bmaltitol|\be ?965\b/, ["maltitol","e965"], true, "maltitolo"),
-    R(/\blactitol|\be ?966\b/, ["lactitol","e966"], true, "lactitolo"),
-    R(/\bmel[ae]\b/, ["apple"], false, "mela"),
-    R(/\balbicocc/, ["apricot"], false, "albicocca"),
-    R(/\bper[ae]\b/, ["pear"], false, "pera"),
-    R(/\bnettarin|pesca noce|pesche noci/, ["nectarine"], false, "nettarina"),
-    R(/\bpesc[ah]e?\b/, ["peach"], false, "pesca"),
-    R(/\bprugn|\bsusin/, ["plum","prune"], false, "prugna"),
-    R(/\bfung[oh]i?\b|champignon/, ["mushroom"], false, "funghi"),
-    R(/\btaccol/, ["snow-pea"], false, "taccole"),
-    R(/\banguria|\bcocomero/, ["watermelon"], false, "anguria"),
-  ]},
-  fruttani: { nome: "Fruttani (FOS)", regole: [
-    R(/\baglio\b/, ["garlic","garlic-powder"], true, "aglio"),
-    R(/\bcipoll|\bscalogn/, ["onion","shallot","onion-powder"], true, "cipolla / scalogno"),
-    R(/\bporr[oi]\b/, ["leek"], true, "porro"),
-    R(/\binulina|fruttoligosaccarid|\bfos\b|radice di cicoria/, ["inulin","fructo-oligosaccharide","chicory"], true, "inulina / FOS"),
-    R(/\bcarciof/, ["artichoke"], false, "carciofo"),
-    R(/(?<!amido di )\bfrumento\b|(?<!amido di )\bgrano\b(?! saraceno)|semola|\bfarro\b|\bkamut|\bspelta|cous ?cous|\bbulgur/, ["wheat","wheat-flour","durum-wheat-semolina","spelt","kamut"], false, "frumento"),
-    R(/\borzo\b/, ["barley"], false, "orzo"),
-    R(/\bsegale/, ["rye"], false, "segale"),
-    R(/albicocche secche/, ["dried-apricot"], false, "albicocche secche"),
-    R(/\bpesc[ah]e?\b/, ["peach"], false, "pesca"),
-    R(/\banguria|\bcocomero/, ["watermelon"], false, "anguria"),
-    R(/\bbanan/, ["banana"], false, "banana"),
-  ]},
-  gos: { nome: "GOS (galatto-oligosaccaridi)", regole: [
-    R(/\bfagiol|\bfave\b|\blupin/, ["bean","kidney-bean","broad-bean","lupin"], false, "fagioli / legumi"),
-    R(/\bceci\b/, ["chickpea"], false, "ceci"),
-    R(/\blenticch/, ["lentil"], false, "lenticchie"),
-    R(/\bpisell/, ["pea"], false, "piselli"),
-    R(/\bpistacch/, ["pistachio"], false, "pistacchi"),
-    R(/\banacard/, ["cashew"], false, "anacardi"),
-    R(/bevanda di soia|latte di soia|farina di soia|fagioli di soia/, ["soy-drink","soya-drink","soy-flour"], false, "soia"),
-    R(/bevanda (di|d') ?avena|latte d'avena/, ["oat-drink"], false, "bevanda d'avena"),
-  ]},
-};
+const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+// "carciof*" = inizio parola; altrimenti parola o frase intera
+function termRe(lista) {
+  const parti = (lista || []).map(t => t.trim().toLowerCase()).filter(Boolean).map(t => {
+    const pref = t.endsWith("*");
+    const corpo = escRe(t.replace(/\*$/, "")).replace(/[\s-]+/g, "[\\s-]+");
+    return "(?<![\\p{L}\\p{N}])" + corpo + (pref ? "" : "(?![\\p{L}\\p{N}])");
+  });
+  return parti.length ? new RegExp(parti.join("|"), "iu") : null;
+}
+function compila(db) {
+  return (db.alimenti || []).map(a => ({ ...a, re: termRe(a.termini), ex: termRe(a.escludi), tags: new Set(a.en || []) }));
+}
+async function caricaDB() {
+  const r = await fetch("fodmap.json?v=" + Date.now(), { cache: "no-store" });
+  if (!r.ok) throw new Error("fodmap.json non trovato (" + r.status + ")");
+  DB = await r.json();
+  ALIMENTI = compila(DB);
+}
 
-const GLUTINE = {
-  forte: R(/(?<!amido di )\bfrumento\b|(?<!amido di )\bgrano\b(?! saraceno)|semola|\bfarro\b|\bkamut|\bspelta|\borzo\b|\bsegale|\btriticale|\bseitan|cous ?cous|\bbulgur|\bglutine\b|\bmalto\b|pangrattato|\bcrusca/, ["wheat","barley","rye","spelt","kamut","gluten","barley-malt","triticale"]),
-  avena: R(/\bavena\b/, ["oat","oats","oat-flakes"]),
-};
-const LATT_DEBOLE = R(/\bburro\b|\bcasein|proteine del latte|grasso (anidro )?del latte|\bformagg/, ["butter","casein","milk-proteins","cheese"]);
-
+/* ===================== REGOLE GLUTINE / LATTOSIO ===================== */
+const GLUT_FORTE = termRe(["frumento","farina di frumento","farina di grano","grano","grano tenero","grano duro","semola","semolato","farro","kamut","spelta","orzo","malto d'orzo","malto","segale","triticale","seitan","cous cous","couscous","bulgur","glutine","pangrattato","pane grattugiato","crusca"]);
+const GLUT_ESCL = termRe(["grano saraceno","amido di frumento","glucosio di frumento","sciroppo di glucosio di frumento","senza glutine","glutine assente"]);
+const GLUT_TAGS = new Set(["en:wheat","en:wheat-flour","en:barley","en:rye","en:spelt","en:kamut","en:gluten","en:barley-malt","en:triticale","en:durum-wheat-semolina","en:durum-wheat","en:soft-wheat-flour","en:wheat-semolina","en:barley-malt-extract"]);
+const AVENA = termRe(["avena","fiocchi d'avena","fiocchi di avena","farina d'avena"]);
+const LATT_DEBOLE = termRe(["burro","caseina","caseinato","caseinati","proteine del latte","grasso del latte","grasso anidro del latte","formaggio","formaggi"]);
 const TAG_SENZA_GLUTINE = ["en:no-gluten","en:gluten-free","en:crossed-grain-symbol","it:senza-glutine","fr:sans-gluten"];
 const TAG_SENZA_LATTOSIO = ["en:no-lactose","en:lactose-free","it:senza-lattosio","en:low-lactose"];
-const FORMAGGI_STAGIONATI = /parmigiano|grana padano|pecorino|emmental|gruy[eè]re|provolone|asiago stagionato|montasio stagionato/;
+const FORMAGGI_STAGIONATI = /parmigiano|grana padano|pecorino|emmental|gruy[eè]re|provolone|asiago stagionato|montasio stagionato/i;
+
+const testa = (re, ex, testo) => !!re && re.test(ex ? testo.replace(new RegExp(ex.source, "giu"), " ") : testo);
+const haGlutine = ing => testa(GLUT_FORTE, GLUT_ESCL, ing.text) || GLUT_TAGS.has(ing.id);
 
 /* ===================== MOTORE ===================== */
-function appiattisci(list, out = [], depth = 0) {
+function appiattisci(list, out = []) {
   (list || []).forEach((ing, i) => {
-    out.push({ text: (ing.text || "").toLowerCase(), id: (ing.id || "").toLowerCase(),
-      pct: typeof ing.percent_estimate === "number" ? ing.percent_estimate : (typeof ing.percent === "number" ? ing.percent : null),
-      pos: i, depth });
-    if (ing.ingredients) appiattisci(ing.ingredients, out, depth + 1);
+    const pct = typeof ing.percent_estimate === "number" ? ing.percent_estimate : (typeof ing.percent === "number" ? ing.percent : null);
+    out.push({ text: (ing.text || "").toLowerCase(), id: (ing.id || "").toLowerCase(), pct, pos: i });
+    if (ing.ingredients) appiattisci(ing.ingredients, out);
   });
   return out;
 }
 function daTesto(t) {
-  // fallback quando OFF non ha la lista strutturata
-  const parti = t.toLowerCase().split(/[,;()\[\]]+/).map(s => s.trim()).filter(Boolean);
-  return parti.map((s, i) => ({ text: s, id: "", pct: null, pos: i, depth: 0 }));
+  return t.toLowerCase().split(/[,;()\[\]]+/).map(s => s.trim()).filter(Boolean).map((s, i) => ({ text: s, id: "", pct: null, pos: i }));
 }
 const STIMA_POS = [40, 20, 10, 6, 4, 3, 2];
 const pctDi = ing => ing.pct != null ? ing.pct : (STIMA_POS[ing.pos] ?? 1.5);
+const corrisponde = (a, ing) => testa(a.re, a.ex, ing.text) || (ing.id && a.tags.has(ing.id));
 
-function corrisponde(r, ing) {
-  if (r.re.test(ing.text)) return true;
-  if (ing.id.startsWith("en:")) {
-    const w = "-" + ing.id.slice(3) + "-";
-    return r.en.some(k => w.includes("-" + k + "-"));
-  }
-  return false;
-}
-const LIV = ["basso", "medio", "alto"];
-function livello(pct, conc) {
-  if (conc) return pct >= 1 ? 2 : 1;
-  return pct >= 10 ? 2 : pct >= 2 ? 1 : 0;
+// livello del gruppo nell'alimento, ridotto se l'ingrediente è presente in piccola quantità
+function dose(liv, pct, conc) {
+  if (conc) return pct >= 1 ? liv : Math.max(liv - 1, 0);
+  return pct >= 10 ? liv : pct >= 2 ? Math.min(liv, 1) : 0;
 }
 
 function valutaFodmap(ings, ctx) {
-  const gruppi = {};
-  for (const [k, g] of Object.entries(FODMAP)) {
-    if (k === "lattosio" && (ctx.senzaLattosio || ctx.stagionato)) { gruppi[k] = { nome: g.nome, liv: -1, trovati: [], nota: ctx.senzaLattosio ? "Prodotto senza lattosio" : "Formaggio stagionato: lattosio quasi assente" }; continue; }
-    const trovati = new Map();
-    for (const ing of ings) for (const r of g.regole) {
-      if (k === "fruttani" && r.nome === "frumento" && ctx.senzaGlutine) continue; // amidi deglutinati: fruttani trascurabili
-      if (corrisponde(r, ing)) {
-        const p = pctDi(ing), l = livello(p, r.conc);
-        const prev = trovati.get(r.nome);
-        if (!prev || l > prev.l || p > prev.p) trovati.set(r.nome, { nome: r.nome, p, l, stimato: ing.pct == null });
-      }
+  const gruppi = Object.fromEntries(GRUPPI.map(g => [g, { nome: DB.gruppi[g], liv: -1, trovati: new Map() }]));
+  if (ctx.senzaLattosio || ctx.stagionato) gruppi.lattosio.nota = ctx.senzaLattosio ? "Prodotto senza lattosio" : "Formaggio stagionato: lattosio quasi assente";
+  for (const ing of ings) for (const a of ALIMENTI) {
+    if (!corrisponde(a, ing)) continue;
+    const p = pctDi(ing);
+    for (const g of GRUPPI) {
+      const L = LIVN[a.livelli?.[g]];
+      if (L == null || (g === "lattosio" && gruppi.lattosio.nota)) continue;
+      if (g === "fruttani" && ctx.senzaGlutine && a.nome === "Frumento") continue;
+      const l = dose(L, p, a.concentrato);
+      const prev = gruppi[g].trovati.get(a.nome);
+      if (!prev || l > prev.l || p > prev.p) gruppi[g].trovati.set(a.nome, { nome: a.nome, p, l, stimato: ing.pct == null });
     }
-    const arr = [...trovati.values()].sort((a, b) => b.l - a.l || b.p - a.p);
-    gruppi[k] = { nome: g.nome, liv: arr.length ? Math.max(...arr.map(x => x.l)) : -1, trovati: arr };
   }
-  const livs = Object.values(gruppi).map(g => g.liv);
-  let tot = Math.max(-1, ...livs);
-  const coinvolti = livs.filter(l => l >= 1).length;
-  if (coinvolti >= 3 && tot < 2) tot = 2; // effetto cumulativo
-  return { gruppi, tot: tot < 0 ? 0 : tot, nessuno: tot < 0 };
+  for (const g of GRUPPI) {
+    const arr = [...gruppi[g].trovati.values()].sort((x, y) => y.l - x.l || y.p - x.p);
+    gruppi[g].trovati = arr;
+    gruppi[g].liv = arr.length ? Math.max(...arr.map(x => x.l)) : -1;
+  }
+  const livs = GRUPPI.map(g => gruppi[g].liv);
+  let tot = Math.max(...livs);
+  if (livs.filter(l => l >= 1).length >= 3 && tot < 2) tot = 2; // effetto cumulativo
+  return { gruppi, tot: Math.max(tot, 0), nessuno: tot < 0 };
 }
 
 function valutaGlutine(p, ings, haIngr, ctx) {
   const all = (p.allergens_tags || []).includes("en:gluten");
   const tr = (p.traces_tags || []).includes("en:gluten");
   const forti = new Set(), avena = [];
-  ings.forEach(i => { if (corrisponde(GLUTINE.forte, i)) forti.add(i.text || i.id); if (corrisponde(GLUTINE.avena, i)) avena.push(i.text); });
+  ings.forEach(i => { if (haGlutine(i)) forti.add(i.text || i.id); if (testa(AVENA, null, i.text) || i.id === "en:oat" || i.id === "en:oats") avena.push(i.text); });
   if (ctx.senzaGlutine) return { c: "ok", v: "Senza glutine", n: "Certificato in etichetta" + (tr ? " (tracce dichiarate: verifica)" : "") };
   if (all || forti.size) return { c: "bad", v: "Contiene glutine", n: forti.size ? [...forti].slice(0, 3).join(", ") : "Allergene dichiarato" };
   if (tr) return { c: "warn", v: "Possibili tracce", n: "Rischio contaminazione dichiarato" };
@@ -273,10 +192,14 @@ function valutaLattosio(p, ings, haIngr, ctx) {
   if (ctx.senzaLattosio) return { c: "ok", v: "Senza lattosio", n: "Indicato in etichetta" };
   if (ctx.stagionato) return { c: "ok", v: "Quasi assente", n: "Formaggio stagionato" };
   const forti = new Set(), deboli = new Set();
-  ings.forEach(i => {
-    FODMAP.lattosio.regole.forEach(r => { if (corrisponde(r, i)) forti.add(r.nome); });
-    if (corrisponde(LATT_DEBOLE, i)) deboli.add(i.text || i.id);
-  });
+  for (const i of ings) {
+    for (const a of ALIMENTI) {
+      const L = LIVN[a.livelli?.lattosio];
+      if (L == null || !corrisponde(a, i)) continue;
+      (L >= 1 ? forti : deboli).add(a.nome);
+    }
+    if (testa(LATT_DEBOLE, null, i.text)) deboli.add(i.text);
+  }
   const all = (p.allergens_tags || []).includes("en:milk");
   const tr = (p.traces_tags || []).includes("en:milk");
   if (forti.size) return { c: "bad", v: "Contiene lattosio", n: [...forti].slice(0, 3).join(", ") };
@@ -287,31 +210,107 @@ function valutaLattosio(p, ings, haIngr, ctx) {
   return { c: "na", v: "Dati mancanti", n: "Ingredienti non disponibili" };
 }
 
-/* ===================== DATI ===================== */
+/* ===================== OPEN FOOD FACTS ===================== */
+const OFF = "https://world.openfoodfacts.org";
 const CAMPI = "product_name_it,product_name,brands,image_front_small_url,ingredients_text_it,ingredients_text,ingredients,allergens_tags,traces_tags,labels_tags,categories_tags";
 async function cercaProdotto(code) {
-  const r = await fetch(`https://world.openfoodfacts.org/api/v2/product/${code}.json?lc=it&fields=${CAMPI}`);
+  const r = await fetch(`${OFF}/api/v2/product/${code}.json?lc=it&fields=${CAMPI}`);
   if (r.status === 404) return null;
   if (!r.ok) throw new Error("Open Food Facts ha risposto con errore " + r.status);
   const j = await r.json();
   return j.status === 1 ? j.product : null;
 }
+async function cercaTesto(q) {
+  const f = "code,product_name_it,product_name,brands,image_front_small_url";
+  try {
+    const u = `${OFF}/cgi/search.pl?search_terms=${encodeURIComponent(q)}&search_simple=1&action=process&json=1&page_size=20&lc=it&fields=${f}` +
+      `&tagtype_0=countries&tag_contains_0=contains&tag_0=italy`;
+    const r = await fetch(u);
+    if (!r.ok) throw new Error(r.status);
+    return (await r.json()).products || [];
+  } catch {
+    const r = await fetch(`https://search.openfoodfacts.org/search?q=${encodeURIComponent(q)}&langs=it&page_size=20&fields=${f}`);
+    if (!r.ok) throw new Error("ricerca non disponibile (" + r.status + ")");
+    return (await r.json()).hits || [];
+  }
+}
 
 /* ===================== UI ===================== */
 const $ = s => document.querySelector(s);
-const esc = s => String(s ?? "").replace(/[&<>\"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const stato = (html, err) => { $("#stato").innerHTML = html ? `<div class="msg${err ? " err" : ""}">${html}</div>` : ""; };
-const CLS_LIV = ["ok", "warn", "bad"];
-const NOME_LIV = ["Basso", "Medio", "Alto"];
+const erroreRete = e => location.protocol !== "https:" && location.hostname !== "localhost"
+  ? "La pagina è aperta da un file o da un'anteprima, e il browser blocca le richieste esterne. Aprila dall'indirizzo https di GitHub Pages."
+  : "Open Food Facts non risponde. Controlla la connessione e riprova tra poco. (" + esc(e.message) + ")";
+const norm = s => s.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "").trim();
 
+async function cerca(q) {
+  q = String(q || "").trim();
+  if (!q) return;
+  $("#q").value = q;
+  if (!DB) { try { await caricaDB(); } catch (e) { stato("Tabella FODMAP non caricata: " + esc(e.message), true); return; } }
+  const cifre = q.replace(/\s/g, "");
+  if (/^\d{8,14}$/.test(cifre)) return analizza(cifre);
+  if (/^\d+$/.test(cifre)) { stato("Il codice EAN deve avere da 8 a 14 cifre.", true); return; }
+  return cercaAlimento(q);
+}
+
+/* ---- ricerca per nome ---- */
+function trovaInTabella(q) {
+  const n = norm(q), parole = n.split(/\s+/).filter(w => w.length > 2);
+  return ALIMENTI.map(a => {
+    const nomi = [a.nome, ...(a.termini || [])].map(norm);
+    let s = 0;
+    if (nomi.some(x => x === n)) s = 3;
+    else if (nomi.some(x => { const b = x.replace("*", ""); return x.startsWith(n) || (b.length >= 4 && n.startsWith(b)); })) s = 2;
+    else if (parole.some(w => nomi.some(x => x.split(/\s+/).some(t => t.length > 3 && t.slice(0, -1) === w.slice(0, -1))))) s = 1; // singolare/plurale
+    return { a, s };
+  }).filter(x => x.s).sort((x, y) => y.s - x.s).filter((x, _, arr) => x.s >= arr[0].s - 1 && (x.s > 1 || arr[0].s === 1)).slice(0, 5).map(x => x.a);
+}
+function schedaAlimento(a) {
+  const livs = GRUPPI.map(g => LIVN[a.livelli?.[g]] ?? -1);
+  const tot = Math.max(...livs);
+  const glut = (a.termini || []).some(t => GLUT_FORTE.test(t) && !(GLUT_ESCL && GLUT_ESCL.test(t)));
+  const celle = GRUPPI.map((g, i) => {
+    const l = livs[i];
+    return `<div class="${l < 0 ? "na" : CLS_LIV[l]}"><b>${esc(DB.gruppi[g].split(" ")[0])}</b>${l < 0 ? "Assente" : NOME_LIV[l]}</div>`;
+  }).join("");
+  return `<div class="cibo">
+    <div class="row" style="justify-content:space-between"><h2>${esc(a.nome)}</h2>
+      <span class="pill ${tot < 0 ? "ok" : CLS_LIV[tot]}">FODMAP ${tot < 0 ? "basso" : NOME_LIV[tot].toLowerCase()}</span></div>
+    <div class="lv">${celle}</div>
+    ${glut ? `<div class="pill bad" style="justify-self:start">Contiene glutine</div>` : ""}
+    ${a.porzione ? `<div><span class="label">Porzione</span> ${esc(a.porzione)}</div>` : ""}
+    ${a.note ? `<div class="sub" style="margin:0">${esc(a.note)}</div>` : ""}
+  </div>`;
+}
+async function cercaAlimento(q) {
+  $("#risultato").hidden = false;
+  const hit = trovaInTabella(q);
+  const blocco = hit.length
+    ? `<div class="panel"><div class="label">Nella tua tabella</div>${hit.map(schedaAlimento).join("")}</div>`
+    : `<div class="panel"><div class="label">Nella tua tabella</div><p style="margin:0">Nessun alimento corrisponde a "${esc(q)}". Puoi aggiungerlo dalla <a href="tabella.html">Tabella FODMAP</a>.</p></div>`;
+  $("#risultato").innerHTML = blocco + `<div class="panel" id="offBox"><div class="label">Prodotti confezionati</div><div class="msg">Cerco su Open Food Facts…</div></div>`;
+  stato("");
+  try {
+    const prodotti = (await cercaTesto(q)).filter(p => p.code);
+    $("#offBox").innerHTML = `<div class="label">Prodotti confezionati (${prodotti.length})</div>` + (prodotti.length
+      ? `<div class="lista">${prodotti.map(p => `<button data-q="${esc(p.code)}">
+          ${p.image_front_small_url ? `<img src="${esc(p.image_front_small_url)}" alt="" loading="lazy">` : `<div class="noimg"></div>`}
+          <span><b>${esc(p.product_name_it || p.product_name || "Senza nome")}</b><br><small>${esc(p.brands || "")}</small></span>
+          <span class="code">›</span></button>`).join("")}</div>`
+      : `<p style="margin:0">Nessun prodotto trovato.</p>`);
+  } catch (e) {
+    $("#offBox").innerHTML = `<div class="label">Prodotti confezionati</div><div class="msg err">${erroreRete(e)}</div>`;
+  }
+}
+
+/* ---- analisi prodotto ---- */
 async function analizza(code) {
-  code = String(code).replace(/\D/g, "");
-  if (code.length < 8) { stato("Il codice deve avere almeno 8 cifre.", true); return; }
-  $("#code").value = code;
   stato("Cerco il prodotto…"); $("#risultato").hidden = true;
   let p;
   try { p = await cercaProdotto(code); }
-  catch (e) { stato("Connessione non riuscita. Controlla la rete e riprova. (" + esc(e.message) + ")", true); return; }
+  catch (e) { stato(erroreRete(e), true); return; }
   if (!p) { stato(`Prodotto <b>${code}</b> non presente in Open Food Facts. Puoi aggiungerlo dall'app Open Food Facts.`, true); return; }
   stato("");
 
@@ -323,28 +322,24 @@ async function analizza(code) {
   const ctx = {
     senzaGlutine: labels.some(t => TAG_SENZA_GLUTINE.includes(t)) || /senza glutine/i.test(testo),
     senzaLattosio: labels.some(t => TAG_SENZA_LATTOSIO.includes(t)) || /senza lattosio|delattosat/i.test(testo + " " + nome),
-    stagionato: FORMAGGI_STAGIONATI.test((nome + " " + (p.categories_tags || []).join(" ")).toLowerCase()),
+    stagionato: FORMAGGI_STAGIONATI.test(nome + " " + (p.categories_tags || []).join(" ")),
   };
   const g = valutaGlutine(p, ings, haIngr, ctx);
   const l = valutaLattosio(p, ings, haIngr, ctx);
   const f = haIngr ? valutaFodmap(ings, ctx) : null;
-
   const fSem = !f ? { c: "na", v: "Dati mancanti", n: "Ingredienti non disponibili" }
     : f.nessuno ? { c: "ok", v: "Basso", n: "Nessuna fonte FODMAP rilevata" }
-    : { c: CLS_LIV[f.tot], v: NOME_LIV[f.tot], n: Object.values(f.gruppi).filter(x => x.liv >= 0).map(x => x.nome.split(" ")[0]).join(", ") };
+    : { c: CLS_LIV[f.tot], v: NOME_LIV[f.tot], n: GRUPPI.filter(k => f.gruppi[k].liv >= 1).map(k => DB.gruppi[k].split(" ")[0]).join(", ") || "Solo fonti in quantità basse" };
 
   const sem = (t, s) => `<div class="sem ${s.c}"><span class="t">${t}</span><span class="v">${esc(s.v)}</span><span class="n">${esc(s.n)}</span></div>`;
-
-  let dettaglio = "";
-  if (f) {
-    dettaglio = Object.values(f.gruppi).map(gr => {
-      const pill = gr.liv < 0 ? `<span class="pill ok">Assente</span>` : `<span class="pill ${CLS_LIV[gr.liv]}">${NOME_LIV[gr.liv]}</span>`;
-      const det = gr.nota ? esc(gr.nota)
-        : gr.trovati.length ? gr.trovati.map(x => `<b>${esc(x.nome)}</b> ${x.stimato ? "~" : ""}${x.p.toFixed(x.p < 1 ? 1 : 0)}%`).join(" · ")
-        : "Nessuna fonte rilevata";
-      return `<div class="grp"><h3>${esc(gr.nome)}</h3>${pill}<div class="det">${det}</div></div>`;
-    }).join("");
-  }
+  const dettaglio = f ? GRUPPI.map(k => {
+    const gr = f.gruppi[k];
+    const pill = gr.liv < 0 ? `<span class="pill ok">Assente</span>` : `<span class="pill ${CLS_LIV[gr.liv]}">${NOME_LIV[gr.liv]}</span>`;
+    const det = gr.nota ? esc(gr.nota)
+      : gr.trovati.length ? gr.trovati.map(x => `<b>${esc(x.nome)}</b> ${x.stimato ? "~" : ""}${x.p.toFixed(x.p < 1 ? 1 : 0)}%`).join(" · ")
+      : "Nessuna fonte rilevata";
+    return `<div class="grp"><h3>${esc(gr.nome)}</h3>${pill}<div class="det">${det}</div></div>`;
+  }).join("") : "";
 
   $("#risultato").innerHTML = `
     <div class="panel">
@@ -355,37 +350,36 @@ async function analizza(code) {
       <div class="semafori">${sem("Glutine", g)}${sem("Lattosio", l)}${sem("FODMAP", fSem)}</div>
     </div>
     ${f ? `<div class="panel"><h2>FODMAP per gruppo</h2><div>${dettaglio}</div>
-      <p class="sub" style="margin:0">Percentuali: quota stimata dell'ingrediente nel prodotto (~ = stimata dalla posizione in lista). Aglio, cipolla, miele, inulina e polioli pesano anche in piccole quantità.</p></div>` : ""}
+      <p class="sub" style="margin:0">Percentuali: quota stimata dell'ingrediente nel prodotto (~ = dalla posizione in lista). Le fonti concentrate (aglio, cipolla, miele, inulina, polioli) pesano anche in piccole quantità.</p></div>` : ""}
     <div class="panel"><h3>Ingredienti</h3><div class="ingr">${esc(testo || "Non disponibili")}</div></div>
     <div class="panel"><h3>Da sapere</h3><ul class="note">
       <li>I dati sono inseriti da volontari: confronta sempre con l'etichetta della confezione.</li>
-      <li>Il livello FODMAP dipende dalla porzione e dalla lavorazione: questa è una stima dagli ingredienti, non un'analisi di laboratorio.</li>
+      <li>Il livello FODMAP dipende da porzione e lavorazione: è una stima dagli ingredienti, non un'analisi di laboratorio.</li>
       <li>Per la celiachia conta solo la certificazione "senza glutine" o la spiga barrata.</li>
     </ul></div>`;
   $("#risultato").hidden = false;
-  $("#risultato").style.display = "grid"; $("#risultato").style.gap = "18px";
-  salvaStorico(code, nome, fSem, g, l);
+  salvaStorico(code, nome, `G: ${g.v} · L: ${l.v} · F: ${fSem.v}`);
 }
 
 /* ---- storico (solo su questo dispositivo) ---- */
 function leggiStorico() { try { return JSON.parse(localStorage.getItem("scanner-storico") || "[]"); } catch { return []; } }
-function salvaStorico(code, nome, f, g, l) {
+function salvaStorico(code, nome, r) {
   const h = leggiStorico().filter(x => x.code !== code);
-  h.unshift({ code, nome, r: `G: ${g.v} · L: ${l.v} · F: ${f.v}` });
+  h.unshift({ code, nome, r });
   try { localStorage.setItem("scanner-storico", JSON.stringify(h.slice(0, 15))); } catch {}
   mostraStorico();
 }
 function mostraStorico() {
   const h = leggiStorico();
   $("#storico").hidden = !h.length;
-  $("#histList").innerHTML = h.map(x => `<button data-code="${x.code}"><span><b>${esc(x.nome)}</b><br><small>${esc(x.r)}</small></span><span>${x.code}</span></button>`).join("");
+  $("#histList").innerHTML = h.map(x => `<button data-q="${esc(x.code)}"><div class="noimg" style="width:48px;height:48px"></div><span><b>${esc(x.nome)}</b><br><small>${esc(x.r)}</small></span><span class="code">${esc(x.code)}</span></button>`).join("");
 }
 
 /* ---- fotocamera ---- */
 let stream = null, loopId = null, zxReader = null;
 async function avviaScan() {
   stato("");
-  if (!navigator.mediaDevices?.getUserMedia) { stato("Questo browser non dà accesso alla fotocamera. Apri la pagina in Chrome tramite https, oppure inserisci il codice a mano.", true); return; }
+  if (!navigator.mediaDevices?.getUserMedia) { stato("Questo browser non dà accesso alla fotocamera. Apri la pagina in Chrome tramite https, oppure scrivi il codice.", true); return; }
   $("#cam").hidden = false; $("#btnStop").hidden = false; $("#btnScan").hidden = true;
   const video = $("#video");
   try {
@@ -395,20 +389,20 @@ async function avviaScan() {
       video.srcObject = stream; await video.play();
       const tick = async () => {
         if (!stream) return;
-        try { const c = await det.detect(video); if (c.length) { fermaScan(); analizza(c[0].rawValue); return; } } catch {}
+        try { const c = await det.detect(video); if (c.length) { fermaScan(); cerca(c[0].rawValue); return; } } catch {}
         loopId = setTimeout(tick, 200);
       };
       tick();
     } else {
       await caricaZxing();
       zxReader = new ZXing.BrowserMultiFormatReader();
-      await zxReader.decodeFromConstraints({ video: { facingMode: "environment" } }, video, (res) => {
-        if (res) { fermaScan(); analizza(res.getText()); }
+      await zxReader.decodeFromConstraints({ video: { facingMode: "environment" } }, video, res => {
+        if (res) { fermaScan(); cerca(res.getText()); }
       });
     }
   } catch (e) {
     fermaScan();
-    stato(e.name === "NotAllowedError" ? "Permesso fotocamera negato. Abilitalo nelle impostazioni del browser o inserisci il codice a mano." : "Fotocamera non disponibile: " + esc(e.message), true);
+    stato(e.name === "NotAllowedError" ? "Permesso fotocamera negato. Abilitalo nelle impostazioni del browser o scrivi il codice." : "Fotocamera non disponibile: " + esc(e.message), true);
   }
 }
 function fermaScan() {
@@ -430,9 +424,10 @@ function caricaZxing() {
 /* ---- eventi ---- */
 $("#btnScan").onclick = avviaScan;
 $("#btnStop").onclick = fermaScan;
-$("#form").onsubmit = e => { e.preventDefault(); analizza($("#code").value); };
-document.addEventListener("click", e => { const b = e.target.closest("[data-code]"); if (b) analizza(b.dataset.code); });
+$("#form").onsubmit = e => { e.preventDefault(); cerca($("#q").value); };
+document.addEventListener("click", e => { const b = e.target.closest("[data-q]"); if (b) { e.preventDefault(); cerca(b.dataset.q); window.scrollTo({ top: 0, behavior: "smooth" }); } });
 mostraStorico();
+caricaDB().catch(e => stato("Tabella FODMAP non caricata: " + esc(e.message) + ". Controlla che fodmap.json sia nel repository.", true));
 </script>
 </body>
 </html>

@@ -1,0 +1,1761 @@
+{
+ "versione": 1,
+ "aggiornato": "2026-10-15",
+ "gruppi": {
+  "fruttosio": "Fruttosio in eccesso",
+  "lattosio": "Lattosio",
+  "polioli": "Polioli",
+  "fruttani": "Fruttani (FOS)",
+  "gos": "GOS"
+ },
+ "alimenti": [
+  {
+   "nome": "Bevanda d'avena",
+   "categoria": "Bevande",
+   "termini": [
+    "bevanda d'avena",
+    "bevanda di avena",
+    "latte d'avena"
+   ],
+   "escludi": [],
+   "en": [
+    "en:oat-drink"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Bevanda di soia (soia intera)",
+   "categoria": "Bevande",
+   "termini": [
+    "bevanda di soia",
+    "latte di soia",
+    "fagioli di soia",
+    "farina di soia"
+   ],
+   "escludi": [],
+   "en": [
+    "en:soy-drink",
+    "en:soya-drink",
+    "en:soy-flour",
+    "en:soybean"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "alto"
+   },
+   "porzione": "",
+   "note": "Quella da proteine di soia è bassa. Tofu compatto basso."
+  },
+  {
+   "nome": "Succhi e frullati di frutta",
+   "categoria": "Bevande",
+   "termini": [
+    "succo di frutta",
+    "succhi di frutta",
+    "succo di frutta tropicale",
+    "frullato",
+    "frullati",
+    "smoothie"
+   ],
+   "escludi": [],
+   "en": [
+    "en:fruit-juice"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Avena",
+   "categoria": "Cereali",
+   "termini": [
+    "avena",
+    "fiocchi d'avena",
+    "fiocchi di avena",
+    "farina d'avena"
+   ],
+   "escludi": [
+    "bevanda d'avena",
+    "bevanda di avena",
+    "latte d'avena"
+   ],
+   "en": [
+    "en:oat",
+    "en:oats",
+    "en:oat-flakes"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "circa 50 g",
+   "note": "Porzioni grandi: medio. Per i celiaci serve avena certificata."
+  },
+  {
+   "nome": "Frumento",
+   "categoria": "Cereali",
+   "termini": [
+    "frumento",
+    "farina di frumento",
+    "farina di grano tenero",
+    "farina di grano",
+    "grano",
+    "grano tenero",
+    "grano duro",
+    "semola",
+    "semola di grano duro",
+    "semolato",
+    "farro",
+    "kamut",
+    "spelta",
+    "cous cous",
+    "couscous",
+    "bulgur",
+    "crusca",
+    "pangrattato",
+    "pane grattugiato",
+    "pasta",
+    "pane",
+    "pizza",
+    "biscotti",
+    "fette biscottate"
+   ],
+   "escludi": [
+    "amido di frumento",
+    "grano saraceno",
+    "glucosio di frumento",
+    "sciroppo di glucosio di frumento",
+    "pasta di nocciole",
+    "pasta di nocciola",
+    "pasta di pistacchio",
+    "pasta di mandorle",
+    "pasta di cacao",
+    "pasta di sesamo",
+    "pasta di arachidi",
+    "pasta di riso",
+    "pasta di mais",
+    "pasta senza glutine",
+    "pane senza glutine",
+    "pasta di legumi"
+   ],
+   "en": [
+    "en:wheat",
+    "en:wheat-flour",
+    "en:durum-wheat-semolina",
+    "en:durum-wheat",
+    "en:soft-wheat-flour",
+    "en:spelt",
+    "en:kamut",
+    "en:wheat-semolina"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": "Anche glutine. Fruttani trascurabili negli amidi deglutinati."
+  },
+  {
+   "nome": "Grano saraceno",
+   "categoria": "Cereali",
+   "termini": [
+    "grano saraceno",
+    "farina di grano saraceno"
+   ],
+   "escludi": [],
+   "en": [
+    "en:buckwheat"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Mais",
+   "categoria": "Cereali",
+   "termini": [
+    "mais",
+    "farina di mais",
+    "polenta",
+    "amido di mais"
+   ],
+   "escludi": [],
+   "en": [
+    "en:corn",
+    "en:maize",
+    "en:corn-flour",
+    "en:corn-starch"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Orzo",
+   "categoria": "Cereali",
+   "termini": [
+    "orzo",
+    "orzo perlato",
+    "malto d'orzo",
+    "estratto di malto d'orzo"
+   ],
+   "escludi": [],
+   "en": [
+    "en:barley",
+    "en:barley-malt",
+    "en:barley-malt-extract"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": "Anche glutine."
+  },
+  {
+   "nome": "Quinoa",
+   "categoria": "Cereali",
+   "termini": [
+    "quinoa"
+   ],
+   "escludi": [],
+   "en": [
+    "en:quinoa"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Riso",
+   "categoria": "Cereali",
+   "termini": [
+    "riso",
+    "farina di riso",
+    "amido di riso"
+   ],
+   "escludi": [],
+   "en": [
+    "en:rice",
+    "en:rice-flour"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Segale",
+   "categoria": "Cereali",
+   "termini": [
+    "segale",
+    "farina di segale"
+   ],
+   "escludi": [],
+   "en": [
+    "en:rye",
+    "en:rye-flour"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": "Anche glutine."
+  },
+  {
+   "nome": "Eritritolo e stevia",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "eritritolo",
+    "e968",
+    "stevia",
+    "glicosidi steviolici",
+    "e960"
+   ],
+   "escludi": [],
+   "en": [
+    "en:erythritol",
+    "en:e968",
+    "en:steviol-glycosides",
+    "en:e960"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Isomalto (E953)",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "isomalto",
+    "isomalt",
+    "e953",
+    "e 953"
+   ],
+   "escludi": [],
+   "en": [
+    "en:isomalt",
+    "en:e953"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Lactitolo (E966)",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "lactitolo",
+    "lattitolo",
+    "lactitol",
+    "e966",
+    "e 966"
+   ],
+   "escludi": [],
+   "en": [
+    "en:lactitol",
+    "en:e966"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Maltitolo (E965)",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "maltitolo",
+    "maltitol",
+    "sciroppo di maltitolo",
+    "e965",
+    "e 965"
+   ],
+   "escludi": [],
+   "en": [
+    "en:maltitol",
+    "en:maltitol-syrup",
+    "en:e965"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Mannitolo (E421)",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "mannitolo",
+    "mannitol",
+    "e421",
+    "e 421"
+   ],
+   "escludi": [],
+   "en": [
+    "en:mannitol",
+    "en:e421"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Miele",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "miele"
+   ],
+   "escludi": [],
+   "en": [
+    "en:honey"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Sciroppo d'acero",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "sciroppo d'acero"
+   ],
+   "escludi": [],
+   "en": [
+    "en:maple-syrup"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Sciroppo d'agave",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "agave",
+    "sciroppo d'agave",
+    "sciroppo di agave"
+   ],
+   "escludi": [],
+   "en": [
+    "en:agave-syrup"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Sciroppo di glucosio-fruttosio",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "sciroppo di glucosio-fruttosio",
+    "sciroppo di glucosio fruttosio",
+    "sciroppo di fruttosio-glucosio",
+    "sciroppo di fruttosio",
+    "sciroppo di mais ad alto contenuto di fruttosio",
+    "isoglucosio",
+    "fruttosio"
+   ],
+   "escludi": [],
+   "en": [
+    "en:fructose",
+    "en:glucose-fructose-syrup",
+    "en:fructose-glucose-syrup",
+    "en:high-fructose-corn-syrup",
+    "en:fructose-syrup"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Sorbitolo (E420)",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "sorbitolo",
+    "sorbitol",
+    "e420",
+    "e 420"
+   ],
+   "escludi": [],
+   "en": [
+    "en:sorbitol",
+    "en:e420"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Xilitolo (E967)",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "xilitolo",
+    "xylitol",
+    "e967",
+    "e 967"
+   ],
+   "escludi": [],
+   "en": [
+    "en:xylitol",
+    "en:e967"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Zucchero",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "zucchero",
+    "saccarosio",
+    "zucchero di canna",
+    "destrosio",
+    "glucosio",
+    "sciroppo di glucosio"
+   ],
+   "escludi": [],
+   "en": [
+    "en:sugar",
+    "en:sucrose",
+    "en:cane-sugar",
+    "en:dextrose",
+    "en:glucose",
+    "en:glucose-syrup"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Inulina e FOS",
+   "categoria": "Fibre",
+   "termini": [
+    "inulina",
+    "fibra di cicoria",
+    "radice di cicoria",
+    "fruttooligosaccaridi",
+    "frutto-oligosaccaridi",
+    "fos",
+    "oligofruttosio"
+   ],
+   "escludi": [],
+   "en": [
+    "en:inulin",
+    "en:chicory-fibre",
+    "en:fructo-oligosaccharide",
+    "en:oligofructose"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Albicocca",
+   "categoria": "Frutta",
+   "termini": [
+    "albicocca",
+    "albicocche"
+   ],
+   "escludi": [
+    "albicocche secche",
+    "albicocche essiccate"
+   ],
+   "en": [
+    "en:apricot"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Albicocche secche",
+   "categoria": "Frutta",
+   "termini": [
+    "albicocche secche",
+    "albicocche essiccate"
+   ],
+   "escludi": [],
+   "en": [
+    "en:dried-apricot"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "alto",
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Ananas",
+   "categoria": "Frutta",
+   "termini": [
+    "ananas"
+   ],
+   "escludi": [],
+   "en": [
+    "en:pineapple"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Anguria",
+   "categoria": "Frutta",
+   "termini": [
+    "anguria",
+    "cocomero"
+   ],
+   "escludi": [],
+   "en": [
+    "en:watermelon"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto",
+    "polioli": "alto",
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Arancia",
+   "categoria": "Frutta",
+   "termini": [
+    "arancia",
+    "arance",
+    "succo d'arancia"
+   ],
+   "escludi": [],
+   "en": [
+    "en:orange"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "1 frutto medio",
+   "note": ""
+  },
+  {
+   "nome": "Banana matura",
+   "categoria": "Frutta",
+   "termini": [
+    "banana",
+    "banane"
+   ],
+   "escludi": [],
+   "en": [
+    "en:banana"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": "Acerba (ancora soda): basso."
+  },
+  {
+   "nome": "Boysenberry",
+   "categoria": "Frutta",
+   "termini": [
+    "boysenberry"
+   ],
+   "escludi": [],
+   "en": [
+    "en:boysenberry"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Feijoa",
+   "categoria": "Frutta",
+   "termini": [
+    "feijoa"
+   ],
+   "escludi": [],
+   "en": [
+    "en:feijoa"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Fichi",
+   "categoria": "Frutta",
+   "termini": [
+    "fico",
+    "fichi"
+   ],
+   "escludi": [],
+   "en": [
+    "en:fig"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Fragola",
+   "categoria": "Frutta",
+   "termini": [
+    "fragola",
+    "fragole"
+   ],
+   "escludi": [],
+   "en": [
+    "en:strawberry"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Frutta essiccata",
+   "categoria": "Frutta",
+   "termini": [
+    "uvetta",
+    "uva passa",
+    "uva sultanina",
+    "dattero",
+    "datteri",
+    "frutta essiccata",
+    "frutta disidratata",
+    "barretta alla frutta",
+    "barrette alla frutta"
+   ],
+   "escludi": [],
+   "en": [
+    "en:raisin",
+    "en:sultana",
+    "en:date",
+    "en:dried-fruit"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto",
+    "fruttani": "medio"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Kiwi",
+   "categoria": "Frutta",
+   "termini": [
+    "kiwi"
+   ],
+   "escludi": [],
+   "en": [
+    "en:kiwi"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Mango",
+   "categoria": "Frutta",
+   "termini": [
+    "mango"
+   ],
+   "escludi": [],
+   "en": [
+    "en:mango"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Mela",
+   "categoria": "Frutta",
+   "termini": [
+    "mela",
+    "mele",
+    "succo di mela",
+    "purea di mela",
+    "polpa di mela"
+   ],
+   "escludi": [],
+   "en": [
+    "en:apple",
+    "en:apple-juice",
+    "en:apple-puree"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto",
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Mirtilli",
+   "categoria": "Frutta",
+   "termini": [
+    "mirtillo",
+    "mirtilli"
+   ],
+   "escludi": [],
+   "en": [
+    "en:blueberry"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Nettarina",
+   "categoria": "Frutta",
+   "termini": [
+    "nettarina",
+    "nettarine",
+    "pesca noce",
+    "pesche noci"
+   ],
+   "escludi": [],
+   "en": [
+    "en:nectarine"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Pera",
+   "categoria": "Frutta",
+   "termini": [
+    "pera",
+    "pere",
+    "pere nashi",
+    "succo di pera"
+   ],
+   "escludi": [],
+   "en": [
+    "en:pear",
+    "en:pear-juice"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto",
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Pesca",
+   "categoria": "Frutta",
+   "termini": [
+    "pesca",
+    "pesche",
+    "pesca duracina",
+    "pesche duracine"
+   ],
+   "escludi": [
+    "pesca noce",
+    "pesche noci"
+   ],
+   "en": [
+    "en:peach"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "alto",
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Prugna",
+   "categoria": "Frutta",
+   "termini": [
+    "prugna",
+    "prugne",
+    "susina",
+    "susine"
+   ],
+   "escludi": [],
+   "en": [
+    "en:plum",
+    "en:prune"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Tamarillo",
+   "categoria": "Frutta",
+   "termini": [
+    "tamarillo"
+   ],
+   "escludi": [],
+   "en": [
+    "en:tamarillo"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Anacardi",
+   "categoria": "Frutta a guscio",
+   "termini": [
+    "anacardo",
+    "anacardi"
+   ],
+   "escludi": [],
+   "en": [
+    "en:cashew",
+    "en:cashews",
+    "en:cashew-nut"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "alto",
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Mandorle",
+   "categoria": "Frutta a guscio",
+   "termini": [
+    "mandorla",
+    "mandorle",
+    "farina di mandorle",
+    "pasta di mandorle"
+   ],
+   "escludi": [],
+   "en": [
+    "en:almond",
+    "en:almonds"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "medio"
+   },
+   "porzione": "circa 10 mandorle",
+   "note": ""
+  },
+  {
+   "nome": "Nocciole",
+   "categoria": "Frutta a guscio",
+   "termini": [
+    "nocciola",
+    "nocciole",
+    "pasta di nocciole"
+   ],
+   "escludi": [],
+   "en": [
+    "en:hazelnut",
+    "en:hazelnuts"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "basso",
+    "fruttani": "basso"
+   },
+   "porzione": "circa 10 nocciole",
+   "note": ""
+  },
+  {
+   "nome": "Noci e arachidi",
+   "categoria": "Frutta a guscio",
+   "termini": [
+    "noce",
+    "noci",
+    "arachide",
+    "arachidi",
+    "burro di arachidi"
+   ],
+   "escludi": [],
+   "en": [
+    "en:walnut",
+    "en:walnuts",
+    "en:peanut",
+    "en:peanuts"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Pistacchi",
+   "categoria": "Frutta a guscio",
+   "termini": [
+    "pistacchio",
+    "pistacchi",
+    "pasta di pistacchio",
+    "granella di pistacchio"
+   ],
+   "escludi": [],
+   "en": [
+    "en:pistachio",
+    "en:pistachios"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "alto",
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Burro",
+   "categoria": "Latticini",
+   "termini": [
+    "burro",
+    "burro concentrato",
+    "grasso del latte",
+    "grasso anidro del latte"
+   ],
+   "escludi": [],
+   "en": [
+    "en:butter",
+    "en:anhydrous-milk-fat",
+    "en:milk-fat"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "basso"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Crema pasticcera",
+   "categoria": "Latticini",
+   "termini": [
+    "crema pasticcera"
+   ],
+   "escludi": [],
+   "en": [
+    "en:custard"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Formaggi stagionati",
+   "categoria": "Latticini",
+   "termini": [
+    "parmigiano",
+    "parmigiano reggiano",
+    "grana padano",
+    "pecorino",
+    "emmental",
+    "gruyere",
+    "provolone",
+    "formaggio stagionato"
+   ],
+   "escludi": [],
+   "en": [
+    "en:parmigiano-reggiano",
+    "en:grana-padano",
+    "en:pecorino",
+    "en:emmental",
+    "en:hard-cheese"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "basso"
+   },
+   "porzione": "",
+   "note": "Lattosio quasi assente."
+  },
+  {
+   "nome": "Gelato",
+   "categoria": "Latticini",
+   "termini": [
+    "gelato",
+    "gelati"
+   ],
+   "escludi": [],
+   "en": [
+    "en:ice-cream"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Latte",
+   "categoria": "Latticini",
+   "termini": [
+    "latte",
+    "latte intero",
+    "latte scremato",
+    "latte parzialmente scremato",
+    "latte in polvere",
+    "latte scremato in polvere",
+    "latte intero in polvere",
+    "latte fresco"
+   ],
+   "escludi": [
+    "latte di cocco",
+    "latte di soia",
+    "latte di mandorla",
+    "latte di mandorle",
+    "latte di riso",
+    "latte d'avena",
+    "latte di nocciola",
+    "latte di nocciole",
+    "latte delattosato",
+    "latte senza lattosio",
+    "fermenti lattici"
+   ],
+   "en": [
+    "en:milk",
+    "en:whole-milk",
+    "en:skimmed-milk",
+    "en:semi-skimmed-milk",
+    "en:milk-powder",
+    "en:skimmed-milk-powder",
+    "en:whole-milk-powder"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Latte condensato",
+   "categoria": "Latticini",
+   "termini": [
+    "latte condensato",
+    "latte concentrato zuccherato"
+   ],
+   "escludi": [],
+   "en": [
+    "en:condensed-milk",
+    "en:sweetened-condensed-milk"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Lattosio",
+   "categoria": "Latticini",
+   "termini": [
+    "lattosio"
+   ],
+   "escludi": [
+    "senza lattosio",
+    "privo di lattosio"
+   ],
+   "en": [
+    "en:lactose"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "lattosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Mozzarella",
+   "categoria": "Latticini",
+   "termini": [
+    "mozzarella"
+   ],
+   "escludi": [],
+   "en": [
+    "en:mozzarella"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "basso"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Panna",
+   "categoria": "Latticini",
+   "termini": [
+    "panna",
+    "crema di latte",
+    "panna da cucina",
+    "panna montata"
+   ],
+   "escludi": [],
+   "en": [
+    "en:cream",
+    "en:whipping-cream"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "medio"
+   },
+   "porzione": "poca: basso",
+   "note": ""
+  },
+  {
+   "nome": "Ricotta e formaggi freschi",
+   "categoria": "Latticini",
+   "termini": [
+    "ricotta",
+    "mascarpone",
+    "latticello",
+    "formaggio fresco",
+    "formaggio spalmabile",
+    "robiola",
+    "stracchino"
+   ],
+   "escludi": [],
+   "en": [
+    "en:ricotta",
+    "en:mascarpone",
+    "en:buttermilk",
+    "en:cream-cheese"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Siero di latte",
+   "categoria": "Latticini",
+   "termini": [
+    "siero di latte",
+    "siero di latte in polvere",
+    "siero di latte dolce in polvere",
+    "siero"
+   ],
+   "escludi": [],
+   "en": [
+    "en:whey",
+    "en:whey-powder",
+    "en:sweet-whey-powder"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "lattosio": "alto"
+   },
+   "porzione": "",
+   "note": "Le proteine isolate del siero sono basse."
+  },
+  {
+   "nome": "Yogurt",
+   "categoria": "Latticini",
+   "termini": [
+    "yogurt",
+    "yoghurt"
+   ],
+   "escludi": [],
+   "en": [
+    "en:yogurt"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Ceci",
+   "categoria": "Legumi",
+   "termini": [
+    "cece",
+    "ceci",
+    "farina di ceci"
+   ],
+   "escludi": [],
+   "en": [
+    "en:chickpea",
+    "en:chickpea-flour"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "alto"
+   },
+   "porzione": "",
+   "note": "In scatola, ben sciacquati e in piccola porzione: più bassi."
+  },
+  {
+   "nome": "Fagioli e legumi",
+   "categoria": "Legumi",
+   "termini": [
+    "fagiolo",
+    "fagioli",
+    "fagioli di lima",
+    "fave",
+    "lupini",
+    "fagioli borlotti",
+    "fagioli cannellini"
+   ],
+   "escludi": [
+    "fagiolini",
+    "fagioli di soia"
+   ],
+   "en": [
+    "en:kidney-bean",
+    "en:broad-bean",
+    "en:white-bean",
+    "en:haricot-bean",
+    "en:lima-bean",
+    "en:lupin",
+    "en:borlotti-bean"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Lenticchie",
+   "categoria": "Legumi",
+   "termini": [
+    "lenticchia",
+    "lenticchie"
+   ],
+   "escludi": [],
+   "en": [
+    "en:lentil",
+    "en:lentils"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "alto"
+   },
+   "porzione": "",
+   "note": "In scatola e sciacquate: più basse."
+  },
+  {
+   "nome": "Piselli",
+   "categoria": "Legumi",
+   "termini": [
+    "pisello",
+    "piselli"
+   ],
+   "escludi": [
+    "pisello mangiatutto",
+    "piselli mangiatutto",
+    "proteine di pisello"
+   ],
+   "en": [
+    "en:pea",
+    "en:peas"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "alto",
+    "fruttani": "medio"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Carne e pesce",
+   "categoria": "Proteine",
+   "termini": [
+    "carne",
+    "pollo",
+    "tacchino",
+    "manzo",
+    "maiale",
+    "prosciutto",
+    "pesce",
+    "tonno",
+    "salmone"
+   ],
+   "escludi": [],
+   "en": [
+    "en:meat",
+    "en:chicken",
+    "en:pork",
+    "en:beef",
+    "en:fish",
+    "en:tuna",
+    "en:salmon"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Attenzione a marinature e preparati con aglio e cipolla."
+  },
+  {
+   "nome": "Tofu compatto e tempeh",
+   "categoria": "Proteine",
+   "termini": [
+    "tofu",
+    "tempeh"
+   ],
+   "escludi": [],
+   "en": [
+    "en:tofu",
+    "en:tempeh"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Il tofu morbido (silken) è alto in GOS."
+  },
+  {
+   "nome": "Uova",
+   "categoria": "Proteine",
+   "termini": [
+    "uovo",
+    "uova",
+    "tuorlo",
+    "albume"
+   ],
+   "escludi": [],
+   "en": [
+    "en:egg",
+    "en:eggs",
+    "en:egg-yolk",
+    "en:egg-white"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Aglio",
+   "categoria": "Verdura",
+   "termini": [
+    "aglio",
+    "aglio in polvere",
+    "aglio disidratato"
+   ],
+   "escludi": [],
+   "en": [
+    "en:garlic",
+    "en:garlic-powder"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": "Anche poche quantità contano. L'olio aromatizzato all'aglio è basso."
+  },
+  {
+   "nome": "Carciofo",
+   "categoria": "Verdura",
+   "termini": [
+    "carciof*"
+   ],
+   "escludi": [],
+   "en": [
+    "en:artichoke"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto",
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Carota",
+   "categoria": "Verdura",
+   "termini": [
+    "carota",
+    "carote"
+   ],
+   "escludi": [],
+   "en": [
+    "en:carrot"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Cipolla e scalogno",
+   "categoria": "Verdura",
+   "termini": [
+    "cipolla",
+    "cipolle",
+    "cipolla in polvere",
+    "cipolla disidratata",
+    "scalogno",
+    "scalogni"
+   ],
+   "escludi": [],
+   "en": [
+    "en:onion",
+    "en:onion-powder",
+    "en:shallot"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Fagiolini",
+   "categoria": "Verdura",
+   "termini": [
+    "fagiolino",
+    "fagiolini"
+   ],
+   "escludi": [],
+   "en": [
+    "en:green-bean",
+    "en:green-beans"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Porzioni molto grandi: medio (polioli)."
+  },
+  {
+   "nome": "Funghi",
+   "categoria": "Verdura",
+   "termini": [
+    "fungo",
+    "funghi",
+    "champignon",
+    "porcini",
+    "funghi porcini"
+   ],
+   "escludi": [],
+   "en": [
+    "en:mushroom",
+    "en:mushrooms",
+    "en:champignon"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": "Gli champignon in scatola sono più bassi."
+  },
+  {
+   "nome": "Lattuga",
+   "categoria": "Verdura",
+   "termini": [
+    "lattuga",
+    "insalata"
+   ],
+   "escludi": [],
+   "en": [
+    "en:lettuce"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Melanzana",
+   "categoria": "Verdura",
+   "termini": [
+    "melanzana",
+    "melanzane"
+   ],
+   "escludi": [],
+   "en": [
+    "en:eggplant",
+    "en:aubergine"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Patata",
+   "categoria": "Verdura",
+   "termini": [
+    "patata",
+    "patate",
+    "fecola di patate"
+   ],
+   "escludi": [],
+   "en": [
+    "en:potato",
+    "en:potato-starch"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Peperone",
+   "categoria": "Verdura",
+   "termini": [
+    "peperone",
+    "peperoni",
+    "peperone rosso",
+    "peperone giallo",
+    "peperone verde"
+   ],
+   "escludi": [],
+   "en": [
+    "en:bell-pepper",
+    "en:red-bell-pepper",
+    "en:pepper"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Rosso e giallo bassi. Verde basso in porzione normale."
+  },
+  {
+   "nome": "Pomodoro",
+   "categoria": "Verdura",
+   "termini": [
+    "pomodoro",
+    "pomodori",
+    "passata di pomodoro",
+    "polpa di pomodoro",
+    "concentrato di pomodoro"
+   ],
+   "escludi": [],
+   "en": [
+    "en:tomato",
+    "en:tomato-puree",
+    "en:tomato-paste"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Porro",
+   "categoria": "Verdura",
+   "termini": [
+    "porro",
+    "porri"
+   ],
+   "escludi": [],
+   "en": [
+    "en:leek"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": "Le foglie verdi sono basse."
+  },
+  {
+   "nome": "Spinaci",
+   "categoria": "Verdura",
+   "termini": [
+    "spinaci"
+   ],
+   "escludi": [],
+   "en": [
+    "en:spinach"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Taccole",
+   "categoria": "Verdura",
+   "termini": [
+    "taccola",
+    "taccole",
+    "pisello mangiatutto",
+    "piselli mangiatutto"
+   ],
+   "escludi": [],
+   "en": [
+    "en:snow-pea",
+    "en:mangetout"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto",
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Zucchina",
+   "categoria": "Verdura",
+   "termini": [
+    "zucchina",
+    "zucchine"
+   ],
+   "escludi": [],
+   "en": [
+    "en:zucchini",
+    "en:courgette"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Porzioni molto grandi: medio."
+  }
+ ]
+}
