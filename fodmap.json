@@ -1,5 +1,5 @@
 {
- "versione": 1,
+ "versione": 2,
  "aggiornato": "2026-10-15",
  "gruppi": {
   "fruttosio": "Fruttosio in eccesso",
@@ -52,6 +52,75 @@
    "note": "Quella da proteine di soia è bassa. Tofu compatto basso."
   },
   {
+   "nome": "Bevande vegetali basse",
+   "categoria": "Bevande",
+   "termini": [
+    "latte di mandorla",
+    "bevanda di mandorla",
+    "bevanda di riso",
+    "latte di riso",
+    "latte di cocco",
+    "bevanda di cocco"
+   ],
+   "escludi": [],
+   "en": [
+    "en:almond-drink",
+    "en:rice-drink",
+    "en:coconut-milk"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Controlla che non contengano inulina o sciroppi."
+  },
+  {
+   "nome": "Caffè, birra e vino secco",
+   "categoria": "Bevande",
+   "termini": [
+    "caffè",
+    "caffe",
+    "birra",
+    "vino rosso",
+    "vino bianco",
+    "spumante"
+   ],
+   "escludi": [],
+   "en": [
+    "en:coffee",
+    "en:beer",
+    "en:red-wine",
+    "en:white-wine"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Rum e vini dolci",
+   "categoria": "Bevande",
+   "termini": [
+    "rum",
+    "vino dolce",
+    "vino passito",
+    "passito",
+    "porto",
+    "sherry",
+    "moscato"
+   ],
+   "escludi": [],
+   "en": [
+    "en:rum",
+    "en:dessert-wine"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
    "nome": "Succhi e frullati di frutta",
    "categoria": "Bevande",
    "termini": [
@@ -72,6 +141,27 @@
    },
    "porzione": "",
    "note": ""
+  },
+  {
+   "nome": "Tisane di camomilla e finocchio",
+   "categoria": "Bevande",
+   "termini": [
+    "camomilla",
+    "tisana al finocchio",
+    "tè chai",
+    "te chai",
+    "tè oolong"
+   ],
+   "escludi": [],
+   "en": [
+    "en:chamomile"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": "Tè nero e verde leggeri, menta e rooibos sono bassi."
   },
   {
    "nome": "Avena",
@@ -96,6 +186,24 @@
    "livelli": {},
    "porzione": "circa 50 g",
    "note": "Porzioni grandi: medio. Per i celiaci serve avena certificata."
+  },
+  {
+   "nome": "Castagne",
+   "categoria": "Cereali",
+   "termini": [
+    "castagna",
+    "castagne",
+    "farina di castagne"
+   ],
+   "escludi": [],
+   "en": [
+    "en:chestnut",
+    "en:chestnut-flour"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
   },
   {
    "nome": "Frumento",
@@ -159,7 +267,7 @@
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": "Anche glutine. Fruttani trascurabili negli amidi deglutinati."
+   "note": "Anche glutine. Fruttani trascurabili negli amidi deglutinati. Il pane di farro a vero lievito madre è più basso."
   },
   {
    "nome": "Grano saraceno",
@@ -186,12 +294,35 @@
     "polenta",
     "amido di mais"
    ],
-   "escludi": [],
+   "escludi": [
+    "mais dolce",
+    "pannocchia",
+    "pannocchie"
+   ],
    "en": [
     "en:corn",
     "en:maize",
     "en:corn-flour",
     "en:corn-starch"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Miglio, teff e sorgo",
+   "categoria": "Cereali",
+   "termini": [
+    "miglio",
+    "teff",
+    "sorgo"
+   ],
+   "escludi": [],
+   "en": [
+    "en:millet",
+    "en:teff",
+    "en:sorghum"
    ],
    "concentrato": false,
    "livelli": {},
@@ -271,6 +402,87 @@
    },
    "porzione": "",
    "note": "Anche glutine."
+  },
+  {
+   "nome": "Brodo e dado pronti",
+   "categoria": "Condimenti",
+   "termini": [
+    "dado",
+    "dado da brodo",
+    "brodo pronto",
+    "preparato per brodo",
+    "brodo granulare"
+   ],
+   "escludi": [],
+   "en": [
+    "en:bouillon",
+    "en:stock-cube"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": "Quasi sempre contengono cipolla e aglio: controlla gli ingredienti."
+  },
+  {
+   "nome": "Sale all'aglio e alla cipolla",
+   "categoria": "Condimenti",
+   "termini": [
+    "sale all'aglio",
+    "sale alla cipolla",
+    "insaporitore"
+   ],
+   "escludi": [],
+   "en": [
+    "en:garlic-salt"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Cioccolato al latte e bianco",
+   "categoria": "Dolci",
+   "termini": [
+    "cioccolato al latte",
+    "cioccolato bianco"
+   ],
+   "escludi": [],
+   "en": [
+    "en:milk-chocolate",
+    "en:white-chocolate"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "medio"
+   },
+   "porzione": "2-3 quadratini: basso",
+   "note": ""
+  },
+  {
+   "nome": "Cioccolato fondente e cacao",
+   "categoria": "Dolci",
+   "termini": [
+    "cioccolato fondente",
+    "cacao",
+    "cacao magro",
+    "cacao in polvere"
+   ],
+   "escludi": [],
+   "en": [
+    "en:dark-chocolate",
+    "en:cocoa",
+    "en:cocoa-powder",
+    "en:fat-reduced-cocoa"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
   },
   {
    "nome": "Eritritolo e stevia",
@@ -510,7 +722,9 @@
     "zucchero di canna",
     "destrosio",
     "glucosio",
-    "sciroppo di glucosio"
+    "sciroppo di glucosio",
+    "sciroppo di riso",
+    "malto di riso"
    ],
    "escludi": [],
    "en": [
@@ -523,6 +737,42 @@
    ],
    "concentrato": false,
    "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Zucchero di cocco",
+   "categoria": "Dolcificanti",
+   "termini": [
+    "zucchero di cocco"
+   ],
+   "escludi": [],
+   "en": [
+    "en:coconut-sugar"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "medio"
+   },
+   "porzione": "1 cucchiaino: basso",
+   "note": ""
+  },
+  {
+   "nome": "GOS aggiunti",
+   "categoria": "Fibre",
+   "termini": [
+    "galattooligosaccaridi",
+    "galatto-oligosaccaridi",
+    "gos"
+   ],
+   "escludi": [],
+   "en": [
+    "en:galacto-oligosaccharides"
+   ],
+   "concentrato": true,
+   "livelli": {
+    "gos": "alto"
+   },
    "porzione": "",
    "note": ""
   },
@@ -645,6 +895,23 @@
    "note": ""
   },
   {
+   "nome": "Avocado",
+   "categoria": "Frutta",
+   "termini": [
+    "avocado"
+   ],
+   "escludi": [],
+   "en": [
+    "en:avocado"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "medio"
+   },
+   "porzione": "circa 30 g: basso",
+   "note": ""
+  },
+  {
    "nome": "Banana matura",
    "categoria": "Frutta",
    "termini": [
@@ -678,6 +945,74 @@
    },
    "porzione": "",
    "note": ""
+  },
+  {
+   "nome": "Cachi",
+   "categoria": "Frutta",
+   "termini": [
+    "caco",
+    "cachi",
+    "kaki",
+    "persimmon"
+   ],
+   "escludi": [],
+   "en": [
+    "en:persimmon"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Ciliegie",
+   "categoria": "Frutta",
+   "termini": [
+    "ciliegia",
+    "ciliegie",
+    "amarena",
+    "amarene",
+    "visciola",
+    "visciole"
+   ],
+   "escludi": [],
+   "en": [
+    "en:cherry",
+    "en:cherries",
+    "en:sour-cherry"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto",
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Cocco essiccato e farina di cocco",
+   "categoria": "Frutta",
+   "termini": [
+    "cocco rapè",
+    "cocco rape",
+    "cocco disidratato",
+    "cocco essiccato",
+    "cocco grattugiato",
+    "farina di cocco"
+   ],
+   "escludi": [],
+   "en": [
+    "en:desiccated-coconut",
+    "en:coconut-flour"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "poco cocco rapè: basso",
+   "note": "Latte di cocco e olio di cocco sono bassi."
   },
   {
    "nome": "Feijoa",
@@ -775,6 +1110,80 @@
    "note": ""
   },
   {
+   "nome": "Lamponi",
+   "categoria": "Frutta",
+   "termini": [
+    "lampone",
+    "lamponi"
+   ],
+   "escludi": [],
+   "en": [
+    "en:raspberry",
+    "en:raspberries"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Limone e lime",
+   "categoria": "Frutta",
+   "termini": [
+    "limone",
+    "limoni",
+    "succo di limone",
+    "lime"
+   ],
+   "escludi": [],
+   "en": [
+    "en:lemon",
+    "en:lemon-juice",
+    "en:lime"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Litchi",
+   "categoria": "Frutta",
+   "termini": [
+    "litchi",
+    "lychee"
+   ],
+   "escludi": [],
+   "en": [
+    "en:lychee"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Mandarino e clementina",
+   "categoria": "Frutta",
+   "termini": [
+    "mandarino",
+    "mandarini",
+    "clementina",
+    "clementine"
+   ],
+   "escludi": [],
+   "en": [
+    "en:mandarin",
+    "en:clementine"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
    "nome": "Mango",
    "categoria": "Frutta",
    "termini": [
@@ -816,6 +1225,44 @@
    "note": ""
   },
   {
+   "nome": "Melograno",
+   "categoria": "Frutta",
+   "termini": [
+    "melograno",
+    "melagrana",
+    "succo di melograno"
+   ],
+   "escludi": [],
+   "en": [
+    "en:pomegranate"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "medio",
+    "gos": "medio"
+   },
+   "porzione": "1/4 di frutto: basso",
+   "note": ""
+  },
+  {
+   "nome": "Melone",
+   "categoria": "Frutta",
+   "termini": [
+    "melone",
+    "meloni",
+    "melone cantalupo"
+   ],
+   "escludi": [],
+   "en": [
+    "en:melon",
+    "en:cantaloupe"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
    "nome": "Mirtilli",
    "categoria": "Frutta",
    "termini": [
@@ -828,6 +1275,26 @@
    ],
    "concentrato": false,
    "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "More",
+   "categoria": "Frutta",
+   "termini": [
+    "mora",
+    "more",
+    "more di rovo"
+   ],
+   "escludi": [],
+   "en": [
+    "en:blackberry",
+    "en:blackberries"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "alto"
+   },
    "porzione": "",
    "note": ""
   },
@@ -848,6 +1315,22 @@
    "livelli": {
     "polioli": "alto"
    },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Papaya",
+   "categoria": "Frutta",
+   "termini": [
+    "papaya",
+    "papaia"
+   ],
+   "escludi": [],
+   "en": [
+    "en:papaya"
+   ],
+   "concentrato": false,
+   "livelli": {},
    "porzione": "",
    "note": ""
   },
@@ -898,6 +1381,24 @@
    "note": ""
   },
   {
+   "nome": "Pompelmo",
+   "categoria": "Frutta",
+   "termini": [
+    "pompelmo",
+    "pompelmi"
+   ],
+   "escludi": [],
+   "en": [
+    "en:grapefruit"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "medio"
+   },
+   "porzione": "mezzo frutto piccolo: basso",
+   "note": ""
+  },
+  {
    "nome": "Prugna",
    "categoria": "Frutta",
    "termini": [
@@ -932,6 +1433,26 @@
    "livelli": {
     "fruttosio": "alto"
    },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Uva",
+   "categoria": "Frutta",
+   "termini": [
+    "uva",
+    "acini d'uva"
+   ],
+   "escludi": [
+    "uva passa",
+    "uva sultanina"
+   ],
+   "en": [
+    "en:grape",
+    "en:grapes"
+   ],
+   "concentrato": false,
+   "livelli": {},
    "porzione": "",
    "note": ""
   },
@@ -1043,6 +1564,49 @@
    "note": ""
   },
   {
+   "nome": "Brie, camembert e feta",
+   "categoria": "Latticini",
+   "termini": [
+    "brie",
+    "camembert",
+    "feta",
+    "halloumi",
+    "taleggio",
+    "fontina"
+   ],
+   "escludi": [],
+   "en": [
+    "en:brie",
+    "en:camembert",
+    "en:feta",
+    "en:halloumi"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "basso"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Budino",
+   "categoria": "Latticini",
+   "termini": [
+    "budino",
+    "budini"
+   ],
+   "escludi": [],
+   "en": [
+    "en:pudding"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
    "nome": "Burro",
    "categoria": "Latticini",
    "termini": [
@@ -1051,7 +1615,13 @@
     "grasso del latte",
     "grasso anidro del latte"
    ],
-   "escludi": [],
+   "escludi": [
+    "burro di cacao",
+    "burro di arachidi",
+    "burro di karité",
+    "burro di cocco",
+    "burro vegetale"
+   ],
    "en": [
     "en:butter",
     "en:anhydrous-milk-fat",
@@ -1128,6 +1698,23 @@
    "note": ""
   },
   {
+   "nome": "Kefir",
+   "categoria": "Latticini",
+   "termini": [
+    "kefir"
+   ],
+   "escludi": [],
+   "en": [
+    "en:kefir"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "lattosio": "medio"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
    "nome": "Latte",
    "categoria": "Latticini",
    "termini": [
@@ -1138,7 +1725,10 @@
     "latte in polvere",
     "latte scremato in polvere",
     "latte intero in polvere",
-    "latte fresco"
+    "latte fresco",
+    "latte di capra",
+    "latte di pecora",
+    "latte di bufala"
    ],
    "escludi": [
     "latte di cocco",
@@ -1174,7 +1764,8 @@
    "categoria": "Latticini",
    "termini": [
     "latte condensato",
-    "latte concentrato zuccherato"
+    "latte concentrato zuccherato",
+    "latte evaporato"
    ],
    "escludi": [],
    "en": [
@@ -1232,7 +1823,8 @@
     "panna",
     "crema di latte",
     "panna da cucina",
-    "panna montata"
+    "panna montata",
+    "panna acida"
    ],
    "escludi": [],
    "en": [
@@ -1256,7 +1848,14 @@
     "formaggio fresco",
     "formaggio spalmabile",
     "robiola",
-    "stracchino"
+    "stracchino",
+    "cottage cheese",
+    "fiocchi di latte",
+    "quark",
+    "philadelphia",
+    "crescenza",
+    "squacquerone",
+    "formaggio cremoso"
    ],
    "escludi": [],
    "en": [
@@ -1318,7 +1917,9 @@
    "termini": [
     "cece",
     "ceci",
-    "farina di ceci"
+    "farina di ceci",
+    "hummus",
+    "falafel"
    ],
    "escludi": [],
    "en": [
@@ -1331,6 +1932,21 @@
    },
    "porzione": "",
    "note": "In scatola, ben sciacquati e in piccola porzione: più bassi."
+  },
+  {
+   "nome": "Edamame",
+   "categoria": "Legumi",
+   "termini": [
+    "edamame"
+   ],
+   "escludi": [],
+   "en": [
+    "en:edamame"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
   },
   {
    "nome": "Fagioli e legumi",
@@ -1443,7 +2059,12 @@
     "tofu",
     "tempeh"
    ],
-   "escludi": [],
+   "escludi": [
+    "tofu morbido",
+    "tofu vellutato",
+    "tofu silken",
+    "tofu setoso"
+   ],
    "en": [
     "en:tofu",
     "en:tempeh"
@@ -1452,6 +2073,26 @@
    "livelli": {},
    "porzione": "",
    "note": "Il tofu morbido (silken) è alto in GOS."
+  },
+  {
+   "nome": "Tofu morbido (silken)",
+   "categoria": "Proteine",
+   "termini": [
+    "tofu morbido",
+    "tofu vellutato",
+    "tofu silken",
+    "tofu setoso"
+   ],
+   "escludi": [],
+   "en": [
+    "en:silken-tofu"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "gos": "alto"
+   },
+   "porzione": "",
+   "note": ""
   },
   {
    "nome": "Uova",
@@ -1495,6 +2136,64 @@
    "note": "Anche poche quantità contano. L'olio aromatizzato all'aglio è basso."
   },
   {
+   "nome": "Asparagi",
+   "categoria": "Verdura",
+   "termini": [
+    "asparago",
+    "asparagi"
+   ],
+   "escludi": [],
+   "en": [
+    "en:asparagus"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "alto",
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Barbabietola",
+   "categoria": "Verdura",
+   "termini": [
+    "barbabietola",
+    "barbabietole",
+    "rapa rossa"
+   ],
+   "escludi": [],
+   "en": [
+    "en:beetroot",
+    "en:beet"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "medio",
+    "gos": "medio"
+   },
+   "porzione": "2 fette: basso",
+   "note": ""
+  },
+  {
+   "nome": "Broccoli",
+   "categoria": "Verdura",
+   "termini": [
+    "broccolo",
+    "broccoli",
+    "cime di rapa",
+    "friarielli"
+   ],
+   "escludi": [],
+   "en": [
+    "en:broccoli"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Le cimette sono basse, i gambi hanno più fruttosio."
+  },
+  {
    "nome": "Carciofo",
    "categoria": "Verdura",
    "termini": [
@@ -1529,6 +2228,93 @@
    "note": ""
   },
   {
+   "nome": "Cavoletti di Bruxelles",
+   "categoria": "Verdura",
+   "termini": [
+    "cavoletti di bruxelles",
+    "cavolini di bruxelles"
+   ],
+   "escludi": [],
+   "en": [
+    "en:brussels-sprouts"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "medio"
+   },
+   "porzione": "2 cavoletti: basso",
+   "note": ""
+  },
+  {
+   "nome": "Cavolfiore",
+   "categoria": "Verdura",
+   "termini": [
+    "cavolfiore",
+    "cavolfiori"
+   ],
+   "escludi": [],
+   "en": [
+    "en:cauliflower"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Cavolo cappuccio",
+   "categoria": "Verdura",
+   "termini": [
+    "cavolo cappuccio",
+    "cavolo rosso",
+    "cavolo bianco",
+    "crauti"
+   ],
+   "escludi": [],
+   "en": [
+    "en:cabbage",
+    "en:red-cabbage",
+    "en:sauerkraut"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Cetriolo, rucola e ravanelli",
+   "categoria": "Verdura",
+   "termini": [
+    "cetriolo",
+    "cetrioli",
+    "rucola",
+    "ravanello",
+    "ravanelli",
+    "radicchio",
+    "bietola",
+    "bieta",
+    "cavolo riccio",
+    "pak choi",
+    "germogli di soia"
+   ],
+   "escludi": [],
+   "en": [
+    "en:cucumber",
+    "en:rocket",
+    "en:radish",
+    "en:chard",
+    "en:kale",
+    "en:bok-choy",
+    "en:bean-sprouts"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
    "nome": "Cipolla e scalogno",
    "categoria": "Verdura",
    "termini": [
@@ -1537,9 +2323,16 @@
     "cipolla in polvere",
     "cipolla disidratata",
     "scalogno",
-    "scalogni"
+    "scalogni",
+    "cipollotto",
+    "cipollotti",
+    "cipolla rossa",
+    "cipolla bianca",
+    "cipolla dorata"
    ],
-   "escludi": [],
+   "escludi": [
+    "erba cipollina"
+   ],
    "en": [
     "en:onion",
     "en:onion-powder",
@@ -1550,7 +2343,28 @@
     "fruttani": "alto"
    },
    "porzione": "",
-   "note": ""
+   "note": "Anche poche quantità contano. La parte verde del cipollotto e l'erba cipollina sono basse."
+  },
+  {
+   "nome": "Erba cipollina e zenzero",
+   "categoria": "Verdura",
+   "termini": [
+    "erba cipollina",
+    "zenzero",
+    "olive",
+    "olio aromatizzato all'aglio"
+   ],
+   "escludi": [],
+   "en": [
+    "en:chives",
+    "en:ginger",
+    "en:olive",
+    "en:olives"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": "Buoni sostituti di aglio e cipolla."
   },
   {
    "nome": "Fagiolini",
@@ -1568,6 +2382,26 @@
    "livelli": {},
    "porzione": "",
    "note": "Porzioni molto grandi: medio (polioli)."
+  },
+  {
+   "nome": "Finocchio",
+   "categoria": "Verdura",
+   "termini": [
+    "finocchio",
+    "finocchi"
+   ],
+   "escludi": [
+    "semi di finocchio"
+   ],
+   "en": [
+    "en:fennel"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "medio"
+   },
+   "porzione": "mezza tazza: basso",
+   "note": "Le foglie verdi sono basse."
   },
   {
    "nome": "Funghi",
@@ -1609,6 +2443,26 @@
    "note": ""
   },
   {
+   "nome": "Mais dolce",
+   "categoria": "Verdura",
+   "termini": [
+    "mais dolce",
+    "pannocchia",
+    "pannocchie"
+   ],
+   "escludi": [],
+   "en": [
+    "en:sweet-corn",
+    "en:sweetcorn"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "medio"
+   },
+   "porzione": "mezza pannocchia: basso",
+   "note": ""
+  },
+  {
    "nome": "Melanzana",
    "categoria": "Verdura",
    "termini": [
@@ -1626,6 +2480,24 @@
    "note": ""
   },
   {
+   "nome": "Okra",
+   "categoria": "Verdura",
+   "termini": [
+    "okra",
+    "gombo"
+   ],
+   "escludi": [],
+   "en": [
+    "en:okra"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "medio"
+   },
+   "porzione": "6 baccelli: basso",
+   "note": ""
+  },
+  {
    "nome": "Patata",
    "categoria": "Verdura",
    "termini": [
@@ -1633,7 +2505,12 @@
     "patate",
     "fecola di patate"
    ],
-   "escludi": [],
+   "escludi": [
+    "patata dolce",
+    "patate dolci",
+    "patata americana",
+    "patate americane"
+   ],
    "en": [
     "en:potato",
     "en:potato-starch"
@@ -1644,25 +2521,69 @@
    "note": ""
   },
   {
-   "nome": "Peperone",
+   "nome": "Patata dolce",
+   "categoria": "Verdura",
+   "termini": [
+    "patata dolce",
+    "patate dolci",
+    "patata americana",
+    "patate americane"
+   ],
+   "escludi": [],
+   "en": [
+    "en:sweet-potato"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "medio"
+   },
+   "porzione": "mezza tazza: basso",
+   "note": ""
+  },
+  {
+   "nome": "Peperone rosso e giallo",
    "categoria": "Verdura",
    "termini": [
     "peperone",
     "peperoni",
     "peperone rosso",
+    "peperoni rossi",
     "peperone giallo",
-    "peperone verde"
+    "peperoni gialli",
+    "peperoncino dolce"
    ],
-   "escludi": [],
+   "escludi": [
+    "peperone verde",
+    "peperoni verdi"
+   ],
    "en": [
     "en:bell-pepper",
     "en:red-bell-pepper",
-    "en:pepper"
+    "en:yellow-bell-pepper"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttosio": "medio"
+   },
+   "porzione": "circa 40 g: basso",
+   "note": "In porzioni normali il fruttosio sale. Il peperone verde è più basso."
+  },
+  {
+   "nome": "Peperone verde",
+   "categoria": "Verdura",
+   "termini": [
+    "peperone verde",
+    "peperoni verdi",
+    "friggitelli"
+   ],
+   "escludi": [],
+   "en": [
+    "en:green-bell-pepper"
    ],
    "concentrato": false,
    "livelli": {},
-   "porzione": "",
-   "note": "Rosso e giallo bassi. Verde basso in porzione normale."
+   "porzione": "circa 75 g",
+   "note": ""
   },
   {
    "nome": "Pomodoro",
@@ -1704,6 +2625,42 @@
    "note": "Le foglie verdi sono basse."
   },
   {
+   "nome": "Sedano",
+   "categoria": "Verdura",
+   "termini": [
+    "sedano",
+    "gambi di sedano",
+    "coste di sedano"
+   ],
+   "escludi": [
+    "sedano rapa"
+   ],
+   "en": [
+    "en:celery"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "alto"
+   },
+   "porzione": "pochi grammi: basso",
+   "note": ""
+  },
+  {
+   "nome": "Sedano rapa",
+   "categoria": "Verdura",
+   "termini": [
+    "sedano rapa"
+   ],
+   "escludi": [],
+   "en": [
+    "en:celeriac"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
    "nome": "Spinaci",
    "categoria": "Verdura",
    "termini": [
@@ -1725,7 +2682,9 @@
     "taccola",
     "taccole",
     "pisello mangiatutto",
-    "piselli mangiatutto"
+    "piselli mangiatutto",
+    "piselli dolci",
+    "sugar snap"
    ],
    "escludi": [],
    "en": [
@@ -1738,6 +2697,84 @@
     "polioli": "alto"
    },
    "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Topinambur",
+   "categoria": "Verdura",
+   "termini": [
+    "topinambur"
+   ],
+   "escludi": [],
+   "en": [
+    "en:jerusalem-artichoke"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "alto"
+   },
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Verza",
+   "categoria": "Verdura",
+   "termini": [
+    "verza",
+    "cavolo verza"
+   ],
+   "escludi": [],
+   "en": [
+    "en:savoy-cabbage"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "fruttani": "medio"
+   },
+   "porzione": "mezza tazza: basso",
+   "note": ""
+  },
+  {
+   "nome": "Zucca",
+   "categoria": "Verdura",
+   "termini": [
+    "zucca",
+    "zucca delica",
+    "zucca mantovana"
+   ],
+   "escludi": [
+    "zucca butternut",
+    "zucca violina",
+    "zucca lunga",
+    "semi di zucca"
+   ],
+   "en": [
+    "en:pumpkin",
+    "en:squash"
+   ],
+   "concentrato": false,
+   "livelli": {},
+   "porzione": "",
+   "note": ""
+  },
+  {
+   "nome": "Zucca butternut",
+   "categoria": "Verdura",
+   "termini": [
+    "zucca butternut",
+    "zucca violina",
+    "zucca lunga"
+   ],
+   "escludi": [],
+   "en": [
+    "en:butternut-squash"
+   ],
+   "concentrato": false,
+   "livelli": {
+    "polioli": "medio",
+    "gos": "medio"
+   },
+   "porzione": "circa 60 g: basso",
    "note": ""
   },
   {

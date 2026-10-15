@@ -119,6 +119,7 @@ const GLUT_FORTE = termRe(["frumento","farina di frumento","farina di grano","gr
 const GLUT_ESCL = termRe(["grano saraceno","amido di frumento","glucosio di frumento","sciroppo di glucosio di frumento","senza glutine","glutine assente"]);
 const GLUT_TAGS = new Set(["en:wheat","en:wheat-flour","en:barley","en:rye","en:spelt","en:kamut","en:gluten","en:barley-malt","en:triticale","en:durum-wheat-semolina","en:durum-wheat","en:soft-wheat-flour","en:wheat-semolina","en:barley-malt-extract"]);
 const AVENA = termRe(["avena","fiocchi d'avena","fiocchi di avena","farina d'avena"]);
+const LATT_DEB_ESCL = termRe(["burro di cacao","burro di arachidi","burro di karité","burro di cocco","burro vegetale","formaggio vegetale","senza lattosio"]);
 const LATT_DEBOLE = termRe(["burro","caseina","caseinato","caseinati","proteine del latte","grasso del latte","grasso anidro del latte","formaggio","formaggi"]);
 const TAG_SENZA_GLUTINE = ["en:no-gluten","en:gluten-free","en:crossed-grain-symbol","it:senza-glutine","fr:sans-gluten"];
 const TAG_SENZA_LATTOSIO = ["en:no-lactose","en:lactose-free","it:senza-lattosio","en:low-lactose"];
@@ -198,7 +199,7 @@ function valutaLattosio(p, ings, haIngr, ctx) {
       if (L == null || !corrisponde(a, i)) continue;
       (L >= 1 ? forti : deboli).add(a.nome);
     }
-    if (testa(LATT_DEBOLE, null, i.text)) deboli.add(i.text);
+    if (testa(LATT_DEBOLE, LATT_DEB_ESCL, i.text)) deboli.add(i.text);
   }
   const all = (p.allergens_tags || []).includes("en:milk");
   const tr = (p.traces_tags || []).includes("en:milk");
