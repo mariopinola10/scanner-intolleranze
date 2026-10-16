@@ -1,0 +1,61 @@
+name: Ricette della settimana
+
+on:
+  schedule:
+    - cron: "17 4 * * 1"   # lunedì 04:17 UTC (06:17 in Italia d'estate, 05:17 d'inverno)
+    - cron: "17 12 * * 1"  # nuovo tentativo lunedì pomeriggio se Gemini era occupato
+    - cron: "17 4 * * 2"   # ultimo tentativo martedì mattina (se le ricette ci sono già non fa nulla)
+  workflow_dispatch:         # pulsante "Run workflow" per lanciarla a mano
+    inputs:
+      forza:
+        description: "Genera anche se la settimana ha già ricette"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # per salvare ricette.json
+  pages: write      # per far ripubblicare il sito su GitHub Pages
+
+concurrency:
+  group: ricette
+  cancel-in-progress: false
+
+jobs:
+  genera:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Genera le ricette
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: python3 strumenti/genera_ricette.py --uscita "$RUNNER_TEMP/nuove.json" ${{ inputs.forza && '--forza' || '' }}
+
+      # riparto sempre dall'ultima versione su GitHub (nel frattempo puoi aver caricato altri file)
+      - name: Salva su GitHub
+        id: salva
+        run: |
+          git config user.name "ricette-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for prova in 1 2 3 4 5; do
+            git fetch --quiet origin "$GITHUB_REF_NAME"
+            git reset --quiet --hard "origin/$GITHUB_REF_NAME"
+            python3 strumenti/genera_ricette.py --unisci "$RUNNER_TEMP/nuove.json" ${{ inputs.forza && '--forza' || '' }}
+            if git diff --quiet -- ricette.json; then echo "Nessuna novità"; echo "cambiato=no" >> "$GITHUB_OUTPUT"; exit 0; fi
+            git add ricette.json
+            git commit --quiet -m "Ricette IA della settimana"
+            if git push --quiet origin "HEAD:$GITHUB_REF_NAME"; then echo "cambiato=si" >> "$GITHUB_OUTPUT"; exit 0; fi
+            echo "GitHub è cambiato mentre salvavo: riprovo ($prova)"
+            sleep $((prova * 5))
+          done
+          exit 1
+
+      # i commit fatti da una Action non ripubblicano il sito da soli: lo chiedo esplicitamente
+      - name: Aggiorna GitHub Pages
+        if: steps.salva.outputs.cambiato == 'si'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Ripubblicazione non riuscita, il sito si aggiornerà al prossimo commit"
