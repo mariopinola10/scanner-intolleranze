@@ -1,0 +1,2173 @@
+{
+ "versione": 1,
+ "aggiornato": "2026-10-16",
+ "nota": "Dosi per una persona, controllate sulla tabella FODMAP. Ricette senza glutine e senza lattosio se usi prodotti certificati.",
+ "ricette": [
+  {
+   "id": "risotto-zucca",
+   "titolo": "Risotto alla zucca e rosmarino",
+   "stagioni": [
+    "autunno",
+    "inverno"
+   ],
+   "portata": "Primo",
+   "tempo": 35,
+   "ingredienti": [
+    {
+     "nome": "Riso Carnaroli",
+     "q": 70,
+     "u": "g",
+     "voce": "Riso, bianco, cotto",
+     "gc": 190,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Zucca (non butternut)",
+     "q": 75,
+     "u": "g",
+     "voce": "Zucca"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 20,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Rosmarino",
+     "q": 2,
+     "u": "g",
+     "voce": "Rosmarino"
+    },
+    {
+     "nome": "Brodo vegetale fatto in casa (carota, foglie di sedano, senza aglio e cipolla)",
+     "q": 300,
+     "u": "ml"
+    },
+    {
+     "nome": "Burro senza lattosio (o olio)",
+     "q": 8,
+     "u": "g"
+    }
+   ],
+   "passi": [
+    "Taglia la zucca a dadini e falla rosolare 5 minuti con l'olio all'aglio e il rosmarino tritato.",
+    "Aggiungi il riso, tostalo 2 minuti, poi bagna con il brodo caldo un mestolo alla volta.",
+    "Dopo circa 17 minuti, a fuoco spento, manteca con burro senza lattosio e parmigiano."
+   ],
+   "nota": "Evita la zucca butternut, che è moderata già a porzioni piccole."
+  },
+  {
+   "id": "vellutata-zucca-carote",
+   "titolo": "Vellutata di zucca e carote con semi di zucca",
+   "stagioni": [
+    "autunno"
+   ],
+   "portata": "Primo",
+   "tempo": 30,
+   "ingredienti": [
+    {
+     "nome": "Zucca",
+     "q": 75,
+     "u": "g",
+     "voce": "Zucca"
+    },
+    {
+     "nome": "Carote",
+     "q": 60,
+     "u": "g",
+     "voce": "Carota"
+    },
+    {
+     "nome": "Patata",
+     "q": 75,
+     "u": "g",
+     "voce": "Patata, bianca, non sbucciata al naturale"
+    },
+    {
+     "nome": "Zenzero fresco",
+     "q": 3,
+     "u": "g",
+     "voce": "Zenzero, radice, sbucciato, al naturale"
+    },
+    {
+     "nome": "Semi di zucca",
+     "q": 15,
+     "u": "g",
+     "voce": "Semi, zucca, decorticati, essiccati"
+    },
+    {
+     "nome": "Brodo vegetale fatto in casa (carota, foglie di sedano, senza aglio e cipolla)",
+     "q": 250,
+     "u": "ml"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Taglia zucca, carote e patata a pezzi e cuocili nel brodo per 20 minuti con lo zenzero grattugiato.",
+    "Frulla fino a ottenere una crema, regola di sale.",
+    "Servi con un filo d'olio e i semi di zucca tostati in padella."
+   ]
+  },
+  {
+   "id": "pollo-patate-rosmarino",
+   "titolo": "Pollo al forno con patate e rosmarino",
+   "stagioni": [
+    "autunno",
+    "inverno",
+    "primavera"
+   ],
+   "portata": "Secondo",
+   "tempo": 50,
+   "ingredienti": [
+    {
+     "nome": "Cosce di pollo",
+     "q": 180,
+     "u": "g",
+     "voce": "Pollo"
+    },
+    {
+     "nome": "Patate",
+     "q": 150,
+     "u": "g",
+     "voce": "Patata, bianca, non sbucciata al naturale"
+    },
+    {
+     "nome": "Rosmarino",
+     "q": 2,
+     "u": "g",
+     "voce": "Rosmarino"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Succo di limone",
+     "q": 10,
+     "u": "ml",
+     "voce": "Succo, limone, appena spremuto"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Condisci pollo e patate a spicchi con olio all'aglio, rosmarino, limone, sale e pepe.",
+    "Inforna a 200 °C per 40-45 minuti, girando a metà cottura."
+   ]
+  },
+  {
+   "id": "pasta-cavolo-nero",
+   "titolo": "Pasta di riso con cavolo nero e parmigiano",
+   "stagioni": [
+    "autunno",
+    "inverno"
+   ],
+   "portata": "Primo",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Pasta di riso senza glutine",
+     "q": 65,
+     "u": "g",
+     "voce": "Pasta, riso integrale, cotta",
+     "gc": 150,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Cavolo nero",
+     "q": 60,
+     "u": "g",
+     "voce": "Cavolo riccio e cavolo nero"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 15,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano"
+    },
+    {
+     "nome": "Peperoncino",
+     "q": 1,
+     "u": "g",
+     "voce": "Peperoncino"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Togli la costa centrale al cavolo nero e sbollentalo 5 minuti nell'acqua della pasta.",
+    "Frullalo con olio all'aglio, parmigiano e un po' d'acqua di cottura.",
+    "Cuoci la pasta nella stessa acqua e condiscila con la crema e il peperoncino."
+   ]
+  },
+  {
+   "id": "salmone-pastinaca",
+   "titolo": "Salmone con purè di pastinaca e spinaci",
+   "stagioni": [
+    "autunno",
+    "inverno"
+   ],
+   "portata": "Secondo",
+   "tempo": 30,
+   "ingredienti": [
+    {
+     "nome": "Filetto di salmone",
+     "q": 130,
+     "u": "g",
+     "voce": "Salmone"
+    },
+    {
+     "nome": "Pastinaca",
+     "q": 75,
+     "u": "g",
+     "voce": "Pastinaca"
+    },
+    {
+     "nome": "Spinaci novelli",
+     "q": 75,
+     "u": "g",
+     "voce": "Spinaci, baby, al naturale"
+    },
+    {
+     "nome": "Latte di mandorla",
+     "q": 40,
+     "u": "ml",
+     "voce": "Latte di mandorla"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Lessa la pastinaca a pezzi 15 minuti, poi schiacciala con il latte di mandorla e un filo d'olio.",
+    "Cuoci il salmone in padella 3-4 minuti per lato.",
+    "Salta gli spinaci un minuto nella stessa padella e servi tutto insieme."
+   ]
+  },
+  {
+   "id": "polenta-ragu-tacchino",
+   "titolo": "Polenta con ragù di tacchino",
+   "stagioni": [
+    "autunno",
+    "inverno"
+   ],
+   "portata": "Piatto unico",
+   "tempo": 40,
+   "ingredienti": [
+    {
+     "nome": "Farina di mais per polenta",
+     "q": 60,
+     "u": "g",
+     "voce": "Polenta / Farina di mais, cotta",
+     "gc": 250,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Macinato di tacchino",
+     "q": 120,
+     "u": "g",
+     "voce": "Tacchino"
+    },
+    {
+     "nome": "Carota",
+     "q": 40,
+     "u": "g",
+     "voce": "Carota"
+    },
+    {
+     "nome": "Passata di pomodoro",
+     "q": 60,
+     "u": "g",
+     "voce": "Pomodoro, comune, al naturale (var. 2)"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Rosmarino o salvia",
+     "q": 2,
+     "u": "g",
+     "voce": "Rosmarino"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Rosola la carota tritata nell'olio all'aglio, aggiungi il tacchino e fallo colorire.",
+    "Unisci la passata e le erbe, cuoci 20 minuti a fuoco basso.",
+    "Prepara la polenta seguendo la confezione e servila con il ragù."
+   ]
+  },
+  {
+   "id": "insalata-radicchio-finocchio-arancia",
+   "titolo": "Insalata tiepida di radicchio, finocchio e arancia",
+   "stagioni": [
+    "autunno",
+    "inverno"
+   ],
+   "portata": "Contorno",
+   "tempo": 15,
+   "ingredienti": [
+    {
+     "nome": "Radicchio",
+     "q": 60,
+     "u": "g",
+     "voce": "Lattuga, radicchio, al naturale"
+    },
+    {
+     "nome": "Finocchio (solo bulbo)",
+     "q": 60,
+     "u": "g",
+     "voce": "Finocchio (solo bulbo), al naturale"
+    },
+    {
+     "nome": "Arancia",
+     "q": 80,
+     "u": "g",
+     "voce": "Arancia"
+    },
+    {
+     "nome": "Noci",
+     "q": 15,
+     "u": "g",
+     "voce": "Noci"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Scotta il radicchio a listarelle un minuto in padella con l'olio.",
+    "Unisci il finocchio a fettine sottili, l'arancia a spicchi e le noci.",
+    "Condisci con sale, pepe e il succo rimasto dall'arancia."
+   ]
+  },
+  {
+   "id": "frittata-bietole",
+   "titolo": "Frittata di bietole e parmigiano",
+   "stagioni": [
+    "autunno",
+    "primavera"
+   ],
+   "portata": "Secondo",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Uova",
+     "q": 110,
+     "u": "g",
+     "voce": "Uovo, pollo, intero",
+     "nota": "2 uova"
+    },
+    {
+     "nome": "Bietole",
+     "q": 75,
+     "u": "g",
+     "voce": "Bietola"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 15,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Lessa le bietole 5 minuti, strizzale e tritale.",
+    "Sbatti le uova con parmigiano, sale e pepe e unisci le bietole.",
+    "Cuoci in padella con l'olio, 4 minuti per lato."
+   ]
+  },
+  {
+   "id": "porridge-kiwi-noci",
+   "titolo": "Porridge d'avena con kiwi e noci",
+   "stagioni": [
+    "autunno",
+    "inverno"
+   ],
+   "portata": "Colazione",
+   "tempo": 10,
+   "ingredienti": [
+    {
+     "nome": "Fiocchi d'avena (senza glutine certificati)",
+     "q": 40,
+     "u": "g",
+     "voce": "Avena, fiocchi, non cotta"
+    },
+    {
+     "nome": "Latte di mandorla",
+     "q": 200,
+     "u": "ml",
+     "voce": "Latte di mandorla"
+    },
+    {
+     "nome": "Kiwi",
+     "q": 75,
+     "u": "g",
+     "voce": "Kiwi, verdi, sbucciati, al naturale"
+    },
+    {
+     "nome": "Noci",
+     "q": 15,
+     "u": "g",
+     "voce": "Noci"
+    },
+    {
+     "nome": "Sciroppo d'acero",
+     "q": 10,
+     "u": "g"
+    }
+   ],
+   "passi": [
+    "Cuoci l'avena nel latte di mandorla per 5 minuti mescolando.",
+    "Servi con kiwi a cubetti, noci e sciroppo d'acero."
+   ],
+   "nota": "Per la celiachia usa solo avena certificata senza glutine."
+  },
+  {
+   "id": "merluzzo-verza",
+   "titolo": "Merluzzo in crosta di patate con verza stufata",
+   "stagioni": [
+    "autunno",
+    "inverno"
+   ],
+   "portata": "Secondo",
+   "tempo": 35,
+   "ingredienti": [
+    {
+     "nome": "Filetto di merluzzo",
+     "q": 150,
+     "u": "g",
+     "voce": "Merluzzo"
+    },
+    {
+     "nome": "Patate",
+     "q": 100,
+     "u": "g",
+     "voce": "Patata, bianca, non sbucciata al naturale"
+    },
+    {
+     "nome": "Verza",
+     "q": 60,
+     "u": "g",
+     "voce": "Cavolo, verza, al naturale"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Prezzemolo",
+     "q": 3,
+     "u": "g",
+     "voce": "Prezzemolo"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Copri il merluzzo con le patate a fettine sottilissime, olio, sale e prezzemolo.",
+    "Inforna a 200 °C per 20 minuti.",
+    "Intanto stufa la verza a listarelle 10 minuti in padella con l'olio all'aglio e un goccio d'acqua."
+   ]
+  },
+  {
+   "id": "minestra-riso-carote-porro",
+   "titolo": "Minestra di riso, carote e porro",
+   "stagioni": [
+    "inverno"
+   ],
+   "portata": "Primo",
+   "tempo": 30,
+   "ingredienti": [
+    {
+     "nome": "Riso",
+     "q": 50,
+     "u": "g",
+     "voce": "Riso, bianco, cotto",
+     "gc": 135,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Carote",
+     "q": 60,
+     "u": "g",
+     "voce": "Carota"
+    },
+    {
+     "nome": "Porro (solo parte verde)",
+     "q": 40,
+     "u": "g",
+     "voce": "Porro (solo foglie), al naturale"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 15,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano"
+    },
+    {
+     "nome": "Brodo vegetale fatto in casa (carota, foglie di sedano, senza aglio e cipolla)",
+     "q": 350,
+     "u": "ml"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Fai appassire la parte verde del porro e le carote a rondelle nell'olio.",
+    "Aggiungi il brodo e, quando bolle, il riso: cuoci 15 minuti.",
+    "Servi con parmigiano e un filo d'olio."
+   ],
+   "nota": "Usa solo la parte verde del porro: il bulbo bianco è ricco di fruttani."
+  },
+  {
+   "id": "insalata-finocchi-arance-olive",
+   "titolo": "Insalata di finocchi, arance e olive",
+   "stagioni": [
+    "inverno"
+   ],
+   "portata": "Contorno",
+   "tempo": 10,
+   "ingredienti": [
+    {
+     "nome": "Finocchio (solo bulbo)",
+     "q": 75,
+     "u": "g",
+     "voce": "Finocchio (solo bulbo), al naturale"
+    },
+    {
+     "nome": "Arancia",
+     "q": 80,
+     "u": "g",
+     "voce": "Arancia"
+    },
+    {
+     "nome": "Olive nere",
+     "q": 20,
+     "u": "g",
+     "voce": "Olive, nere, denocciolate"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Affetta sottilmente il finocchio e pela a vivo l'arancia.",
+    "Unisci le olive, condisci con olio, sale e pepe."
+   ]
+  },
+  {
+   "id": "pasta-broccoli-acciughe",
+   "titolo": "Pasta di riso con cime di broccoli e acciughe",
+   "stagioni": [
+    "inverno"
+   ],
+   "portata": "Primo",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Pasta di riso senza glutine",
+     "q": 65,
+     "u": "g",
+     "voce": "Pasta, riso integrale, cotta",
+     "gc": 150,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Broccoli (solo cime)",
+     "q": 75,
+     "u": "g",
+     "voce": "Broccoli (solo teste), al naturale"
+    },
+    {
+     "nome": "Acciughe sott'olio",
+     "q": 10,
+     "u": "g"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Peperoncino",
+     "q": 1,
+     "u": "g",
+     "voce": "Peperoncino"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Cuoci le cime di broccoli nell'acqua della pasta per 5 minuti, poi butta la pasta.",
+    "In padella sciogli le acciughe nell'olio all'aglio con il peperoncino.",
+    "Scola pasta e broccoli e saltali in padella un minuto."
+   ],
+   "nota": "Usa solo le cime: i gambi sono moderati già a 45 g."
+  },
+  {
+   "id": "spezzatino-manzo",
+   "titolo": "Spezzatino di manzo con carote e patate",
+   "stagioni": [
+    "inverno"
+   ],
+   "portata": "Piatto unico",
+   "tempo": 90,
+   "ingredienti": [
+    {
+     "nome": "Manzo per spezzatino",
+     "q": 140,
+     "u": "g",
+     "voce": "Manzo e vitello"
+    },
+    {
+     "nome": "Carote",
+     "q": 60,
+     "u": "g",
+     "voce": "Carota"
+    },
+    {
+     "nome": "Patate",
+     "q": 100,
+     "u": "g",
+     "voce": "Patata, bianca, non sbucciata al naturale"
+    },
+    {
+     "nome": "Passata di pomodoro",
+     "q": 40,
+     "u": "g",
+     "voce": "Pomodoro, comune, al naturale (var. 2)"
+    },
+    {
+     "nome": "Rosmarino",
+     "q": 2,
+     "u": "g",
+     "voce": "Rosmarino"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Brodo vegetale fatto in casa (carota, foglie di sedano, senza aglio e cipolla)",
+     "q": 200,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Rosola la carne nell'olio all'aglio, poi aggiungi passata, rosmarino e brodo.",
+    "Cuoci coperto a fuoco basso per 60 minuti.",
+    "Aggiungi carote e patate a pezzi e cuoci altri 25 minuti."
+   ],
+   "nota": "Niente farina per addensare: la fecola di patate va benissimo."
+  },
+  {
+   "id": "zuppa-lenticchie-zucca",
+   "titolo": "Zuppa di lenticchie e zucca",
+   "stagioni": [
+    "inverno",
+    "autunno"
+   ],
+   "portata": "Piatto unico",
+   "tempo": 30,
+   "ingredienti": [
+    {
+     "nome": "Lenticchie in scatola, sciacquate",
+     "q": 60,
+     "u": "g",
+     "voce": "Lenticchie, essiccate, scolate"
+    },
+    {
+     "nome": "Zucca",
+     "q": 60,
+     "u": "g",
+     "voce": "Zucca"
+    },
+    {
+     "nome": "Carota",
+     "q": 40,
+     "u": "g",
+     "voce": "Carota"
+    },
+    {
+     "nome": "Riso",
+     "q": 40,
+     "u": "g",
+     "voce": "Riso, bianco, cotto",
+     "gc": 110,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Brodo vegetale fatto in casa (carota, foglie di sedano, senza aglio e cipolla)",
+     "q": 300,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Rosola zucca e carota a dadini nell'olio all'aglio.",
+    "Aggiungi brodo e riso e cuoci 15 minuti.",
+    "Unisci le lenticchie sciacquate e scalda 5 minuti."
+   ],
+   "nota": "Le lenticchie in scatola, ben sciacquate, hanno meno GOS di quelle secche: non superare la dose."
+  },
+  {
+   "id": "risotto-radicchio-noci",
+   "titolo": "Risotto al radicchio e noci",
+   "stagioni": [
+    "inverno",
+    "autunno"
+   ],
+   "portata": "Primo",
+   "tempo": 30,
+   "ingredienti": [
+    {
+     "nome": "Riso Carnaroli",
+     "q": 70,
+     "u": "g",
+     "voce": "Riso, bianco, cotto",
+     "gc": 190,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Radicchio",
+     "q": 60,
+     "u": "g",
+     "voce": "Lattuga, radicchio, al naturale"
+    },
+    {
+     "nome": "Noci",
+     "q": 15,
+     "u": "g",
+     "voce": "Noci"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 20,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano"
+    },
+    {
+     "nome": "Burro senza lattosio (o olio)",
+     "q": 8,
+     "u": "g"
+    },
+    {
+     "nome": "Brodo vegetale fatto in casa (carota, foglie di sedano, senza aglio e cipolla)",
+     "q": 300,
+     "u": "ml"
+    }
+   ],
+   "passi": [
+    "Appassisci il radicchio a listarelle con un filo d'olio.",
+    "Aggiungi il riso, tostalo, poi cuoci con il brodo caldo per 17 minuti.",
+    "Manteca con burro e parmigiano, completa con le noci tritate."
+   ]
+  },
+  {
+   "id": "pollo-limone-spinaci",
+   "titolo": "Pollo al limone con spinaci saltati",
+   "stagioni": [
+    "inverno",
+    "primavera"
+   ],
+   "portata": "Secondo",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Petto di pollo",
+     "q": 150,
+     "u": "g",
+     "voce": "Pollo"
+    },
+    {
+     "nome": "Succo di limone",
+     "q": 20,
+     "u": "ml",
+     "voce": "Succo, limone, appena spremuto"
+    },
+    {
+     "nome": "Spinaci",
+     "q": 75,
+     "u": "g",
+     "voce": "Spinaci, baby, al naturale"
+    },
+    {
+     "nome": "Fecola di patate",
+     "q": 5,
+     "u": "g",
+     "voce": "Fecola, patata"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Infarina le fettine di pollo con la fecola e rosolale nell'olio.",
+    "Sfuma con il limone e un goccio d'acqua per ottenere la salsina.",
+    "Salta gli spinaci in un'altra padella e servi insieme."
+   ]
+  },
+  {
+   "id": "frittata-patate-erba-cipollina",
+   "titolo": "Frittata al forno con patate ed erba cipollina",
+   "stagioni": [
+    "inverno",
+    "primavera"
+   ],
+   "portata": "Secondo",
+   "tempo": 35,
+   "ingredienti": [
+    {
+     "nome": "Uova",
+     "q": 110,
+     "u": "g",
+     "voce": "Uovo, pollo, intero",
+     "nota": "2 uova"
+    },
+    {
+     "nome": "Patate",
+     "q": 100,
+     "u": "g",
+     "voce": "Patata, bianca, non sbucciata al naturale"
+    },
+    {
+     "nome": "Erba cipollina",
+     "q": 5,
+     "u": "g",
+     "voce": "Erba cipollina"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 10,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Lessa le patate a cubetti 8 minuti.",
+    "Sbatti le uova con parmigiano, erba cipollina, sale e pepe e unisci le patate.",
+    "Versa in una teglia unta e inforna a 180 °C per 20 minuti."
+   ],
+   "nota": "L'erba cipollina dà il sapore della cipolla senza i suoi fruttani."
+  },
+  {
+   "id": "polenta-salsiccia-cavolo-nero",
+   "titolo": "Polenta con salsiccia e cavolo nero",
+   "stagioni": [
+    "inverno"
+   ],
+   "portata": "Piatto unico",
+   "tempo": 35,
+   "ingredienti": [
+    {
+     "nome": "Farina di mais per polenta",
+     "q": 60,
+     "u": "g",
+     "voce": "Polenta / Farina di mais, cotta",
+     "gc": 250,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Salsiccia di maiale senza aglio e cipolla",
+     "q": 100,
+     "u": "g",
+     "voce": "Maiale"
+    },
+    {
+     "nome": "Cavolo nero",
+     "q": 60,
+     "u": "g",
+     "voce": "Cavolo riccio e cavolo nero"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 5,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Sbriciola la salsiccia e rosolala in padella.",
+    "Aggiungi il cavolo nero a listarelle e un goccio d'acqua, cuoci 10 minuti.",
+    "Servi sopra la polenta morbida."
+   ],
+   "nota": "Controlla l'etichetta: molte salsicce contengono aglio, cipolla o lattosio."
+  },
+  {
+   "id": "macedonia-inverno",
+   "titolo": "Macedonia d'inverno",
+   "stagioni": [
+    "inverno"
+   ],
+   "portata": "Dolce",
+   "tempo": 10,
+   "ingredienti": [
+    {
+     "nome": "Kiwi",
+     "q": 75,
+     "u": "g",
+     "voce": "Kiwi, verdi, sbucciati, al naturale"
+    },
+    {
+     "nome": "Mandarino",
+     "q": 60,
+     "u": "g",
+     "voce": "Mandarino, imperiale, sbucciato, al naturale"
+    },
+    {
+     "nome": "Ananas",
+     "q": 60,
+     "u": "g",
+     "voce": "Ananas, sbucciato, al naturale"
+    },
+    {
+     "nome": "Succo di limone",
+     "q": 10,
+     "u": "ml",
+     "voce": "Succo, limone, appena spremuto"
+    }
+   ],
+   "passi": [
+    "Taglia la frutta a pezzi, condisci con il limone e lascia riposare 10 minuti in frigo."
+   ],
+   "nota": "Più frutti insieme sommano il fruttosio: resta su queste dosi."
+  },
+  {
+   "id": "risotto-zucchine",
+   "titolo": "Risotto alle zucchine ed erba cipollina",
+   "stagioni": [
+    "primavera",
+    "estate"
+   ],
+   "portata": "Primo",
+   "tempo": 30,
+   "ingredienti": [
+    {
+     "nome": "Riso Carnaroli",
+     "q": 70,
+     "u": "g",
+     "voce": "Riso, bianco, cotto",
+     "gc": 190,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Zucchine",
+     "q": 65,
+     "u": "g",
+     "voce": "Zucchina"
+    },
+    {
+     "nome": "Erba cipollina",
+     "q": 5,
+     "u": "g",
+     "voce": "Erba cipollina"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 20,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano"
+    },
+    {
+     "nome": "Burro senza lattosio (o olio)",
+     "q": 8,
+     "u": "g"
+    },
+    {
+     "nome": "Brodo vegetale fatto in casa (carota, foglie di sedano, senza aglio e cipolla)",
+     "q": 300,
+     "u": "ml"
+    }
+   ],
+   "passi": [
+    "Rosola le zucchine a dadini con un filo d'olio.",
+    "Aggiungi il riso, tostalo, poi cuoci con il brodo caldo per 17 minuti.",
+    "Manteca con burro e parmigiano e completa con l'erba cipollina."
+   ]
+  },
+  {
+   "id": "quinoa-cetrioli-feta",
+   "titolo": "Insalata di quinoa, cetrioli, rucola e feta",
+   "stagioni": [
+    "primavera",
+    "estate"
+   ],
+   "portata": "Piatto unico",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Quinoa",
+     "q": 60,
+     "u": "g",
+     "voce": "Quinoa, bianca, cotta",
+     "gc": 180,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Cetriolo",
+     "q": 60,
+     "u": "g",
+     "voce": "Cetriolo, continentale, crudo"
+    },
+    {
+     "nome": "Rucola",
+     "q": 30,
+     "u": "g",
+     "voce": "Lattuga, rucola /ruchetta, al naturale"
+    },
+    {
+     "nome": "Feta senza lattosio",
+     "q": 40,
+     "u": "g",
+     "voce": "Formaggio, feta"
+    },
+    {
+     "nome": "Succo di limone",
+     "q": 10,
+     "u": "ml",
+     "voce": "Succo, limone, appena spremuto"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Sciacqua la quinoa e cuocila 15 minuti, poi falla raffreddare.",
+    "Unisci cetriolo a cubetti, rucola e feta sbriciolata.",
+    "Condisci con olio, limone, sale e pepe."
+   ]
+  },
+  {
+   "id": "frittata-zucchine-menta",
+   "titolo": "Frittata di zucchine e menta",
+   "stagioni": [
+    "primavera",
+    "estate"
+   ],
+   "portata": "Secondo",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Uova",
+     "q": 110,
+     "u": "g",
+     "voce": "Uovo, pollo, intero",
+     "nota": "2 uova"
+    },
+    {
+     "nome": "Zucchine",
+     "q": 65,
+     "u": "g",
+     "voce": "Zucchina"
+    },
+    {
+     "nome": "Menta fresca",
+     "q": 3,
+     "u": "g"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 10,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Salta le zucchine a rondelle sottili 5 minuti nell'olio.",
+    "Sbatti le uova con parmigiano, menta, sale e pepe e versale sulle zucchine.",
+    "Cuoci 4 minuti per lato."
+   ]
+  },
+  {
+   "id": "pasta-zucchine-gamberi",
+   "titolo": "Pasta di riso con zucchine, gamberi e limone",
+   "stagioni": [
+    "primavera",
+    "estate"
+   ],
+   "portata": "Primo",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Pasta di riso senza glutine",
+     "q": 65,
+     "u": "g",
+     "voce": "Pasta, riso integrale, cotta",
+     "gc": 150,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Zucchine",
+     "q": 65,
+     "u": "g",
+     "voce": "Zucchina"
+    },
+    {
+     "nome": "Gamberi sgusciati",
+     "q": 100,
+     "u": "g",
+     "voce": "Gamberi"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Succo di limone",
+     "q": 10,
+     "u": "ml",
+     "voce": "Succo, limone, appena spremuto"
+    },
+    {
+     "nome": "Prezzemolo",
+     "q": 3,
+     "u": "g",
+     "voce": "Prezzemolo"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Salta le zucchine a julienne nell'olio all'aglio per 4 minuti.",
+    "Aggiungi i gamberi e cuoci 2 minuti.",
+    "Unisci la pasta al dente, limone e prezzemolo."
+   ]
+  },
+  {
+   "id": "spiedini-tacchino-insalata",
+   "titolo": "Spiedini di tacchino con lattuga e ravanelli",
+   "stagioni": [
+    "primavera"
+   ],
+   "portata": "Secondo",
+   "tempo": 25,
+   "ingredienti": [
+    {
+     "nome": "Fesa di tacchino",
+     "q": 150,
+     "u": "g",
+     "voce": "Tacchino"
+    },
+    {
+     "nome": "Lattuga romana",
+     "q": 60,
+     "u": "g",
+     "voce": "Lattuga, cos / romana, al naturale"
+    },
+    {
+     "nome": "Ravanelli",
+     "q": 40,
+     "u": "g",
+     "voce": "Ravanelli"
+    },
+    {
+     "nome": "Succo di limone",
+     "q": 10,
+     "u": "ml",
+     "voce": "Succo, limone, appena spremuto"
+    },
+    {
+     "nome": "Rosmarino",
+     "q": 2,
+     "u": "g",
+     "voce": "Rosmarino"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 15,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Taglia il tacchino a cubi, marinalo 15 minuti con olio, limone e rosmarino e infilzalo negli spiedini.",
+    "Cuoci su piastra 8-10 minuti girandoli.",
+    "Servi con lattuga e ravanelli a fettine."
+   ]
+  },
+  {
+   "id": "salmone-fagiolini-patate",
+   "titolo": "Salmone al forno con fagiolini e patate novelle",
+   "stagioni": [
+    "primavera",
+    "estate"
+   ],
+   "portata": "Secondo",
+   "tempo": 35,
+   "ingredienti": [
+    {
+     "nome": "Filetto di salmone",
+     "q": 130,
+     "u": "g",
+     "voce": "Salmone"
+    },
+    {
+     "nome": "Fagiolini",
+     "q": 75,
+     "u": "g",
+     "voce": "Fagiolini"
+    },
+    {
+     "nome": "Patate novelle",
+     "q": 100,
+     "u": "g",
+     "voce": "Patata, bianca, non sbucciata al naturale"
+    },
+    {
+     "nome": "Succo di limone",
+     "q": 10,
+     "u": "ml",
+     "voce": "Succo, limone, appena spremuto"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Inforna le patate a metà con olio e sale a 200 °C per 15 minuti.",
+    "Aggiungi il salmone e i fagiolini sbollentati e cuoci altri 12 minuti.",
+    "Completa con il limone."
+   ]
+  },
+  {
+   "id": "insalata-riso-primavera",
+   "titolo": "Insalata di riso con tonno e verdure",
+   "stagioni": [
+    "primavera",
+    "estate"
+   ],
+   "portata": "Piatto unico",
+   "tempo": 25,
+   "ingredienti": [
+    {
+     "nome": "Riso",
+     "q": 70,
+     "u": "g",
+     "voce": "Riso, bianco, cotto",
+     "gc": 190,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Carote",
+     "q": 40,
+     "u": "g",
+     "voce": "Carota"
+    },
+    {
+     "nome": "Cetriolo",
+     "q": 50,
+     "u": "g",
+     "voce": "Cetriolo, continentale, crudo"
+    },
+    {
+     "nome": "Tonno al naturale",
+     "q": 80,
+     "u": "g",
+     "voce": "Tonno"
+    },
+    {
+     "nome": "Olive nere",
+     "q": 20,
+     "u": "g",
+     "voce": "Olive, nere, denocciolate"
+    },
+    {
+     "nome": "Erba cipollina",
+     "q": 5,
+     "u": "g",
+     "voce": "Erba cipollina"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Lessa il riso al dente e raffreddalo sotto l'acqua.",
+    "Unisci carote e cetriolo a cubetti, tonno, olive ed erba cipollina.",
+    "Condisci con olio, sale e pepe."
+   ]
+  },
+  {
+   "id": "pancake-riso-fragole",
+   "titolo": "Pancake di riso con fragole",
+   "stagioni": [
+    "primavera"
+   ],
+   "portata": "Colazione",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Farina di riso",
+     "q": 40,
+     "u": "g"
+    },
+    {
+     "nome": "Uovo",
+     "q": 55,
+     "u": "g",
+     "voce": "Uovo, pollo, intero",
+     "nota": "1 uovo"
+    },
+    {
+     "nome": "Latte di mandorla",
+     "q": 60,
+     "u": "ml",
+     "voce": "Latte di mandorla"
+    },
+    {
+     "nome": "Fragole",
+     "q": 65,
+     "u": "g",
+     "voce": "Fragola"
+    },
+    {
+     "nome": "Sciroppo d'acero",
+     "q": 10,
+     "u": "g"
+    },
+    {
+     "nome": "Lievito per dolci senza glutine",
+     "q": 2,
+     "u": "g"
+    }
+   ],
+   "passi": [
+    "Mescola farina, lievito, uovo e latte fino a una pastella liscia.",
+    "Cuoci a cucchiaiate in padella antiaderente, 2 minuti per lato.",
+    "Servi con fragole a fette e sciroppo d'acero."
+   ]
+  },
+  {
+   "id": "vellutata-spinaci-patate",
+   "titolo": "Vellutata di spinaci e patate",
+   "stagioni": [
+    "primavera",
+    "autunno"
+   ],
+   "portata": "Primo",
+   "tempo": 25,
+   "ingredienti": [
+    {
+     "nome": "Spinaci",
+     "q": 75,
+     "u": "g",
+     "voce": "Spinaci, baby, al naturale"
+    },
+    {
+     "nome": "Patate",
+     "q": 100,
+     "u": "g",
+     "voce": "Patata, bianca, non sbucciata al naturale"
+    },
+    {
+     "nome": "Latte di mandorla",
+     "q": 50,
+     "u": "ml",
+     "voce": "Latte di mandorla"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 10,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano"
+    },
+    {
+     "nome": "Brodo vegetale fatto in casa (carota, foglie di sedano, senza aglio e cipolla)",
+     "q": 250,
+     "u": "ml"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Cuoci le patate a cubetti nel brodo per 15 minuti.",
+    "Aggiungi gli spinaci per 2 minuti, poi frulla con il latte di mandorla.",
+    "Servi con parmigiano e un filo d'olio."
+   ]
+  },
+  {
+   "id": "tofu-bok-choy",
+   "titolo": "Tofu saltato con bok choy e riso",
+   "stagioni": [
+    "primavera",
+    "autunno"
+   ],
+   "portata": "Piatto unico",
+   "tempo": 25,
+   "ingredienti": [
+    {
+     "nome": "Tofu compatto",
+     "q": 120,
+     "u": "g",
+     "voce": "Tofu (cagliata di soia), solido, essiccato"
+    },
+    {
+     "nome": "Bok choy (pak choi)",
+     "q": 75,
+     "u": "g",
+     "voce": "Bok choy, al naturale"
+    },
+    {
+     "nome": "Riso basmati",
+     "q": 60,
+     "u": "g",
+     "voce": "Riso, basmati, cotto",
+     "gc": 165,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Salsa di soia senza glutine (tamari)",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Zenzero fresco",
+     "q": 3,
+     "u": "g",
+     "voce": "Zenzero, radice, sbucciato, al naturale"
+    },
+    {
+     "nome": "Olio di sesamo",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio, di sesamo"
+    }
+   ],
+   "passi": [
+    "Cuoci il riso.",
+    "Rosola il tofu a cubi nell'olio di sesamo finché è dorato.",
+    "Aggiungi bok choy, zenzero e tamari e salta 3 minuti; servi sul riso."
+   ],
+   "nota": "Usa tofu compatto: quello morbido (silken) è ricco di GOS."
+  },
+  {
+   "id": "pasta-fredda-pomodorini",
+   "titolo": "Pasta fredda con pomodorini, basilico e mozzarella",
+   "stagioni": [
+    "estate"
+   ],
+   "portata": "Primo",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Pasta di riso senza glutine",
+     "q": 65,
+     "u": "g",
+     "voce": "Pasta, riso integrale, cotta",
+     "gc": 150,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Pomodorini datterini",
+     "q": 45,
+     "u": "g",
+     "voce": "Pomodoro, Roma / datterino, al naturale"
+    },
+    {
+     "nome": "Mozzarella senza lattosio",
+     "q": 50,
+     "u": "g"
+    },
+    {
+     "nome": "Basilico",
+     "q": 3,
+     "u": "g",
+     "voce": "Basilico"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Cuoci la pasta, scolala e raffreddala con un filo d'olio.",
+    "Unisci pomodorini a spicchi, mozzarella a cubetti e basilico.",
+    "Condisci con l'olio all'aglio e il sale."
+   ]
+  },
+  {
+   "id": "melanzane-feta-menta",
+   "titolo": "Melanzane grigliate con feta e menta",
+   "stagioni": [
+    "estate"
+   ],
+   "portata": "Contorno",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Melanzana",
+     "q": 75,
+     "u": "g",
+     "voce": "Melanzana"
+    },
+    {
+     "nome": "Feta senza lattosio",
+     "q": 40,
+     "u": "g",
+     "voce": "Formaggio, feta"
+    },
+    {
+     "nome": "Menta fresca",
+     "q": 3,
+     "u": "g"
+    },
+    {
+     "nome": "Succo di limone",
+     "q": 10,
+     "u": "ml",
+     "voce": "Succo, limone, appena spremuto"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Griglia le melanzane a fette 3 minuti per lato.",
+    "Condiscile con olio, limone, sale e menta.",
+    "Completa con la feta sbriciolata."
+   ]
+  },
+  {
+   "id": "insalata-riso-estiva",
+   "titolo": "Insalata di riso estiva",
+   "stagioni": [
+    "estate"
+   ],
+   "portata": "Piatto unico",
+   "tempo": 25,
+   "ingredienti": [
+    {
+     "nome": "Riso",
+     "q": 70,
+     "u": "g",
+     "voce": "Riso, bianco, cotto",
+     "gc": 190,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Peperone verde",
+     "q": 60,
+     "u": "g",
+     "voce": "Peperoni, verdi, al naturale"
+    },
+    {
+     "nome": "Pomodorini datterini",
+     "q": 45,
+     "u": "g",
+     "voce": "Pomodoro, Roma / datterino, al naturale"
+    },
+    {
+     "nome": "Cetriolo",
+     "q": 50,
+     "u": "g",
+     "voce": "Cetriolo, continentale, crudo"
+    },
+    {
+     "nome": "Uovo sodo",
+     "q": 55,
+     "u": "g",
+     "voce": "Uovo, pollo, intero",
+     "nota": "1 uovo"
+    },
+    {
+     "nome": "Tonno al naturale",
+     "q": 60,
+     "u": "g",
+     "voce": "Tonno"
+    },
+    {
+     "nome": "Olive nere",
+     "q": 20,
+     "u": "g",
+     "voce": "Olive, nere, denocciolate"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Lessa il riso al dente e raffreddalo.",
+    "Taglia le verdure a cubetti e l'uovo sodo a spicchi.",
+    "Unisci tutto con tonno e olive e condisci."
+   ]
+  },
+  {
+   "id": "pollo-peperoni",
+   "titolo": "Pollo con peperoni e pomodoro",
+   "stagioni": [
+    "estate"
+   ],
+   "portata": "Secondo",
+   "tempo": 30,
+   "ingredienti": [
+    {
+     "nome": "Petto di pollo",
+     "q": 150,
+     "u": "g",
+     "voce": "Pollo"
+    },
+    {
+     "nome": "Peperone rosso",
+     "q": 40,
+     "u": "g",
+     "voce": "Peperoni, rossi, al naturale"
+    },
+    {
+     "nome": "Peperone verde",
+     "q": 60,
+     "u": "g",
+     "voce": "Peperoni, verdi, al naturale"
+    },
+    {
+     "nome": "Pomodoro",
+     "q": 45,
+     "u": "g",
+     "voce": "Pomodoro, comune, al naturale (var. 2)"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Basilico",
+     "q": 3,
+     "u": "g",
+     "voce": "Basilico"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Rosola i peperoni a listarelle nell'olio all'aglio per 10 minuti.",
+    "Aggiungi il pomodoro a pezzi e il pollo a bocconcini, cuoci 12 minuti.",
+    "Completa con il basilico."
+   ],
+   "nota": "Il peperone rosso è moderato oltre 43 g: per aumentare la dose usa quello verde."
+  },
+  {
+   "id": "polpette-tacchino-zucchine",
+   "titolo": "Polpette di tacchino con zucchine trifolate",
+   "stagioni": [
+    "estate",
+    "primavera"
+   ],
+   "portata": "Secondo",
+   "tempo": 35,
+   "ingredienti": [
+    {
+     "nome": "Macinato di tacchino",
+     "q": 130,
+     "u": "g",
+     "voce": "Tacchino"
+    },
+    {
+     "nome": "Uovo",
+     "q": 15,
+     "u": "g",
+     "voce": "Uovo, pollo, intero",
+     "nota": "un quarto di uovo"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 10,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano"
+    },
+    {
+     "nome": "Pane senza glutine grattugiato",
+     "q": 15,
+     "u": "g",
+     "voce": "Pane, senza glutine (riso e chia)"
+    },
+    {
+     "nome": "Zucchine",
+     "q": 65,
+     "u": "g",
+     "voce": "Zucchina"
+    },
+    {
+     "nome": "Prezzemolo",
+     "q": 3,
+     "u": "g",
+     "voce": "Prezzemolo"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Impasta tacchino, uovo, parmigiano, pangrattato e prezzemolo e forma le polpette.",
+    "Cuocile in forno a 190 °C per 20 minuti.",
+    "Trifola le zucchine a rondelle nell'olio all'aglio per 8 minuti."
+   ]
+  },
+  {
+   "id": "gazpacho",
+   "titolo": "Gazpacho low FODMAP",
+   "stagioni": [
+    "estate"
+   ],
+   "portata": "Primo",
+   "tempo": 15,
+   "ingredienti": [
+    {
+     "nome": "Pomodori maturi",
+     "q": 65,
+     "u": "g",
+     "voce": "Pomodoro, comune, al naturale (var. 2)"
+    },
+    {
+     "nome": "Cetriolo",
+     "q": 60,
+     "u": "g",
+     "voce": "Cetriolo, continentale, crudo"
+    },
+    {
+     "nome": "Peperone verde",
+     "q": 40,
+     "u": "g",
+     "voce": "Peperoni, verdi, al naturale"
+    },
+    {
+     "nome": "Olio all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Aceto di vino",
+     "q": 5,
+     "u": "ml"
+    },
+    {
+     "nome": "Basilico",
+     "q": 3,
+     "u": "g",
+     "voce": "Basilico"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Frulla tutte le verdure con olio, aceto, sale e qualche cubetto di ghiaccio.",
+    "Lascia in frigo almeno 1 ora e servi freddo con basilico."
+   ],
+   "nota": "È una porzione da antipasto: il pomodoro diventa moderato oltre 65 g."
+  },
+  {
+   "id": "spiedini-gamberi-ananas",
+   "titolo": "Spiedini di gamberi e ananas con riso al lime",
+   "stagioni": [
+    "estate"
+   ],
+   "portata": "Piatto unico",
+   "tempo": 25,
+   "ingredienti": [
+    {
+     "nome": "Gamberi sgusciati",
+     "q": 100,
+     "u": "g",
+     "voce": "Gamberi"
+    },
+    {
+     "nome": "Ananas",
+     "q": 60,
+     "u": "g",
+     "voce": "Ananas, sbucciato, al naturale"
+    },
+    {
+     "nome": "Riso basmati",
+     "q": 60,
+     "u": "g",
+     "voce": "Riso, basmati, cotto",
+     "gc": 165,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Succo di lime",
+     "q": 10,
+     "u": "ml",
+     "voce": "Succo, limone, appena spremuto"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Alterna gamberi e cubi di ananas sugli spiedini e spennellali d'olio.",
+    "Cuoci su piastra 2-3 minuti per lato.",
+    "Servi con il riso condito con lime e sale."
+   ]
+  },
+  {
+   "id": "quinoa-melone-crudo",
+   "titolo": "Insalata di quinoa con melone e prosciutto crudo",
+   "stagioni": [
+    "estate"
+   ],
+   "portata": "Piatto unico",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Quinoa",
+     "q": 60,
+     "u": "g",
+     "voce": "Quinoa, bianca, cotta",
+     "gc": 180,
+     "nota": "peso da crudo"
+    },
+    {
+     "nome": "Melone cantalupo",
+     "q": 90,
+     "u": "g",
+     "voce": "Melone"
+    },
+    {
+     "nome": "Prosciutto crudo",
+     "q": 40,
+     "u": "g"
+    },
+    {
+     "nome": "Rucola",
+     "q": 25,
+     "u": "g",
+     "voce": "Lattuga, rucola /ruchetta, al naturale"
+    },
+    {
+     "nome": "Menta fresca",
+     "q": 3,
+     "u": "g"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Cuoci la quinoa e lasciala raffreddare.",
+    "Unisci melone a cubetti, rucola, menta e prosciutto a striscioline.",
+    "Condisci con olio e pepe."
+   ],
+   "nota": "Melone cantalupo o retato: l'anguria è ricca di FODMAP."
+  },
+  {
+   "id": "frittata-fagiolini-patate",
+   "titolo": "Frittata al forno con fagiolini e patate",
+   "stagioni": [
+    "estate"
+   ],
+   "portata": "Secondo",
+   "tempo": 35,
+   "ingredienti": [
+    {
+     "nome": "Uova",
+     "q": 110,
+     "u": "g",
+     "voce": "Uovo, pollo, intero",
+     "nota": "2 uova"
+    },
+    {
+     "nome": "Fagiolini",
+     "q": 75,
+     "u": "g",
+     "voce": "Fagiolini"
+    },
+    {
+     "nome": "Patate",
+     "q": 75,
+     "u": "g",
+     "voce": "Patata, bianca, non sbucciata al naturale"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 10,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 0,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Lessa fagiolini e patate a cubetti per 10 minuti.",
+    "Sbatti le uova con parmigiano, sale e pepe e unisci le verdure.",
+    "Inforna a 180 °C in teglia unta per 20 minuti."
+   ]
+  },
+  {
+   "id": "yogurt-cocco-frutti-bosco",
+   "titolo": "Yogurt di cocco con frutti di bosco e semi",
+   "stagioni": [
+    "estate",
+    "primavera"
+   ],
+   "portata": "Colazione",
+   "tempo": 5,
+   "ingredienti": [
+    {
+     "nome": "Yogurt di cocco",
+     "q": 125,
+     "u": "g",
+     "voce": "Yogurt, cocco"
+    },
+    {
+     "nome": "Mirtilli",
+     "q": 60,
+     "u": "g",
+     "voce": "Mirtilli"
+    },
+    {
+     "nome": "Lamponi",
+     "q": 30,
+     "u": "g",
+     "voce": "Lamponi"
+    },
+    {
+     "nome": "Semi di zucca",
+     "q": 10,
+     "u": "g",
+     "voce": "Semi, zucca, decorticati, essiccati"
+    },
+    {
+     "nome": "Sciroppo d'acero",
+     "q": 5,
+     "u": "g"
+    }
+   ],
+   "passi": [
+    "Versa lo yogurt in una ciotola e completa con frutti di bosco, semi e sciroppo d'acero."
+   ]
+  }
+ ]
+}
