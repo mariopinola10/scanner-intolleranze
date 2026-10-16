@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f5c58">
+<title>Ricette low FODMAP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="stile.css">
+<style>
+.sett{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.sett h2{margin:0;font-family:var(--f-display);font-size:1.25rem}
+.sett .row button{padding:8px 12px}
+.ric{border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.ric > summary{list-style:none;cursor:pointer;padding:12px 14px;display:grid;gap:4px}
+.ric > summary::-webkit-details-marker{display:none}
+.ric > summary h3{margin:0;font-size:1.05rem;line-height:1.3}
+.ric .meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:.85rem;color:var(--muted)}
+.ric .corpo{padding:0 14px 14px;display:grid;gap:10px}
+.ingr{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.ingr li{display:grid;grid-template-columns:14px 1fr auto;gap:8px;align-items:baseline;font-size:.95rem}
+.ingr .q{font:500 .85rem var(--f-mono);white-space:nowrap}
+.ingr small{display:block;color:var(--muted);font-size:.8rem}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block;transform:translateY(1px)}
+.d0{background:var(--ok)} .d1{background:var(--warn)} .d2{background:var(--bad)} .dn{background:var(--line)}
+.passi{margin:0;padding-left:20px;display:grid;gap:6px}
+.lista-ric{display:grid;gap:10px}
+.persone{display:flex;align-items:center;gap:8px}
+.persone select{padding:6px 10px}
+</style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <div>
+      <h1>Ricette low FODMAP</h1>
+      <p class="sub">Di stagione, senza glutine e senza lattosio. Cambiano ogni settimana.</p>
+    </div>
+    <nav class="row"><a href="index.html">Scanner</a><a href="tabella.html">Tabella FODMAP</a></nav>
+  </header>
+
+  <section class="panel">
+    <div class="sett">
+      <div><div class="label" id="setLabel"></div><h2 id="setTitolo"></h2></div>
+      <div class="row">
+        <button class="ghost" id="prec" type="button" aria-label="Settimana precedente">←</button>
+        <button class="ghost" id="oggi" type="button">Questa settimana</button>
+        <button class="ghost" id="succ" type="button" aria-label="Settimana successiva">→</button>
+      </div>
+    </div>
+    <div class="persone"><label class="sub" for="persone" style="margin:0">Dosi per</label>
+      <select id="persone"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+      <span class="sub" style="margin:0">persone</span></div>
+    <p class="sub" style="margin:0">Il pallino accanto a ogni ingrediente è il semaforo FODMAP della tua tabella per la dose di <b>una</b> persona. Controlla sempre le etichette di pasta, brodo, salse e salumi.</p>
+    <div id="stato"></div>
+    <div class="lista-ric" id="settimana"></div>
+  </section>
+
+  <section class="panel">
+    <div class="label">Idee nuove della settimana · Assistente IA</div>
+    <p class="sub" style="margin:0" id="iaInfo"></p>
+    <div class="lista-ric" id="ia"></div>
+    <div class="row"><button class="ghost" id="iaGenera" type="button">Proponi nuove ricette</button></div>
+  </section>
+
+  <details class="panel">
+    <summary><b>Tutte le ricette di stagione</b> <span class="sub" id="nTutte"></span></summary>
+    <div class="lista-ric" id="tutte"></div>
+  </details>
+
+  <footer>Soglie dalla tua <a href="tabella.html">Tabella FODMAP</a>. Indicazioni generali, non un parere medico: in caso di dubbi senti il tuo dietista.</footer>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const norm = s => String(s || "").toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "").trim();
+const num = x => (x === "" || x == null || isNaN(+x)) ? null : +x;
+const leggiJ = (k, d) => { try { return JSON.parse(localStorage.getItem(k) || "") ?? d; } catch { return d; } };
+const scriviJ = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+
+let TAB = new Map(), ALIM = [], RICETTE = [], SCARTO = 0;
+const STAGIONI = ["inverno", "inverno", "primavera", "primavera", "primavera", "estate", "estate", "estate", "autunno", "autunno", "autunno", "inverno"];
+const MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
+const DI_STAGIONE = {
+  inverno: "arance, mandarini, clementine, kiwi, pompelmo, finocchi, cavolo nero, verza, broccoli (cime), spinaci, bietole, carote, porro (parte verde), radicchio, sedano rapa, pastinaca, patate, zucca",
+  primavera: "fragole, kiwi, zucchine, lattuga, rucola, spinaci novelli, bietole, carote, ravanelli, erba cipollina, cetrioli, fagiolini, patate novelle",
+  estate: "pomodori, zucchine, melanzane, peperoni (verdi; rossi in piccole dosi), cetrioli, fagiolini, melone cantalupo, ananas, fragole, mirtilli, lamponi, basilico",
+  autunno: "zucca (non butternut), carote, patate, spinaci, bietole, finocchi, radicchio, verza, cavolo nero, pastinaca, sedano rapa, kiwi, mandarini, castagne (piccole dosi)",
+};
+
+/* ---------- settimana ---------- */
+function lunedi(d) { const x = new Date(d); x.setHours(12, 0, 0, 0); x.setDate(x.getDate() - ((x.getDay() + 6) % 7)); return x; }
+function settimanaISO(d) {
+  const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  t.setUTCDate(t.getUTCDate() + 4 - (t.getUTCDay() || 7));
+  const y = t.getUTCFullYear(), w = Math.ceil(((t - Date.UTC(y, 0, 1)) / 864e5 + 1) / 7);
+  return { anno: y, n: w };
+}
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function mescola(arr, seed) { const a = [...arr], r = rng(seed); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function stagioneDi(d) { return STAGIONI[d.getMonth()]; }
+// 6 ricette per settimana: ordine casuale fisso per anno e stagione, la finestra scorre di settimana in settimana
+function ricetteSettimana(lun) {
+  const st = stagioneDi(lun), { anno, n } = settimanaISO(lun);
+  const k0 = chiaveSett(lun);
+  const pool = mescola(RICETTE.filter(r => r.stagioni.includes(st) && !(r.settimana && r.settimana >= k0)), anno * 10 + STAGIONI.indexOf(st) + st.length);
+  if (!pool.length) return [];
+  const k = Math.min(6, pool.length), da = (n * k) % pool.length;
+  return Array.from({ length: k }, (_, i) => pool[(da + i) % pool.length]);
+}
+
+/* ---------- semaforo dalla tabella ---------- */
+const LIVN = { basso: 0, medio: 1, alto: 2 };
+function trova(i) {
+  if (i.voce && TAB.has(norm(i.voce))) return TAB.get(norm(i.voce));
+  const n = norm(i.voce || i.nome);
+  return ALIM.find(a => norm(a.nome) === n) || ALIM.find(a => (a.termini || []).some(t => norm(t) === n)) || null;
+}
+function valuta(i) {
+  if (!i.voce) return { l: null, testo: "non in tabella: senza FODMAP rilevanti" };
+  const a = trova(i);
+  if (!a) return { l: null, testo: "voce non trovata nella tabella" };
+  const g = num(i.gc) ?? num(i.q), pz = a.porzioni;
+  const u = pz?.unita || "g";
+  if (pz && ["verde", "giallo", "rosso"].some(k => num(pz[k]) != null) && g != null) {
+    const v = num(pz.verde), y = num(pz.giallo), r = num(pz.rosso);
+    if (r != null && g >= r) return { l: 2, testo: `alto da ${r} ${u}` };
+    if (v != null && g <= v) return { l: 0, testo: `basso fino a ${v} ${u}` };
+    if (y == null && r == null) return { l: 0, testo: `basso; dose testata fino a ${v} ${u}` };
+    return { l: 1, testo: `moderato oltre ${v ?? y} ${u}` };
+  }
+  const liv = Object.values(a.livelli || {}).map(x => LIVN[x] ?? 0);
+  if (liv.length) return { l: Math.max(...liv), testo: a.porzione ? `alla porzione ${a.porzione}` : "valutazione qualitativa" };
+  return { l: 0, testo: a.porzione === "senza limite" ? "senza limite" : "nessun FODMAP rilevante" };
+}
+
+/* ---------- disegno ---------- */
+const PORT = { Colazione: "☕", Primo: "🍝", Secondo: "🍗", Contorno: "🥗", "Piatto unico": "🍲", Dolce: "🍰" };
+const CLS = ["ok", "warn", "bad"], TXT = ["Basso FODMAP", "Moderato", "Alto"];
+function fmtQ(i, p) {
+  if (i.u === "q.b.") return "q.b.";
+  const q = num(i.q); if (q == null) return esc(i.q || "");
+  const t = q * p; return `${t >= 10 ? Math.round(t) : Math.round(t * 10) / 10} ${esc(i.u || "g")}`;
+}
+function cardRicetta(r, extra = "") {
+  const p = +$("#persone").value || 1;
+  const val = r.ingredienti.map(valuta), max = Math.max(0, ...val.map(v => v.l ?? 0));
+  return `<details class="ric">
+    <summary><h3>${PORT[r.portata] || "🍽"} ${esc(r.titolo)}</h3>
+      <div class="meta"><span class="pill ${CLS[max]}">${TXT[max]}</span><span>${esc(r.portata || "")}</span>${r.tempo ? `<span>· ${esc(r.tempo)} min</span>` : ""}${extra}</div></summary>
+    <div class="corpo">
+      <div class="label">Ingredienti per ${p} ${p === 1 ? "persona" : "persone"}</div>
+      <ul class="ingr">${r.ingredienti.map((i, k) => `<li><span class="dot ${val[k].l == null ? "dn" : "d" + val[k].l}" title="${esc(val[k].testo)}"></span>
+        <span>${esc(i.nome)}${i.nota || val[k].l ? `<small>${esc([i.nota, val[k].l ? val[k].testo : ""].filter(Boolean).join(" · "))}</small>` : ""}</span><span class="q">${fmtQ(i, p)}</span></li>`).join("")}</ul>
+      <div class="label">Preparazione</div>
+      <ol class="passi">${(r.passi || []).map(s => `<li>${esc(s)}</li>`).join("")}</ol>
+      ${r.nota ? `<div class="msg">${esc(r.nota)}</div>` : ""}
+    </div></details>`;
+}
+function disegna() {
+  const lun = lunedi(Date.now() + SCARTO * 7 * 864e5), dom = new Date(lun); dom.setDate(dom.getDate() + 6);
+  const st = stagioneDi(lun), { n } = settimanaISO(lun);
+  $("#setLabel").textContent = `Settimana ${n} · ${st}`;
+  $("#setTitolo").textContent = `${lun.getDate()} ${MESI[lun.getMonth()]} – ${dom.getDate()} ${MESI[dom.getMonth()]}`;
+  $("#oggi").hidden = SCARTO === 0;
+  $("#settimana").innerHTML = ricetteSettimana(lun).map(r => cardRicetta(r)).join("") || `<div class="msg">Nessuna ricetta per questa stagione.</div>`;
+  const tutte = RICETTE.filter(r => r.stagioni.includes(st) && !(r.settimana && r.settimana > chiaveSett(lun)));
+  $("#nTutte").textContent = `· ${st} (${tutte.length})`;
+  $("#tutte").innerHTML = tutte.map(r => cardRicetta(r)).join("");
+  disegnaIA(lun);
+}
+
+/* ---------- idee nuove con Gemini (una volta a settimana) ---------- */
+const MODELLI = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-2.5-flash-lite", "gemini-2.5-flash"];
+const chiaveSett = lun => { const { anno, n } = settimanaISO(lun); return `${anno}-W${String(n).padStart(2, "0")}`; };
+const chiaveLocale = lun => "ricette-ia-" + chiaveSett(lun);
+function vociPerIA() {
+  const ok = new Set(["Verdura", "Frutta", "Cereali", "Proteine", "Latticini", "Legumi", "Frutta a guscio e semi", "Grassi e oli", "Condimenti"]);
+  return ALIM.filter(a => ok.has(a.categoria) && !a.marca && !/var\.|\(var/.test(a.nome) && a.nome.length < 48 && a.conferma !== "da verificare")
+    .map(a => { const pz = a.porzioni, v = num(pz?.verde); const liv = Object.entries(a.livelli || {}).filter(([, x]) => x !== "basso");
+      return v != null ? `${a.nome} | verde fino a ${v} ${pz.unita || "g"}` : liv.length ? `${a.nome} | ${liv.map(([g, x]) => g + " " + x).join(", ")}` : `${a.nome} | libero`; })
+    .slice(0, 450).join("\n");
+}
+function promptRicette(lun, gia) {
+  const st = stagioneDi(lun);
+  return `Sei un cuoco italiano esperto di dieta low FODMAP (Monash University). Proponi 3 ricette nuove per la settimana del ${lun.getDate()} ${MESI[lun.getMonth()]}, stagione ${st}, per una persona con dieta senza glutine, senza lattosio e low FODMAP.
+Usa ingredienti di stagione in Italia: ${DI_STAGIONE[st]}.
+Niente aglio e cipolla (usa olio aromatizzato all'aglio, erba cipollina, parte verde del porro), niente frumento, orzo, segale, niente latticini con lattosio (parmigiano stagionato va bene), niente funghi, cavolfiore, asparagi, legumi secchi, mele, pere, anguria, miele.
+Varia le portate (colazione, primo, secondo, piatto unico) e non ripetere queste ricette: ${gia.join("; ")}.
+Le dosi sono per UNA persona e ogni ingrediente deve restare entro la soglia verde indicata qui sotto. Per collegare un ingrediente alla tabella metti in "voce" il nome ESATTO di una di queste righe (prima del simbolo |); per sale, pepe, olio d'oliva, aceto, erbe e spezie lascia "voce" vuota.
+${vociPerIA()}
+
+Rispondi SOLO con un array JSON di 3 oggetti:
+{"titolo": testo, "portata": "Colazione"|"Primo"|"Secondo"|"Contorno"|"Piatto unico"|"Dolce", "tempo": minuti, "ingredienti": [{"nome": nome in cucina, "q": numero per una persona, "u": "g"|"ml"|"q.b.", "voce": nome esatto in tabella o "", "gc": grammi da cotto se la soglia è sul cotto (riso, pasta, quinoa, polenta) altrimenti null, "nota": breve o ""}], "passi": [frasi brevi], "nota": un consiglio o ""}`;
+}
+async function chiamaGemini(prompt) {
+  const c = leggiJ("fodmap-ia", {});
+  if (!c.key) throw new Error("manca la chiave");
+  const errori = [];
+  for (const m of [...new Set([c.modello || MODELLI[0], ...MODELLI])]) {
+    try {
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(m)}:generateContent`, {
+        method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": c.key },
+        body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }], generationConfig: { temperature: 0.7, responseMimeType: "application/json" } }),
+      });
+      const j = await r.json().catch(() => ({}));
+      const t = r.ok ? (j.candidates?.[0]?.content?.parts || []).map(p => p.text || "").join("") : "";
+      if (t) return t;
+      errori.push(`${m}: ${r.status} ${(j.error?.message || "risposta vuota").split("\n")[0].slice(0, 120)}`);
+      if (r.status === 401 || r.status === 403 || (r.status === 400 && /api key/i.test(j.error?.message || ""))) break;
+    } catch (e) { errori.push(`${m}: ${e.message}`); }
+  }
+  throw new Error(errori.join(" · "));
+}
+function leggiRicetteIA(t) {
+  const m = t.match(/```(?:json)?\s*([\s\S]*?)```/), s = m ? m[1] : t.slice(t.indexOf("["), t.lastIndexOf("]") + 1);
+  let a = JSON.parse(s); if (!Array.isArray(a)) a = a.ricette || [a];
+  const lista = v => Array.isArray(v) ? v : v ? [v] : [];
+  return a.filter(x => x && x.titolo).map((x, k) => ({
+    id: "ia-" + k, titolo: String(x.titolo), portata: String(x.portata || ""), tempo: num(x.tempo), nota: String(x.nota || ""), stagioni: [],
+    passi: lista(x.passi).map(String),
+    ingredienti: lista(x.ingredienti).filter(i => i && i.nome).map(i => {
+      const voce = i.voce && TAB.has(norm(i.voce)) ? TAB.get(norm(i.voce)).nome : "";
+      return { nome: String(i.nome), q: num(i.q) ?? i.q, u: i.u || "g", ...(voce ? { voce } : {}), ...(num(i.gc) ? { gc: num(i.gc) } : {}), ...(i.nota ? { nota: String(i.nota) } : {}) };
+    }),
+  }));
+}
+function livelloRicetta(r) { return Math.max(0, ...r.ingredienti.map(i => valuta(i).l ?? 0)); }
+
+/* ---------- pubblicazione su GitHub (stesso token della Tabella) ---------- */
+function cfgGh() {
+  const owner = location.hostname.endsWith(".github.io") ? location.hostname.split(".")[0] : "";
+  const repo = (location.pathname.split("/").filter(Boolean)[0] || "").replace(/\.html$/, "");
+  const c = { owner, repo, branch: "main", ...leggiJ("fodmap-gh", {}) };
+  return c.token && c.owner && c.repo ? c : null;
+}
+const b64da = t => { const b = new TextEncoder().encode(t); let s = ""; for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000)); return btoa(s); };
+const testoDa = b => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g, "")), c => c.charCodeAt(0)));
+async function pubblicaRicette(nuove, lun) {
+  const c = cfgGh(); if (!c) return false;
+  const url = `https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/ricette.json`;
+  const h = { Accept: "application/vnd.github+json", Authorization: "Bearer " + c.token, "X-GitHub-Api-Version": "2022-11-28" };
+  for (let prova = 0; prova < 2; prova++) {
+    const g = await fetch(url + "?ref=" + encodeURIComponent(c.branch) + "&t=" + Date.now(), { headers: h, cache: "no-store" });
+    const gj = await g.json().catch(() => null);
+    if (!g.ok) throw new Error("GitHub " + g.status + ": " + (gj?.message || "lettura di ricette.json non riuscita"));
+    const R = JSON.parse(testoDa(gj.content)), k = chiaveSett(lun), oggi = new Date().toISOString().slice(0, 10);
+    const titoli = new Set(R.ricette.map(r => norm(r.titolo)));
+    let n = R.ricette.filter(r => r.settimana === k).length;
+    const add = nuove.filter(r => !titoli.has(norm(r.titolo))).map(r => ({ ...r, id: `ia-${k.toLowerCase()}-${++n}`, stagioni: [stagioneDi(lun)], fonte: "IA", settimana: k, creata: oggi }));
+    if (!add.length) return true;
+    R.ricette.push(...add); R.versione = (R.versione || 0) + 1; R.aggiornato = oggi;
+    const p = await fetch(url, { method: "PUT", headers: { ...h, "Content-Type": "application/json" },
+      body: JSON.stringify({ message: `Ricette IA ${k}`, content: b64da(JSON.stringify(R, null, 1) + "\n"), sha: gj.sha, branch: c.branch }) });
+    if (p.ok) { RICETTE.push(...add); return true; }
+    if (p.status !== 409) { const pj = await p.json().catch(() => null); throw new Error("GitHub " + p.status + ": " + (pj?.message || "salvataggio non riuscito")); }
+  }
+  throw new Error("ricette.json è cambiato mentre salvavo: riprova.");
+}
+
+/* ---------- idee nuove: dalla GitHub Action del lunedì o dal pulsante ---------- */
+let GENERANDO = false;
+async function generaIA(lun, manuale) {
+  if (GENERANDO) return; GENERANDO = true;
+  $("#iaInfo").textContent = "Preparo ricette nuove con gli ingredienti di stagione…";
+  $("#iaGenera").disabled = true;
+  try {
+    const gia = RICETTE.filter(r => r.stagioni.includes(stagioneDi(lun))).map(r => r.titolo);
+    const tutte = leggiRicetteIA(await chiamaGemini(promptRicette(lun, gia)));
+    const buone = tutte.filter(r => livelloRicetta(r) === 0 && r.ingredienti.length > 1 && r.passi.length);
+    if (!buone.length) throw new Error(tutte.length ? "le ricette proposte superavano le soglie verdi: riprova" : "nessuna ricetta nella risposta");
+    let pubblicate = false;
+    try { pubblicate = await pubblicaRicette(buone, lun); }
+    catch (e) { $("#stato").innerHTML = `<div class="msg err">Ricette create ma non salvate nel ricettario: ${esc(e.message)}</div>`; }
+    if (!pubblicate) { const loc = leggiJ(chiaveLocale(lun), { ricette: [] }); scriviJ(chiaveLocale(lun), { ricette: [...loc.ricette, ...buone.map(r => ({ ...r, stagioni: [stagioneDi(lun)], fonte: "IA", settimana: chiaveSett(lun) }))] }); }
+    else $("#stato").innerHTML = `<div class="msg okm">${buone.length} ${buone.length === 1 ? "ricetta salvata" : "ricette salvate"} nel ricettario: le vedrà chiunque apra il sito (GitHub Pages si aggiorna in 1-2 minuti).</div>`;
+  } catch (e) {
+    $("#iaInfo").innerHTML = `<span class="msg err" style="display:block">Non sono riuscito a generare le ricette: ${esc(e.message)}</span>`;
+    GENERANDO = false; $("#iaGenera").disabled = false; return;
+  }
+  GENERANDO = false; $("#iaGenera").disabled = false;
+  disegnaIA(lun);
+}
+function disegnaIA(lun) {
+  const k = chiaveSett(lun), c = leggiJ("fodmap-ia", {});
+  const pubbliche = RICETTE.filter(r => r.fonte === "IA" && r.settimana === k);
+  const titoli = new Set(pubbliche.map(r => norm(r.titolo)));
+  const locali = (leggiJ(chiaveLocale(lun), { ricette: [] }).ricette || []).filter(r => !titoli.has(norm(r.titolo)));
+  const corrente = SCARTO === 0;
+  $("#iaGenera").hidden = !c.key || !corrente;
+  $("#iaGenera").textContent = pubbliche.length + locali.length ? "Proponi altre ricette" : "Proponi ricette";
+  $("#ia").innerHTML = pubbliche.map(r => cardRicetta(r, `<span class="pill na">IA</span>`)).join("")
+    + locali.map(r => cardRicetta(r, `<span class="pill na">IA · solo qui</span>`)).join("");
+  if (pubbliche.length || locali.length) {
+    $("#iaInfo").textContent = "Create dall'IA con ingredienti di stagione e controllate sulla tua tabella: tengo solo quelle tutte nel verde." + (locali.length ? " Quelle \"solo qui\" non sono nel ricettario: imposta il token GitHub nella Tabella per salvarle." : "");
+    return;
+  }
+  if (!corrente) { $("#iaInfo").textContent = "Nessuna ricetta IA per questa settimana."; return; }
+  // la GitHub Action le crea il lunedì mattina; se mancano e qui c'è la chiave, le preparo e le salvo io
+  if (c.key && !GENERANDO) { generaIA(lun, false); return; }
+  $("#iaInfo").innerHTML = `Ogni lunedì mattina qui arrivano 3 ricette nuove create dall'IA. Se non compaiono, controlla la GitHub Action "Ricette della settimana" o inserisci la chiave Gemini nello <a href="index.html">Scanner</a>.`;
+}
+
+/* ---------- avvio ---------- */
+async function avvia() {
+  try {
+    const [t, r] = await Promise.all([
+      fetch("fodmap.json?v=" + Date.now(), { cache: "no-store" }).then(x => { if (!x.ok) throw new Error("fodmap.json non trovato"); return x.json(); }),
+      fetch("ricette.json?v=" + Date.now(), { cache: "no-store" }).then(x => { if (!x.ok) throw new Error("ricette.json non trovato"); return x.json(); }),
+    ]);
+    ALIM = t.alimenti || [];
+    // le voci aggiunte dallo scanner e non ancora pubblicate valgono anche qui
+    for (const p of leggiJ("fodmap-proposte", [])) {
+      const i = ALIM.findIndex(a => norm(a.nome) === norm(p.sostituisce || p.nome));
+      if (i >= 0) ALIM[i] = { ...ALIM[i], ...p.dati }; else ALIM.push(p.dati);
+    }
+    TAB = new Map(ALIM.map(a => [norm(a.nome), a]));
+    RICETTE = r.ricette || [];
+  } catch (e) {
+    $("#stato").innerHTML = `<div class="msg err">${esc(e.message)}</div>`; return;
+  }
+  try { const p = localStorage.getItem("ricette-persone"); if (p) $("#persone").value = p; } catch {}
+  disegna();
+}
+$("#prec").onclick = () => { SCARTO--; disegna(); };
+$("#succ").onclick = () => { SCARTO++; disegna(); };
+$("#oggi").onclick = () => { SCARTO = 0; disegna(); };
+$("#persone").onchange = () => { try { localStorage.setItem("ricette-persone", $("#persone").value); } catch {} disegna(); };
+$("#iaGenera").onclick = () => generaIA(lunedi(Date.now() + SCARTO * 7 * 864e5), true);
+// tieni solo le ultime 8 settimane di ricette locali
+try { Object.keys(localStorage).filter(x => x.startsWith("ricette-ia-")).sort().slice(0, -8).forEach(x => localStorage.removeItem(x)); } catch {}
+avvia();
+</script>
+</body>
+</html>
