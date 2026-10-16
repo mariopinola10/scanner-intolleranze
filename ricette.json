@@ -1,5 +1,5 @@
 {
- "versione": 1,
+ "versione": 2,
  "aggiornato": "2026-10-16",
  "nota": "Dosi per una persona, controllate sulla tabella FODMAP. Ricette senza glutine e senza lattosio se usi prodotti certificati.",
  "ricette": [
@@ -2168,6 +2168,192 @@
    "passi": [
     "Versa lo yogurt in una ciotola e completa con frutti di bosco, semi e sciroppo d'acero."
    ]
+  },
+  {
+   "id": "ia-2026-w42-1",
+   "titolo": "Porridge autunnale di riso e castagne con kiwi",
+   "portata": "Colazione",
+   "tempo": 15,
+   "nota": "Una colazione calda e avvolgente perfetta per le mattine d'ottobre.",
+   "stagioni": [
+    "autunno"
+   ],
+   "passi": [
+    "Versare il latte di mandorla in un pentolino.",
+    "Aggiungere la farina di riso e la cannella mescolando con una frusta per evitare grumi.",
+    "Cuocere a fuoco medio per 5-7 minuti finché il composto si addensa.",
+    "Trasferire in una tazza e guarnire con le castagne sbriciolate e le fette di kiwi."
+   ],
+   "ingredienti": [
+    {
+     "nome": "Latte di mandorla",
+     "q": 200,
+     "u": "ml",
+     "voce": "Latte di mandorla"
+    },
+    {
+     "nome": "Farina di riso",
+     "q": 40,
+     "u": "g",
+     "voce": "Farina, riso"
+    },
+    {
+     "nome": "Castagne bollite",
+     "q": 25,
+     "u": "g",
+     "voce": "Frutta secca, castagne, sgusciate, bollite",
+     "nota": "Spezzettate"
+    },
+    {
+     "nome": "Kiwi",
+     "q": 60,
+     "u": "g",
+     "voce": "Kiwi",
+     "nota": "A fette"
+    },
+    {
+     "nome": "Cannella",
+     "q": 1,
+     "u": "q.b.",
+     "nota": "Un pizzico"
+    }
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W42",
+   "creata": "2026-10-16"
+  },
+  {
+   "id": "ia-2026-w42-2",
+   "titolo": "Risotto autunnale con carote, sedano rapa e timo",
+   "portata": "Primo",
+   "tempo": 25,
+   "nota": "Un primo piatto cremoso senza lattosio grazie alla stagionatura del parmigiano.",
+   "stagioni": [
+    "autunno"
+   ],
+   "passi": [
+    "In una casseruola soffriggere la parte verde del porro tritata con l'olio d'oliva.",
+    "Aggiungere le carote e il sedano rapa a cubetti e rosolare per qualche minuto.",
+    "Unire il riso e tostarlo per un minuto.",
+    "Coprire con acqua calda mano a mano e portare a cottura aggiungendo sale e timo.",
+    "Mantecare fuori dal fuoco con il Parmigiano-Reggiano prima di servire."
+   ],
+   "ingredienti": [
+    {
+     "nome": "Riso",
+     "q": 70,
+     "u": "g",
+     "voce": "Riso",
+     "gc": 70,
+     "nota": "Carnaroli o Arborio"
+    },
+    {
+     "nome": "Carote",
+     "q": 50,
+     "u": "g",
+     "nota": "Tagliate a cubetti piccoli"
+    },
+    {
+     "nome": "Sedano rapa",
+     "q": 50,
+     "u": "g",
+     "nota": "Tagliato a cubetti piccoli"
+    },
+    {
+     "nome": "Parte verde del porro",
+     "q": 20,
+     "u": "g",
+     "nota": "Tritata finemente"
+    },
+    {
+     "nome": "Olio d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Formaggio Parmigiano-Reggiano",
+     "q": 30,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano",
+     "nota": "Grattugiato"
+    },
+    {
+     "nome": "Timo",
+     "q": 1,
+     "u": "q.b.",
+     "nota": "Freschi foglioline"
+    },
+    {
+     "nome": "Sale",
+     "q": 1,
+     "u": "q.b."
+    }
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W42",
+   "creata": "2026-10-16"
+  },
+  {
+   "id": "ia-2026-w42-3",
+   "titolo": "Piatto unico di salmone al forno con finocchi e mandarini",
+   "portata": "Piatto unico",
+   "tempo": 30,
+   "nota": "Un abbinamento fresco e agrumato che valorizza il pesce azzurro e le verdure di stagione.",
+   "stagioni": [
+    "autunno"
+   ],
+   "passi": [
+    "Disporre in una teglia da forno i finocchi affettati e le patate già lessate.",
+    "Adagiare il filetto di salmone al centro della teglia.",
+    "Condire con olio aromatizzato all'aglio, sale, pepe e un rametto di rosmarino.",
+    "Aggiungere i mandarini pelati a vivo intorno al pesce.",
+    "Cuocere in forno preriscaldato a 180°C per circa 20 minuti e servire caldo."
+   ],
+   "ingredienti": [
+    {
+     "nome": "Filetto di salmone",
+     "q": 120,
+     "u": "g",
+     "nota": "Fresco"
+    },
+    {
+     "nome": "Finocchi",
+     "q": 100,
+     "u": "g",
+     "nota": "Affettati sottili"
+    },
+    {
+     "nome": "Mandarino",
+     "q": 50,
+     "u": "g",
+     "voce": "Mandarino e clementina",
+     "nota": "Spicchi o succo"
+    },
+    {
+     "nome": "Patate",
+     "q": 100,
+     "u": "g",
+     "nota": "Lessate e tagliate a spicchi"
+    },
+    {
+     "nome": "Olio aromatizzato all'aglio",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Rosmarino",
+     "q": 1,
+     "u": "q.b."
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 1,
+     "u": "q.b."
+    }
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W42",
+   "creata": "2026-10-16"
   }
  ]
 }
