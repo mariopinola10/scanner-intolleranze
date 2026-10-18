@@ -1,6 +1,6 @@
 {
- "versione": 11,
- "aggiornato": "2026-10-16",
+ "versione": 12,
+ "aggiornato": "2026-10-18",
  "gruppi": {
   "fruttosio": "Fruttosio in eccesso",
   "lattosio": "Lattosio",
@@ -153,8 +153,8 @@
   {"nome":"Tequila, gold","categoria":"Bevande","termini":[],"escludi":[],"en":[],"concentrato":false,"livelli":{},"porzione":"","note":"","fonti":["MONAPP"],"conferma":"confermato","porzioni":{"verde":30,"unita":"ml"},"monash":true},
   {"nome":"Tisane alte in fruttani","categoria":"Bevande","termini":["camomilla","tisana al finocchio","tè al finocchio","tè chai","te chai","chai latte","tè oolong","tarassaco","caffè di cicoria","bevanda di cicoria"],"escludi":[],"en":["en:chamomile","en:dandelion"],"concentrato":false,"livelli":{"fruttani":"alto"},"porzione":"","note":"Tè nero, verde, bianco, menta e rooibos: bassi.","fonti":["CUH","ORL"],"conferma":"confermato","varianti":["Tè, chai, forte","Tè, chai, forte, alternative al latte a basso contenuto di Fodmap","Tè, chai, forte, latte di soia (semi di soia)","Tè, chai, forte, latte vaccino","Tè, chai, leggero","Tè, chai, leggero, alternative al latte a basso contenuto di Fodmap","Tè, chai, leggero, latte di soia (semi di soia)","Tè, chai, leggero, latte vaccino","Tè, oolong, forte","Tè, oolong, leggero"]},
   {"nome":"Ula","categoria":"Bevande","termini":["ula"],"escludi":[],"en":[],"concentrato":false,"livelli":{},"porzione":"","note":"","fonti":["MONAPP"],"conferma":"confermato","porzioni":{"verde":250,"unita":"ml"},"monash":true},
+  {"nome":"Vino bianco","categoria":"Bevande","termini":["vino","vino bianco","vino, bianco","white wine"],"escludi":[],"en":[],"concentrato":false,"livelli":{"fruttosio":"basso"},"porzione":"","note":"Il vino bianco è a basso contenuto di FODMAP (fruttosio) per una porzione standard di 1 bicchiere (150 ml); porzioni superiori non sono state testate da Monash. · Soglie dalla ricerca Google","fonti":["MONAPP","MAN"],"conferma":"confermato","porzioni":{"verde":150,"unita":"g"},"monash":true},
   {"nome":"Vino rosso e bianco secco","categoria":"Bevande","termini":["vino rosso","vino bianco"],"escludi":[],"en":[],"concentrato":false,"livelli":{},"porzione":"","note":"Basso per CUH. Verifica in Monash.","fonti":["CUH"],"conferma":"da verificare","varianti":["Vino, rosso"]},
-  {"nome":"Vino, bianco","categoria":"Bevande","termini":["vino"],"escludi":[],"en":[],"concentrato":false,"livelli":{},"porzione":"","note":"","fonti":["MONAPP"],"conferma":"confermato","porzioni":{"verde":150,"unita":"ml"},"monash":true},
   {"nome":"Vino, bianco, dolce","categoria":"Bevande","termini":[],"escludi":[],"en":[],"concentrato":false,"livelli":{},"porzione":"","note":"","fonti":["MONAPP"],"conferma":"confermato","porzioni":{"verde":150,"unita":"ml"},"monash":true},
   {"nome":"Vino, bianco, secco","categoria":"Bevande","termini":["vino secco"],"escludi":[],"en":[],"concentrato":false,"livelli":{},"porzione":"","note":"","fonti":["MONAPP"],"conferma":"confermato","porzioni":{"verde":150,"unita":"ml"},"monash":true},
   {"nome":"Vino, dolce / da dessert / fortificato","categoria":"Bevande","termini":["vino da dessert","vino fortificato"],"escludi":[],"en":[],"concentrato":false,"livelli":{},"porzione":"","note":"","fonti":["MONAPP"],"conferma":"confermato","porzioni":{"rosso":150,"unita":"ml"},"monash":true},
