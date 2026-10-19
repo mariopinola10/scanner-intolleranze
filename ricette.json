@@ -1,6 +1,6 @@
 {
- "versione": 2,
- "aggiornato": "2026-10-16",
+ "versione": 3,
+ "aggiornato": "2026-10-19",
  "nota": "Dosi per una persona, controllate sulla tabella FODMAP. Ricette senza glutine e senza lattosio se usi prodotti certificati.",
  "ricette": [
   {
@@ -2354,6 +2354,209 @@
    "fonte": "IA",
    "settimana": "2026-W42",
    "creata": "2026-10-16"
+  },
+  {
+   "id": "ia-2026-w43-1",
+   "titolo": "Pancake di grano saraceno con kiwi verde e burro di mandorle",
+   "portata": "Colazione",
+   "tempo": 15,
+   "ingredienti": [
+    {
+     "nome": "Farina di grano saraceno",
+     "q": 40,
+     "u": "g",
+     "voce": "Farina, grano saraceno"
+    },
+    {
+     "nome": "Latte di mandorla",
+     "q": 60,
+     "u": "ml",
+     "voce": "Latte di mandorla",
+     "nota": "al naturale senza zuccheri aggiunti"
+    },
+    {
+     "nome": "Uovo",
+     "q": 50,
+     "u": "g",
+     "nota": "1 uovo medio"
+    },
+    {
+     "nome": "Kiwi verde",
+     "q": 80,
+     "u": "g",
+     "voce": "Kiwi, verdi, sbucciati, al naturale",
+     "nota": "sbucciato e tagliato a fettine"
+    },
+    {
+     "nome": "Burro di mandorle",
+     "q": 15,
+     "u": "g",
+     "voce": "Prodotto spalmabile, burro di Mandorle",
+     "nota": "100% mandorle"
+    },
+    {
+     "nome": "Olio d'oliva",
+     "q": 5,
+     "u": "ml",
+     "nota": "per ungere la padella"
+    },
+    {
+     "nome": "Cannella",
+     "q": 1,
+     "u": "g",
+     "nota": "in polvere"
+    }
+   ],
+   "passi": [
+    "In una ciotola unisci la farina di grano saraceno, l'uovo, il latte di mandorla e un pizzico di cannella, mescolando con una frusta fino a ottenere una pastella liscia.",
+    "Scalda una padella antiaderente leggermente unta con l'olio d'oliva e versa la pastella al centro.",
+    "Cuoci a fuoco dolce per circa 2 minuti per lato, girando il pancake quando compaiono le prime bollicine.",
+    "Trasferisci sul piatto, distribuisci sopra il burro di mandorle e completa con le fette di kiwi verde fresco."
+   ],
+   "nota": "Una colazione autunnale energetica e saziante, naturalmente priva di glutine e lattosio, con il kiwi che apporta freschezza e vitamina C.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W43",
+   "creata": "2026-10-19",
+   "modello": "gemini-3.8-flash"
+  },
+  {
+   "id": "ia-2026-w43-2",
+   "titolo": "Pasta di riso integrale con radicchio tardivo, finocchio e Parmigiano Reggiano",
+   "portata": "Primo",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "Pasta di riso integrale",
+     "q": 65,
+     "u": "g",
+     "voce": "Pasta, riso integrale, cotta",
+     "gc": 140,
+     "nota": "peso da cruda, circa 140 g cotta"
+    },
+    {
+     "nome": "Radicchio rosso",
+     "q": 60,
+     "u": "g",
+     "nota": "lavato e tagliato a listarelle"
+    },
+    {
+     "nome": "Finocchio",
+     "q": 50,
+     "u": "g",
+     "nota": "mondato e affettato sottile"
+    },
+    {
+     "nome": "Olio aromatizzato all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio aromatizzato all'aglio"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 20,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano",
+     "nota": "stagionato oltre 24 mesi, a scaglie"
+    },
+    {
+     "nome": "Sale",
+     "q": 2,
+     "u": "g"
+    },
+    {
+     "nome": "Pepe",
+     "q": 1,
+     "u": "g",
+     "nota": "nero macinato fresco"
+    }
+   ],
+   "passi": [
+    "Lessa la pasta di riso integrale in abbondante acqua bollente salata per i minuti indicati sulla confezione.",
+    "In una padella scalda l'olio aromatizzato all'aglio e unisci il finocchio a fettine, facendolo appassire a fiamma media con due cucchiai di acqua di cottura.",
+    "Aggiungi il radicchio a listarelle e salta a fuoco vivo per 2-3 minuti mantenendolo croccante, quindi regola di sale e pepe.",
+    "Scola la pasta al dente conservando poca acqua di cottura e saltala nella padella insieme alle verdure per legare il condimento.",
+    "Spegni il fuoco, impiatta e guarnisci con le scaglie di Parmigiano Reggiano."
+   ],
+   "nota": "La dolcezza del finocchio mitiga l'amaro nobile del radicchio; il Parmigiano a lunga stagionatura apporta sapore senza traccia di lattosio.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W43",
+   "creata": "2026-10-19",
+   "modello": "gemini-3.8-flash"
+  },
+  {
+   "id": "ia-2026-w43-3",
+   "titolo": "Straccetti di tacchino con verza stufata, carote e castagne al timo",
+   "portata": "Secondo",
+   "tempo": 25,
+   "ingredienti": [
+    {
+     "nome": "Fesa di tacchino",
+     "q": 140,
+     "u": "g",
+     "nota": "tagliata a straccetti"
+    },
+    {
+     "nome": "Cavolo verza",
+     "q": 70,
+     "u": "g",
+     "nota": "sfogliata e affettata a strisce"
+    },
+    {
+     "nome": "Carote",
+     "q": 50,
+     "u": "g",
+     "nota": "tagliate a rondelle sottili"
+    },
+    {
+     "nome": "Castagne bollite",
+     "q": 25,
+     "u": "g",
+     "voce": "Frutta secca, castagne, sgusciate, bollite",
+     "nota": "già cotte e sbriciolate grossolanamente"
+    },
+    {
+     "nome": "Olio d'oliva",
+     "q": 10,
+     "u": "ml",
+     "nota": "extravergine d'oliva"
+    },
+    {
+     "nome": "Timo",
+     "q": 2,
+     "u": "g",
+     "nota": "fresco sfogliato"
+    },
+    {
+     "nome": "Sale",
+     "q": 2,
+     "u": "g"
+    },
+    {
+     "nome": "Pepe",
+     "q": 1,
+     "u": "g"
+    }
+   ],
+   "passi": [
+    "Scalda l'olio d'oliva in un tegame, aggiungi la carota e la verza con 2 cucchiai d'acqua e fai stufare coperto a fuoco dolce per circa 8-10 minuti.",
+    "Alza la fiamma, unisci gli straccetti di tacchino e il timo fresco, rosolando uniformemente per 4-5 minuti fino a cottura della carne.",
+    "Aggiungi le castagne bollite sbriciolate negli ultimi due minuti di cottura per lasciarle scaldare e insaporire.",
+    "Regola di sale e pepe a fine cottura, mescola bene e servi caldo."
+   ],
+   "nota": "Le castagne dosate entro i 30 g conferiscono un tocco tipicamente autunnale restando rigorosamente entro la soglia verde low FODMAP.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W43",
+   "creata": "2026-10-19",
+   "modello": "gemini-3.8-flash"
   }
  ]
 }
