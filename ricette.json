@@ -1,6 +1,6 @@
 {
- "versione": 3,
- "aggiornato": "2026-10-19",
+ "versione": 4,
+ "aggiornato": "2026-10-26",
  "nota": "Dosi per una persona, controllate sulla tabella FODMAP. Ricette senza glutine e senza lattosio se usi prodotti certificati.",
  "ricette": [
   {
@@ -2557,6 +2557,196 @@
    "settimana": "2026-W43",
    "creata": "2026-10-19",
    "modello": "gemini-3.8-flash"
+  },
+  {
+   "id": "ia-2026-w44-1",
+   "titolo": "Porridge autunnale di riso, kiwi e castagne",
+   "portata": "Colazione",
+   "tempo": 20,
+   "ingredienti": [
+    {
+     "nome": "latte di avena",
+     "q": 100,
+     "u": "ml",
+     "voce": "Latte di avena"
+    },
+    {
+     "nome": "riso bianco",
+     "q": 30,
+     "u": "g",
+     "voce": "Riso, bianco, cotto",
+     "gc": 80,
+     "nota": "cuocere preventivamente"
+    },
+    {
+     "nome": "castagne arrosto",
+     "q": 25,
+     "u": "g",
+     "voce": "Frutta secca, castagne, sgusciate, arrosto",
+     "nota": "spezzettate"
+    },
+    {
+     "nome": "kiwi verde",
+     "q": 60,
+     "u": "g",
+     "voce": "Kiwi, verdi, sbucciati, al naturale",
+     "nota": "a pezzi"
+    },
+    {
+     "nome": "cannella",
+     "q": 1,
+     "u": "q.b.",
+     "nota": "un pizzico"
+    }
+   ],
+   "passi": [
+    "In un pentolino unire il riso cotto e il latte di avena.",
+    "Scaldare a fuoco lento mescolando fino a ottenere una consistenza cremosa.",
+    "Aggiungere un pizzico di cannella e le castagne spezzettate.",
+    "Versare in una ciotola e guarnire con il kiwi fresco."
+   ],
+   "nota": "Una colazione energetica, calda e perfetta per le mattine d'autunno.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W44",
+   "creata": "2026-10-26",
+   "modello": "gemini-3.5-flash-lite"
+  },
+  {
+   "id": "ia-2026-w44-2",
+   "titolo": "Piatto unico di riso con zucca, carote e Parmigiano",
+   "portata": "Piatto unico",
+   "tempo": 25,
+   "ingredienti": [
+    {
+     "nome": "riso basmati",
+     "q": 180,
+     "u": "g",
+     "voce": "Riso, basmati, cotto",
+     "gc": 180,
+     "nota": "peso da cotto"
+    },
+    {
+     "nome": "zucca",
+     "q": 100,
+     "u": "g",
+     "nota": "polpa a cubetti (esclusa butternut)"
+    },
+    {
+     "nome": "carote",
+     "q": 60,
+     "u": "g",
+     "nota": "tagliate a rondelle"
+    },
+    {
+     "nome": "olio aromatizzato all'aglio",
+     "q": 10,
+     "u": "ml",
+     "nota": "per soffriggere"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 35,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano",
+     "nota": "grattugiato"
+    },
+    {
+     "nome": "rosmarino fresco",
+     "q": 5,
+     "u": "g",
+     "voce": "Piante aromatiche, rosmarino, fresco",
+     "nota": "tritato"
+    },
+    {
+     "nome": "sale",
+     "q": 1,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Cuocere il riso basmati in acqua bollente salata e scolarlo.",
+    "In una padella scaldare l'olio aromatizzato all'aglio con il rosmarino fresco.",
+    "Unire i cubetti di zucca e le carote a rondelle, aggiungere un goccio d'acqua e cuocere coperto per 12-15 minuti finché teneri.",
+    "Saltare il riso cotto nella padella con le verdure.",
+    "Mantecare fuori dal fuoco con il Parmigiano Reggiano grattugiato e servire."
+   ],
+   "nota": "Un piatto unico autunnale bilanciato, senza glutine e naturalmente privo di lattosio.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W44",
+   "creata": "2026-10-26",
+   "modello": "gemini-3.5-flash-lite"
+  },
+  {
+   "id": "ia-2026-w44-3",
+   "titolo": "Polenta pasticciata autunnale con zucca e Parmigiano",
+   "portata": "Piatto unico",
+   "tempo": 35,
+   "ingredienti": [
+    {
+     "nome": "Farina di mais per polenta",
+     "q": 60,
+     "u": "g",
+     "voce": "Polenta / Farina di mais, istantanea, cotta",
+     "gc": 240,
+     "nota": "circa 240g cotta"
+    },
+    {
+     "nome": "Acqua",
+     "q": 250,
+     "u": "ml"
+    },
+    {
+     "nome": "Zucca del nonno (delica)",
+     "q": 100,
+     "u": "g",
+     "nota": "tagliata a cubetti"
+    },
+    {
+     "nome": "Olio extravergine d'oliva infuso all'aglio",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Rosmarino fresco",
+     "q": 5,
+     "u": "g",
+     "voce": "Rosmarino",
+     "nota": "tritato"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 30,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano",
+     "nota": "grattugiato"
+    },
+    {
+     "nome": "Sale",
+     "q": 1,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Cuocere la polenta istantanea in acqua bollente salata per il tempo indicato sulla confezione.",
+    "In una padella, rosolare i cubetti di zucca con l'olio all'aglio e il rosmarino fresco tritato finché teneri.",
+    "Unire la zucca alla polenta cotta e mescolare bene.",
+    "Versare in una pirofila, cospargere con il Parmigiano Reggiano grattugiato e gratinare in forno caldo a 200°C per 10 minuti.",
+    "Servire ben calda."
+   ],
+   "nota": "Un piatto unico confortevole e autunnale, perfettamente bilanciato per la dieta low FODMAP.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W44",
+   "creata": "2026-10-26",
+   "modello": "gemini-3.5-flash-lite"
   }
  ]
 }
