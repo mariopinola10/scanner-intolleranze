@@ -1,6 +1,6 @@
 {
- "versione": 4,
- "aggiornato": "2026-10-26",
+ "versione": 5,
+ "aggiornato": "2026-11-02",
  "nota": "Dosi per una persona, controllate sulla tabella FODMAP. Ricette senza glutine e senza lattosio se usi prodotti certificati.",
  "ricette": [
   {
@@ -2747,6 +2747,203 @@
    "settimana": "2026-W44",
    "creata": "2026-10-26",
    "modello": "gemini-3.5-flash-lite"
+  },
+  {
+   "id": "ia-2026-w45-1",
+   "titolo": "Chia pudding al latte di cocco con kiwi verde e semi di zucca",
+   "portata": "Colazione",
+   "tempo": 10,
+   "ingredienti": [
+    {
+     "nome": "Semi di chia",
+     "q": 20,
+     "u": "g",
+     "voce": "Semi, chia, neri, essiccati"
+    },
+    {
+     "nome": "Latte di cocco leggero",
+     "q": 60,
+     "u": "ml",
+     "voce": "Latte di cocco, leggero, in scatola",
+     "nota": "in lattina"
+    },
+    {
+     "nome": "Acqua",
+     "q": 50,
+     "u": "ml",
+     "nota": "per stemperare il budino"
+    },
+    {
+     "nome": "Kiwi verde",
+     "q": 100,
+     "u": "g",
+     "voce": "Kiwi, verdi, sbucciati, al naturale",
+     "nota": "sbucciato e tagliato a cubetti"
+    },
+    {
+     "nome": "Semi di zucca",
+     "q": 15,
+     "u": "g",
+     "voce": "Semi, zucca, decorticati, essiccati",
+     "nota": "tostati brevemente a secco"
+    },
+    {
+     "nome": "Cannella in polvere",
+     "q": 1,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "In un bicchiere o vasetto, mescola energicamente i semi di chia con il latte di cocco, l'acqua e un pizzico di cannella.",
+    "Lascia riposare per 10 minuti, rimescola per evitare grumi sul fondo, quindi riponi in frigorifero per almeno 2 ore (o tutta la notte).",
+    "Al momento del consumo, tosta i semi di zucca in un padellino per 2 minuti a fiamma dolce.",
+    "Guarnisci la superficie del budino con i cubetti di kiwi verde fresco e i semi di zucca croccanti."
+   ],
+   "nota": "Puoi preparare la base di chia la sera prima per una colazione autunnale fresca e ricca di fibre solubili.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W45",
+   "creata": "2026-11-02",
+   "modello": "gemini-3.8-flash"
+  },
+  {
+   "id": "ia-2026-w45-2",
+   "titolo": "Pasta di riso integrale con zucca Delica, salvia e castagne",
+   "portata": "Primo",
+   "tempo": 25,
+   "ingredienti": [
+    {
+     "nome": "Pasta di riso integrale",
+     "q": 65,
+     "u": "g",
+     "voce": "Pasta, riso integrale, cotta",
+     "gc": 140,
+     "nota": "pesata a crudo, resa circa 140 g da cotta"
+    },
+    {
+     "nome": "Zucca Delica",
+     "q": 70,
+     "u": "g",
+     "nota": "polpa pulita a cubetti piccoli"
+    },
+    {
+     "nome": "Castagne bollite",
+     "q": 25,
+     "u": "g",
+     "voce": "Frutta secca, castagne, sgusciate, bollite",
+     "nota": "spezzettate finemente"
+    },
+    {
+     "nome": "Parmigiano Reggiano DOP",
+     "q": 15,
+     "u": "g",
+     "voce": "Formaggio, Parmigiano-Reggiano, Italiano",
+     "nota": "stagionato oltre 24 mesi"
+    },
+    {
+     "nome": "Olio extravergine d'oliva",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Salvia fresca",
+     "q": 4,
+     "u": "g",
+     "nota": "4-5 foglioline"
+    },
+    {
+     "nome": "Sale",
+     "q": 1,
+     "u": "q.b."
+    },
+    {
+     "nome": "Pepe nero",
+     "q": 1,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Lava e taglia la zucca Delica a dadini molto piccoli di circa mezzo centimetro.",
+    "Scalda l'olio extravergine d'oliva in padella insieme alle foglie di salvia per far rilasciare l'aroma.",
+    "Aggiungi i dadini di zucca, sala, unisci 2 cucchiai d'acqua calda e cuoci coperto per circa 8-10 minuti finché non diventa tenera.",
+    "Nel frattempo cuoci la pasta di riso integrale in abbondante acqua bollente salata, scolandola al dente.",
+    "Aggiungi le castagne sbriciolate alla zucca e spadella la pasta unendo poca acqua di cottura.",
+    "Spegni la fiamma, manteca con il Parmigiano Reggiano grattugiato e completa con una spolverata di pepe nero."
+   ],
+   "nota": "La zucca Delica o kabocha è a bassissimo contenuto di FODMAP rispetto alla varietà Butternut ed è ideale con le note aromatiche della salvia.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W45",
+   "creata": "2026-11-02",
+   "modello": "gemini-3.8-flash"
+  },
+  {
+   "id": "ia-2026-w45-3",
+   "titolo": "Filetto di orata in padella con bietole stufate e patate dorate",
+   "portata": "Secondo",
+   "tempo": 25,
+   "ingredienti": [
+    {
+     "nome": "Filetto di orata",
+     "q": 150,
+     "u": "g",
+     "nota": "fresco e spinato"
+    },
+    {
+     "nome": "Bietole da costa",
+     "q": 70,
+     "u": "g",
+     "nota": "foglia e costa sottile lavate e tagliate"
+    },
+    {
+     "nome": "Patate",
+     "q": 130,
+     "u": "g",
+     "nota": "pelate e tagliate a rondelle sottili"
+    },
+    {
+     "nome": "Olio d'oliva infuso all'aglio",
+     "q": 10,
+     "u": "ml",
+     "voce": "Olio, d'oliva, infuso all'aglio",
+     "nota": "privo di residui solidi di aglio"
+    },
+    {
+     "nome": "Timo fresco",
+     "q": 2,
+     "u": "g"
+    },
+    {
+     "nome": "Sale",
+     "q": 1,
+     "u": "q.b."
+    },
+    {
+     "nome": "Pepe nero",
+     "q": 1,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Cuoci a vapore o scotta in acqua bollente le rondelle di patate per 5 minuti, quindi scolale.",
+    "In una padella antiaderente scalda metà dell'olio all'aglio e rosola le patate con un pizzico di sale e timo finché risultano dorate e croccanti; tienile da parte al caldo.",
+    "Nella stessa padella stufa le bietole a fuoco medio con un goccio d'acqua per 4-5 minuti, regolando di sale.",
+    "Aggiungi il restante olio all'aglio e adagia il filetto di orata dal lato della pelle, cuocendo a fuoco vivo per 3 minuti per renderla croccante.",
+    "Gira delicatamente il filetto e completa la cottura per altri 2 minuti.",
+    "Impiatta adagiando le bietole sul fondo, le patate dorate accanto e il filetto di orata sopra, rifinendo con una macinata di pepe."
+   ],
+   "nota": "L'olio infuso all'aglio conferisce tutto l'aroma tradizionale senza apportare i fruttani nocivi per l'intestino, poiché questi ultimi non sono liposolubili.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W45",
+   "creata": "2026-11-02",
+   "modello": "gemini-3.8-flash"
   }
  ]
 }
