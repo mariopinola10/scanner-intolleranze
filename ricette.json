@@ -1,6 +1,6 @@
 {
- "versione": 5,
- "aggiornato": "2026-11-02",
+ "versione": 6,
+ "aggiornato": "2026-11-09",
  "nota": "Dosi per una persona, controllate sulla tabella FODMAP. Ricette senza glutine e senza lattosio se usi prodotti certificati.",
  "ricette": [
   {
@@ -2944,6 +2944,193 @@
    "settimana": "2026-W45",
    "creata": "2026-11-02",
    "modello": "gemini-3.8-flash"
+  },
+  {
+   "id": "ia-2026-w46-1",
+   "titolo": "Pancake alla farina di riso e agrumi con mandarino fresco e noci pecan",
+   "portata": "Colazione",
+   "tempo": 15,
+   "ingredienti": [
+    {
+     "nome": "Farina di riso",
+     "q": 40,
+     "u": "g"
+    },
+    {
+     "nome": "Farina di mandorle",
+     "q": 15,
+     "u": "g"
+    },
+    {
+     "nome": "Uovo",
+     "q": 1,
+     "u": "g",
+     "nota": "1 uovo intero (~50g)"
+    },
+    {
+     "nome": "Latte di cocco leggero",
+     "q": 40,
+     "u": "ml"
+    },
+    {
+     "nome": "Mandarino fresco",
+     "q": 60,
+     "u": "g",
+     "nota": "Sbucciato e diviso a spicchi"
+    },
+    {
+     "nome": "Noci pecan",
+     "q": 15,
+     "u": "g",
+     "nota": "Tritate al coltello"
+    },
+    {
+     "nome": "Olio di cocco",
+     "q": 5,
+     "u": "ml",
+     "nota": "Per untare la padella"
+    }
+   ],
+   "passi": [
+    "In una ciotola, sbatti l'uovo con il latte di cocco leggero.",
+    "Aggiungi la farina di riso e la farina di mandorle, mescolando fino a ottenere una pastella omogenea senza lumi.",
+    "Scalda una padella antiaderente unta con un velo di olio di cocco a fuoco medio.",
+    "Versa la pastella formando 2-3 pancake e cuoci per circa 2 minuti per lato, finché risulteranno dorati.",
+    "Servi i pancake caldi guarniti con gli spicchi di mandarino fresco e le noci pecan tritate."
+   ],
+   "nota": "Una colazione autunnale soffice, naturalmente priva di glutine e lattosio, ideale per iniziare la giornata con gusto.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W46",
+   "creata": "2026-11-09",
+   "modello": "gemini-3.6-flash"
+  },
+  {
+   "id": "ia-2026-w46-2",
+   "titolo": "Pasta di riso integrale con crema di finocchi, zafferano e castagne",
+   "portata": "Primo",
+   "tempo": 25,
+   "ingredienti": [
+    {
+     "nome": "Pasta di riso integrale (secca)",
+     "q": 70,
+     "u": "g",
+     "gc": 140,
+     "nota": "Resa da cotta entro la soglia"
+    },
+    {
+     "nome": "Finocchio fresco",
+     "q": 100,
+     "u": "g",
+     "nota": "Tagliato a fette sottili"
+    },
+    {
+     "nome": "Castagne bollite",
+     "q": 20,
+     "u": "g",
+     "nota": "Sbriciolate"
+    },
+    {
+     "nome": "Olio d'oliva infuso all'aglio",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Zafferano",
+     "q": 1,
+     "u": "q.b.",
+     "nota": "Una bustina sciolta in poca acqua calda"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 15,
+     "u": "g",
+     "nota": "Grattugiato"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 1,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Lessa il finocchio a pezzetti in acqua bollente salata fino a quando diventa molto morbido.",
+    "Frulla il finocchio con lo zafferano, un pizzico di sale e poca acqua di cottura fino a ottenere una crema vellutata.",
+    "Cuoci la pasta di riso integrale in abbondante acqua salata e scolala al dente.",
+    "In una padella, scalda l'olio aromatizzato all'aglio e unisci le castagne sbriciolate tostabile per 1 minuto.",
+    "Salta la pasta con la crema di finocchi e zafferano, completa con le castagne tostate e una spolverata di Parmigiano Reggiano."
+   ],
+   "nota": "Piatto confortante e delicato in cui la dolcezza del finocchio incontra la nota aromatica dello zafferano.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W46",
+   "creata": "2026-11-09",
+   "modello": "gemini-3.6-flash"
+  },
+  {
+   "id": "ia-2026-w46-3",
+   "titolo": "Polpettine di tacchino al timo con purè soffice di sedano rapa e patate",
+   "portata": "Secondo",
+   "tempo": 30,
+   "ingredienti": [
+    {
+     "nome": "Carne macinata di tacchino",
+     "q": 150,
+     "u": "g"
+    },
+    {
+     "nome": "Sedano rapa",
+     "q": 100,
+     "u": "g",
+     "nota": "Sbucciato e a cubetti"
+    },
+    {
+     "nome": "Patate",
+     "q": 100,
+     "u": "g",
+     "nota": "Sbucciate e a cubetti"
+    },
+    {
+     "nome": "Timo fresco",
+     "q": 5,
+     "u": "g"
+    },
+    {
+     "nome": "Olio d'oliva infuso all'aglio",
+     "q": 10,
+     "u": "ml"
+    },
+    {
+     "nome": "Parmigiano Reggiano",
+     "q": 10,
+     "u": "g",
+     "nota": "Grattugiato"
+    },
+    {
+     "nome": "Sale e pepe",
+     "q": 1,
+     "u": "q.b."
+    }
+   ],
+   "passi": [
+    "Cuoci a vapore o in acqua bollente salata le patate e il sedano rapa a cubetti per circa 15-18 minuti, finché saranno teneri.",
+    "Nel frattempo, in una ciotola amalgama il macinato di tacchino con le foglioline di timo fresco, un pizzico di sale, pepe e il Parmigiano Reggiano. Forma delle piccole polpettine.",
+    "Scalda l'olio aromatizzato all'aglio in una padella antiaderente e rosola le polpettine a fuoco medio per circa 8-10 minuti girandole spesso.",
+    "Scola le patate e il sedano rapa, schiacciali con uno schiacciapatate e condisci con un filo d'olio d'oliva extravergine, sale e pepe per ottenere un purè omogeneo.",
+    "Impiatta le polpettine ben dorate accompagnandole con il purè caldo."
+   ],
+   "nota": "Un secondo piatto equilibrato e nutriente, dove il sedano rapa dona freschezza e aromaticità al classico purè.",
+   "stagioni": [
+    "autunno"
+   ],
+   "fonte": "IA",
+   "settimana": "2026-W46",
+   "creata": "2026-11-09",
+   "modello": "gemini-3.6-flash"
   }
  ]
 }
